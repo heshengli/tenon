@@ -1,0 +1,228 @@
+<div class="api-page" data-page="antd-layout">
+      <aside class="api-nav">
+        <div class="api-nav-title">布局 · 6 个组件</div>
+        <a href="#divider" data-anchor="divider" class="active">
+        <span>分割线</span><span class="api-nav-en">Divider</span>
+      </a><a href="#flex" data-anchor="flex" class="">
+        <span>弹性布局</span><span class="api-nav-en">Flex</span>
+      </a><a href="#grid" data-anchor="grid" class="">
+        <span>栅格</span><span class="api-nav-en">Grid</span>
+      </a><a href="#layout" data-anchor="layout" class="">
+        <span>布局</span><span class="api-nav-en">Layout</span>
+      </a><a href="#space" data-anchor="space" class="">
+        <span>间距</span><span class="api-nav-en">Space</span>
+      </a><a href="#splitter" data-anchor="splitter" class="">
+        <span>分隔面板</span><span class="api-nav-en">Splitter</span>
+      </a>
+      </aside>
+      <div class="api-body">
+        <div class="api-hero">
+          <h2>布局</h2>
+          <p>布局组件用于组织页面的空间结构：栅格划分区域、弹性布局对齐元素、分割线区隔内容、分隔面板支持拖拽。</p>
+          <div class="api-hero-tags">
+            <span class="tag tag-blue">Divider</span><span class="tag tag-blue">Flex</span><span class="tag tag-blue">Grid</span><span class="tag tag-blue">Layout</span><span class="tag tag-blue">Space</span><span class="tag tag-blue">Splitter</span>
+          </div>
+        </div>
+        <section class="api-sec" id="divider">
+      <h3 class="api-title">分割线<span class="api-en">Divider</span></h3>
+      <p class="api-desc">区隔内容的分割线，支持水平、带文字与垂直三种形态。</p>
+      <div class="api-demo"><div class="a-text-secondary">上方内容</div>
+      <hr class="a-divider">
+      <div class="a-text-secondary">下方内容</div>
+      <div class="a-divider-text">分割文案</div>
+      <div class="a-space">
+        <a href="#">链接一</a><span class="a-divider-v"></span>
+        <a href="#">链接二</a><span class="a-divider-v"></span>
+        <a href="#">链接三</a>
+      </div></div>
+      <div class="api-src-wrap">
+      <div class="api-src-bar">
+        <button class="api-src-tog" data-api-src>
+          <i class="fa-solid fa-code"></i><span>查看代码</span>
+          <i class="fa-solid fa-chevron-down api-src-caret"></i>
+        </button>
+        <button class="api-src-copy" data-api-copy title="复制代码">
+          <i class="fa-regular fa-copy"></i><span>复制</span>
+        </button>
+      </div>
+      <pre class="api-src hidden"><code>&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-text-secondary&quot;</span>&gt;上方内容&lt;/<span class="tok-tag">div</span>&gt;
+&lt;<span class="tok-tag">hr</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-divider&quot;</span>&gt;
+&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-text-secondary&quot;</span>&gt;下方内容&lt;/<span class="tok-tag">div</span>&gt;
+&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-divider-text&quot;</span>&gt;分割文案&lt;/<span class="tok-tag">div</span>&gt;
+&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-space&quot;</span>&gt;
+  &lt;<span class="tok-tag">a</span> <span class="tok-attr">href</span>=<span class="tok-str">&quot;#&quot;</span>&gt;链接一&lt;/<span class="tok-tag">a</span>&gt;
+  &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-divider-v&quot;</span>&gt;&lt;/<span class="tok-tag">span</span>&gt;
+  &lt;<span class="tok-tag">a</span> <span class="tok-attr">href</span>=<span class="tok-str">&quot;#&quot;</span>&gt;链接二&lt;/<span class="tok-tag">a</span>&gt;
+  &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-divider-v&quot;</span>&gt;&lt;/<span class="tok-tag">span</span>&gt;
+  &lt;<span class="tok-tag">a</span> <span class="tok-attr">href</span>=<span class="tok-str">&quot;#&quot;</span>&gt;链接三&lt;/<span class="tok-tag">a</span>&gt;
+&lt;/<span class="tok-tag">div</span>&gt;</code></pre>
+    </div>
+    </section><section class="api-sec" id="flex">
+      <h3 class="api-title">弹性布局<span class="api-en">Flex</span></h3>
+      <p class="api-desc">通过 flex 控制子元素的排列方向与对齐方式。</p>
+      <div class="api-demo"><div class="api-block"><div class="api-label">水平排列</div><div class="a-flex">
+        <div class="a-flex-item">元素一</div><div class="a-flex-item">元素二</div><div class="a-flex-item">元素三</div>
+      </div></div><div class="api-block"><div class="api-label">两端对齐</div><div class="a-flex a-flex-between">
+        <div class="a-flex-item" style="max-width:90px">左</div>
+        <div class="a-flex-item" style="max-width:90px">右</div>
+      </div></div><div class="api-block"><div class="api-label">垂直排列</div><div class="a-flex a-flex-col">
+        <div class="a-flex-item">第一行</div><div class="a-flex-item">第二行</div>
+      </div></div></div>
+      <div class="api-src-wrap">
+      <div class="api-src-bar">
+        <button class="api-src-tog" data-api-src>
+          <i class="fa-solid fa-code"></i><span>查看代码</span>
+          <i class="fa-solid fa-chevron-down api-src-caret"></i>
+        </button>
+        <button class="api-src-copy" data-api-copy title="复制代码">
+          <i class="fa-regular fa-copy"></i><span>复制</span>
+        </button>
+      </div>
+      <pre class="api-src hidden"><code><span class="tok-com">&lt;!-- 水平排列 --&gt;</span>
+&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-flex&quot;</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-flex-item&quot;</span>&gt;元素一&lt;/<span class="tok-tag">div</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-flex-item&quot;</span>&gt;元素二&lt;/<span class="tok-tag">div</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-flex-item&quot;</span>&gt;元素三&lt;/<span class="tok-tag">div</span>&gt;
+&lt;/<span class="tok-tag">div</span>&gt;
+<span class="tok-com">&lt;!-- 两端对齐 --&gt;</span>
+&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-flex a-flex-between&quot;</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-flex-item&quot;</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;max-width:90px&quot;</span>&gt;左&lt;/<span class="tok-tag">div</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-flex-item&quot;</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;max-width:90px&quot;</span>&gt;右&lt;/<span class="tok-tag">div</span>&gt;
+&lt;/<span class="tok-tag">div</span>&gt;
+<span class="tok-com">&lt;!-- 垂直排列 --&gt;</span>
+&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-flex a-flex-col&quot;</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-flex-item&quot;</span>&gt;第一行&lt;/<span class="tok-tag">div</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-flex-item&quot;</span>&gt;第二行&lt;/<span class="tok-tag">div</span>&gt;
+&lt;/<span class="tok-tag">div</span>&gt;</code></pre>
+    </div>
+    </section><section class="api-sec" id="grid">
+      <h3 class="api-title">栅格<span class="api-en">Grid</span></h3>
+      <p class="api-desc">24 栅格体系，通过列数划分页面区域。</p>
+      <div class="api-demo"><div class="a-grid">
+        <div style="grid-column: span 24">24 列（整行）</div>
+        <div style="grid-column: span 12">12 列</div>
+        <div style="grid-column: span 12">12 列</div>
+        <div style="grid-column: span 8">8 列</div>
+        <div style="grid-column: span 8">8 列</div>
+        <div style="grid-column: span 8">8 列</div>
+        <div style="grid-column: span 6">6 列</div>
+        <div style="grid-column: span 6">6 列</div>
+        <div style="grid-column: span 6">6 列</div>
+        <div style="grid-column: span 6">6 列</div>
+      </div></div>
+      <div class="api-src-wrap">
+      <div class="api-src-bar">
+        <button class="api-src-tog" data-api-src>
+          <i class="fa-solid fa-code"></i><span>查看代码</span>
+          <i class="fa-solid fa-chevron-down api-src-caret"></i>
+        </button>
+        <button class="api-src-copy" data-api-copy title="复制代码">
+          <i class="fa-regular fa-copy"></i><span>复制</span>
+        </button>
+      </div>
+      <pre class="api-src hidden"><code>&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-grid&quot;</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;grid-column: span 24&quot;</span>&gt;24 列（整行）&lt;/<span class="tok-tag">div</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;grid-column: span 12&quot;</span>&gt;12 列&lt;/<span class="tok-tag">div</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;grid-column: span 12&quot;</span>&gt;12 列&lt;/<span class="tok-tag">div</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;grid-column: span 8&quot;</span>&gt;8 列&lt;/<span class="tok-tag">div</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;grid-column: span 8&quot;</span>&gt;8 列&lt;/<span class="tok-tag">div</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;grid-column: span 8&quot;</span>&gt;8 列&lt;/<span class="tok-tag">div</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;grid-column: span 6&quot;</span>&gt;6 列&lt;/<span class="tok-tag">div</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;grid-column: span 6&quot;</span>&gt;6 列&lt;/<span class="tok-tag">div</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;grid-column: span 6&quot;</span>&gt;6 列&lt;/<span class="tok-tag">div</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;grid-column: span 6&quot;</span>&gt;6 列&lt;/<span class="tok-tag">div</span>&gt;
+&lt;/<span class="tok-tag">div</span>&gt;</code></pre>
+    </div>
+    </section><section class="api-sec" id="layout">
+      <h3 class="api-title">布局<span class="api-en">Layout</span></h3>
+      <p class="api-desc">页面级布局容器，包含页头、侧边栏、内容区与页脚。</p>
+      <div class="api-demo"><div class="a-layout">
+        <div class="a-layout-hd">Header</div>
+        <div class="a-layout-main">
+          <div class="a-layout-sider">Sider</div>
+          <div class="a-layout-content">Content</div>
+        </div>
+        <div class="a-layout-ft">Footer</div>
+      </div></div>
+      <div class="api-src-wrap">
+      <div class="api-src-bar">
+        <button class="api-src-tog" data-api-src>
+          <i class="fa-solid fa-code"></i><span>查看代码</span>
+          <i class="fa-solid fa-chevron-down api-src-caret"></i>
+        </button>
+        <button class="api-src-copy" data-api-copy title="复制代码">
+          <i class="fa-regular fa-copy"></i><span>复制</span>
+        </button>
+      </div>
+      <pre class="api-src hidden"><code>&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-layout&quot;</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-layout-hd&quot;</span>&gt;Header&lt;/<span class="tok-tag">div</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-layout-main&quot;</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-layout-sider&quot;</span>&gt;Sider&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-layout-content&quot;</span>&gt;Content&lt;/<span class="tok-tag">div</span>&gt;
+  &lt;/<span class="tok-tag">div</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-layout-ft&quot;</span>&gt;Footer&lt;/<span class="tok-tag">div</span>&gt;
+&lt;/<span class="tok-tag">div</span>&gt;</code></pre>
+    </div>
+    </section><section class="api-sec" id="space">
+      <h3 class="api-title">间距<span class="api-en">Space</span></h3>
+      <p class="api-desc">设置组件之间的间距，避免手动书写 margin。</p>
+      <div class="api-demo"><div class="api-block"><div class="api-label">水平间距（8px）</div><div class="a-space">
+        <button class="btn btn-default btn-sm">按钮一</button>
+        <button class="btn btn-default btn-sm">按钮二</button>
+        <button class="btn btn-default btn-sm">按钮三</button>
+      </div></div><div class="api-block"><div class="api-label">垂直间距</div><div class="a-space-v">
+        <span class="tag tag-blue">标签一</span>
+        <span class="tag tag-ok">标签二</span>
+        <span class="tag tag-warn">标签三</span>
+      </div></div></div>
+      <div class="api-src-wrap">
+      <div class="api-src-bar">
+        <button class="api-src-tog" data-api-src>
+          <i class="fa-solid fa-code"></i><span>查看代码</span>
+          <i class="fa-solid fa-chevron-down api-src-caret"></i>
+        </button>
+        <button class="api-src-copy" data-api-copy title="复制代码">
+          <i class="fa-regular fa-copy"></i><span>复制</span>
+        </button>
+      </div>
+      <pre class="api-src hidden"><code><span class="tok-com">&lt;!-- 水平间距（8px） --&gt;</span>
+&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-space&quot;</span>&gt;
+  &lt;<span class="tok-tag">button</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;btn btn-default btn-sm&quot;</span>&gt;按钮一&lt;/<span class="tok-tag">button</span>&gt;
+  &lt;<span class="tok-tag">button</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;btn btn-default btn-sm&quot;</span>&gt;按钮二&lt;/<span class="tok-tag">button</span>&gt;
+  &lt;<span class="tok-tag">button</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;btn btn-default btn-sm&quot;</span>&gt;按钮三&lt;/<span class="tok-tag">button</span>&gt;
+&lt;/<span class="tok-tag">div</span>&gt;
+<span class="tok-com">&lt;!-- 垂直间距 --&gt;</span>
+&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-space-v&quot;</span>&gt;
+  &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;tag tag-blue&quot;</span>&gt;标签一&lt;/<span class="tok-tag">span</span>&gt;
+  &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;tag tag-ok&quot;</span>&gt;标签二&lt;/<span class="tok-tag">span</span>&gt;
+  &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;tag tag-warn&quot;</span>&gt;标签三&lt;/<span class="tok-tag">span</span>&gt;
+&lt;/<span class="tok-tag">div</span>&gt;</code></pre>
+    </div>
+    </section><section class="api-sec" id="splitter">
+      <h3 class="api-title">分隔面板<span class="api-en">Splitter</span></h3>
+      <p class="api-desc">可拖拽分隔两个面板的容器，用于左右对比或主从布局。</p>
+      <div class="api-demo"><div class="a-splitter">
+        <div>左侧面板</div>
+        <div class="a-splitter-bar"></div>
+        <div>右侧面板</div>
+      </div>
+      <div class="tiny muted" style="margin-top:8px" data-no-code>拖动中间分隔条可调整两侧宽度（示意）</div></div>
+      <div class="api-src-wrap">
+      <div class="api-src-bar">
+        <button class="api-src-tog" data-api-src>
+          <i class="fa-solid fa-code"></i><span>查看代码</span>
+          <i class="fa-solid fa-chevron-down api-src-caret"></i>
+        </button>
+        <button class="api-src-copy" data-api-copy title="复制代码">
+          <i class="fa-regular fa-copy"></i><span>复制</span>
+        </button>
+      </div>
+      <pre class="api-src hidden"><code>&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-splitter&quot;</span>&gt;
+  &lt;<span class="tok-tag">div</span>&gt;左侧面板&lt;/<span class="tok-tag">div</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-splitter-bar&quot;</span>&gt;&lt;/<span class="tok-tag">div</span>&gt;
+  &lt;<span class="tok-tag">div</span>&gt;右侧面板&lt;/<span class="tok-tag">div</span>&gt;
+&lt;/<span class="tok-tag">div</span>&gt;</code></pre>
+    </div>
+    </section>
+      </div>
+    </div>

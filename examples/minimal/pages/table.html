@@ -1,0 +1,39 @@
+<div data-page="table">
+  <section tn-data-part="card">
+    <h2>带表格</h2>
+    <p tn-data-part="muted">
+      表头写了 <code>data-sort</code> 就能点着排序；底部 <code>data-pager</code> 渲染分页；
+      首列 <code>data-check</code> 是勾选（跨排序、翻页都记得住）。
+      列宽也能拖 —— 拖列头右缘。
+    </p>
+
+    <div tn-data-part="table-wrap">
+      <table tn-data="table" data-page-size="8">
+        <thead>
+          <tr>
+            <th style="width:44px"><input type="checkbox" data-check-all></th>
+            <th data-sort="name">姓名 <span tn-data-part="sort-arrow">⇅</span></th>
+            <th data-sort="age">年龄 <span tn-data-part="sort-arrow">⇅</span></th>
+            <th data-sort="city">城市 <span tn-data-part="sort-arrow">⇅</span></th>
+            <th>状态</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-row-id="1"><td><input type="checkbox" data-check="1"></td><td>张伟</td><td>32</td><td>北京</td><td>启用</td></tr>
+          <tr data-row-id="2"><td><input type="checkbox" data-check="2"></td><td>李娜</td><td>28</td><td>上海</td><td>启用</td></tr>
+          <tr data-row-id="3"><td><input type="checkbox" data-check="3"></td><td>王强</td><td>35</td><td>深圳</td><td>停用</td></tr>
+          <tr data-row-id="4"><td><input type="checkbox" data-check="4"></td><td>刘洋</td><td>26</td><td>杭州</td><td>启用</td></tr>
+          <tr data-row-id="5"><td><input type="checkbox" data-check="5"></td><td>陈静</td><td>41</td><td>成都</td><td>启用</td></tr>
+          <tr data-row-id="6"><td><input type="checkbox" data-check="6"></td><td>赵磊</td><td>38</td><td>武汉</td><td>停用</td></tr>
+          <tr data-row-id="7"><td><input type="checkbox" data-check="7"></td><td>孙倩</td><td>30</td><td>西安</td><td>启用</td></tr>
+          <tr data-row-id="8"><td><input type="checkbox" data-check="8"></td><td>周涛</td><td>24</td><td>南京</td><td>启用</td></tr>
+          <tr data-row-id="9"><td><input type="checkbox" data-check="9"></td><td>吴敏</td><td>33</td><td>广州</td><td>启用</td></tr>
+          <tr data-row-id="10"><td><input type="checkbox" data-check="10"></td><td>郑爽</td><td>29</td><td>天津</td><td>停用</td></tr>
+          <tr data-row-id="11"><td><input type="checkbox" data-check="11"></td><td>冯磊</td><td>45</td><td>重庆</td><td>启用</td></tr>
+          <tr data-row-id="12"><td><input type="checkbox" data-check="12"></td><td>许晴</td><td>27</td><td>苏州</td><td>启用</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div data-pager></div>
+  </section>
+</div>

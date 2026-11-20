@@ -1,0 +1,41 @@
+<div class="stack" data-page="form">
+      <section class="card">
+      <div class="card-hd"><span>表单录入</span><span class="card-extra"></span></div>
+      <div class="card-bd"><form id="customer-form" novalidate tn-data-validate
+              data-action="/api/customers/save" data-tab="form">
+        <h3 class="tiny muted" style="margin-bottom:12px">基本信息</h3>
+        <div class="form-grid">
+          <label class="field"><span class="field-label">客户名称 <span class="req">*</span></span>
+            <input class="input" name="cname" placeholder="请输入公司全称"
+              data-rule="required" data-msg="请输入客户名称">
+            <span class="err-text"></span></label>
+          <label class="field"><span class="field-label">所属行业 <span class="req">*</span></span>
+            <select class="select" name="industry">
+              <option>制造业</option><option>互联网</option><option>金融</option><option>教育</option>
+            </select></label>
+          <label class="field"><span class="field-label">联系人 <span class="req">*</span></span>
+            <input class="input" name="contact" placeholder="姓名"
+              data-rule="required" data-msg="请输入联系人">
+            <span class="err-text"></span></label>
+          <label class="field"><span class="field-label">联系电话 <span class="req">*</span></span>
+            <input class="input" name="phone" placeholder="11 位手机号"
+              data-rule="required|phone" data-msg="请输入正确的 11 位手机号">
+            <span class="err-text"></span></label>
+        </div>
+        <h3 class="tiny muted" style="margin:8px 0 12px">合作信息</h3>
+        <div class="form-grid">
+          <label class="field"><span class="field-label">客户等级</span>
+            <select class="select" name="level"><option>VIP</option><option>普通</option><option>潜力</option></select></label>
+          <label class="field"><span class="field-label">预计合同额</span>
+            <input class="input" name="amount" placeholder="¥"></label>
+        </div>
+        <label class="field"><span class="field-label">备注</span>
+          <textarea class="textarea" name="remark" placeholder="选填"></textarea></label>
+        <div class="form-actions">
+          <button class="btn btn-primary" type="submit">保 存</button>
+          <button class="btn btn-default" type="reset">重 置</button>
+          <span class="tiny muted" style="align-self:center">提交成功后关闭当前页签，并刷新「客户查询」</span>
+        </div>
+      </form></div>
+    </section>
+    </div>

@@ -1,0 +1,33 @@
+<div class="stack" data-page="tabs">
+        <section class="card">
+      <div class="card-hd"><span>选项卡面板</span><span class="card-extra"></span></div>
+      <div class="card-bd">
+          <div class="tabs" tn-data="tabs">
+            <button class="tab-item active" data-tab="info">基本信息</button><button class="tab-item " data-tab="param">参数配置</button><button class="tab-item " data-tab="log">变更记录</button>
+          </div>
+          <div style="padding-top:16px">
+            <div class="tab-pane" data-pane="info">
+              <div class="desc-row"><span class="desc-label">系统名称</span><span>Web Admin</span></div>
+              <div class="desc-row"><span class="desc-label">版本号</span><span>v1.0.0</span></div>
+              <div class="desc-row"><span class="desc-label">技术栈</span><span>原生 JS · 无框架依赖 · 语义化 CSS</span></div>
+              <div class="desc-row"><span class="desc-label">构建</span><span>无需构建，直接由静态服务器托管</span></div>
+            </div>
+            <div class="tab-pane hidden" data-pane="param">
+              <label class="field" style="max-width:320px"><span class="field-label">刷新间隔（秒）</span>
+                <input class="input" value="30"></label>
+              <div class="flex"><span class="muted">开启审计日志</span>
+                <button class="switch on" tn-data="switch" data-switch><span class="switch-dot"></span></button></div>
+            </div>
+            <div class="tab-pane hidden" data-pane="log">
+              <div class="table-wrap"><table class="table">
+                <thead><tr><th>时间</th><th>操作人</th><th>内容</th></tr></thead>
+                <tbody>
+                  <tr><td>2026-11-19 01:02</td><td>admin</td><td>调整刷新间隔 60 → 30</td></tr>
+                  <tr><td>2026-11-18 22:40</td><td>zhangwei</td><td>新增角色：审计员</td></tr>
+                </tbody>
+              </table></div>
+            </div>
+          </div>
+        </div>
+    </section>
+      </div>

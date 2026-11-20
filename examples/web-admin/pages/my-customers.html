@@ -1,0 +1,266 @@
+<div class="split-200" data-page="my-customers" data-script="my-customers">
+        <aside class="panel">
+          <div class="panel-hd">客户分类</div>
+          <div class="panel-bd">
+            <div class="col-item active" data-cat="all">
+              <span>全部客户</span><span class="count">23</span>
+            </div><div class="col-item " data-cat="vip">
+              <span>VIP 客户</span><span class="count">8</span>
+            </div><div class="col-item " data-cat="normal">
+              <span>普通客户</span><span class="count">8</span>
+            </div><div class="col-item " data-cat="potential">
+              <span>潜力客户</span><span class="count">7</span>
+            </div><div class="col-item " data-cat="stop">
+              <span>已停用客户</span><span class="count">6</span>
+            </div>
+          </div>
+        </aside>
+
+        <div class="stack">
+          <section class="card"><div class="card-bd" style="padding:18px 24px">
+            <div class="filter-bar">
+              <div class="filter-item"><label>客户名称 / 公司</label>
+                <input class="input" id="mc-kw" value="" placeholder="输入关键字"></div>
+              <div class="filter-item"><label>合作状态</label>
+                <select class="select" id="mc-status">
+                  <option value="" selected>全部状态</option><option value="启用" >启用</option><option value="停用" >停用</option>
+                </select></div>
+              <div class="filter-item"><label>&nbsp;</label>
+                <div class="filter-actions">
+                  <button class="btn btn-primary" data-mc="search">查 询</button>
+                  <button class="btn btn-default" data-mc="reset">重 置</button>
+                </div></div>
+            </div>
+          </div></section>
+
+          <section class="card">
+            <div class="card-hd">
+              <span>我的客户 <span class="tiny muted" id="mc-total">共 23 条</span></span>
+              <span class="card-extra">
+                <button class="btn btn-sm btn-primary" data-mc="add">添加</button>
+                <button class="btn btn-sm btn-default" data-mc="edit">修改</button>
+                <button class="btn btn-sm btn-danger" data-mc="del">删除</button>
+              </span>
+            </div>
+            <div class="table-wrap">
+              <table class="table table-hover" tn-data="table" data-page-size="8" data-pager="#mc-pager">
+                <thead><tr>
+                  <th style="width:40px"><input type="checkbox" data-check-all ></th>
+                  <th>客户名称</th><th>所属公司</th><th>等级</th>
+                  <th class="right">合同额</th><th>状态</th><th>建档日期</th>
+                </tr></thead>
+                <tbody>
+          <tr data-row-id="2026001">
+            <td><input type="checkbox" data-check="2026001"></td>
+            <td>张伟</td>
+            <td>华信科技</td>
+            <td><span class="tag tag-blue">VIP</span></td>
+            <td class="right">¥ 12,000</td>
+            <td><span class="tag tag-default">停用</span></td>
+            <td class="muted">2026-01-02</td>
+          </tr>
+          <tr data-row-id="2026002">
+            <td><input type="checkbox" data-check="2026002"></td>
+            <td>李娜</td>
+            <td>云图数据</td>
+            <td><span class="tag tag-default">普通</span></td>
+            <td class="right">¥ 15,700</td>
+            <td><span class="tag tag-ok">启用</span></td>
+            <td class="muted">2026-02-03</td>
+          </tr>
+          <tr data-row-id="2026003">
+            <td><input type="checkbox" data-check="2026003"></td>
+            <td>王强</td>
+            <td>长风物流</td>
+            <td><span class="tag tag-warn">潜力</span></td>
+            <td class="right">¥ 19,400</td>
+            <td><span class="tag tag-ok">启用</span></td>
+            <td class="muted">2026-03-04</td>
+          </tr>
+          <tr data-row-id="2026004">
+            <td><input type="checkbox" data-check="2026004"></td>
+            <td>刘洋</td>
+            <td>智联教育</td>
+            <td><span class="tag tag-blue">VIP</span></td>
+            <td class="right">¥ 23,100</td>
+            <td><span class="tag tag-ok">启用</span></td>
+            <td class="muted">2026-04-05</td>
+          </tr>
+          <tr data-row-id="2026005">
+            <td><input type="checkbox" data-check="2026005"></td>
+            <td>陈静</td>
+            <td>恒泰金融</td>
+            <td><span class="tag tag-default">普通</span></td>
+            <td class="right">¥ 26,800</td>
+            <td><span class="tag tag-default">停用</span></td>
+            <td class="muted">2026-05-06</td>
+          </tr>
+          <tr data-row-id="2026006">
+            <td><input type="checkbox" data-check="2026006"></td>
+            <td>赵磊</td>
+            <td>华信科技</td>
+            <td><span class="tag tag-warn">潜力</span></td>
+            <td class="right">¥ 30,500</td>
+            <td><span class="tag tag-ok">启用</span></td>
+            <td class="muted">2026-06-07</td>
+          </tr>
+          <tr data-row-id="2026007">
+            <td><input type="checkbox" data-check="2026007"></td>
+            <td>孙倩</td>
+            <td>云图数据</td>
+            <td><span class="tag tag-blue">VIP</span></td>
+            <td class="right">¥ 34,200</td>
+            <td><span class="tag tag-ok">启用</span></td>
+            <td class="muted">2026-07-08</td>
+          </tr>
+          <tr data-row-id="2026008">
+            <td><input type="checkbox" data-check="2026008"></td>
+            <td>周涛</td>
+            <td>长风物流</td>
+            <td><span class="tag tag-default">普通</span></td>
+            <td class="right">¥ 37,900</td>
+            <td><span class="tag tag-ok">启用</span></td>
+            <td class="muted">2026-08-09</td>
+          </tr>
+          <tr data-row-id="2026009">
+            <td><input type="checkbox" data-check="2026009"></td>
+            <td>张伟8</td>
+            <td>智联教育</td>
+            <td><span class="tag tag-warn">潜力</span></td>
+            <td class="right">¥ 41,600</td>
+            <td><span class="tag tag-default">停用</span></td>
+            <td class="muted">2026-09-10</td>
+          </tr>
+          <tr data-row-id="2026010">
+            <td><input type="checkbox" data-check="2026010"></td>
+            <td>李娜9</td>
+            <td>恒泰金融</td>
+            <td><span class="tag tag-blue">VIP</span></td>
+            <td class="right">¥ 45,300</td>
+            <td><span class="tag tag-ok">启用</span></td>
+            <td class="muted">2026-01-11</td>
+          </tr>
+          <tr data-row-id="2026011">
+            <td><input type="checkbox" data-check="2026011"></td>
+            <td>王强10</td>
+            <td>华信科技</td>
+            <td><span class="tag tag-default">普通</span></td>
+            <td class="right">¥ 49,000</td>
+            <td><span class="tag tag-ok">启用</span></td>
+            <td class="muted">2026-02-12</td>
+          </tr>
+          <tr data-row-id="2026012">
+            <td><input type="checkbox" data-check="2026012"></td>
+            <td>刘洋11</td>
+            <td>云图数据</td>
+            <td><span class="tag tag-warn">潜力</span></td>
+            <td class="right">¥ 52,700</td>
+            <td><span class="tag tag-ok">启用</span></td>
+            <td class="muted">2026-03-13</td>
+          </tr>
+          <tr data-row-id="2026013">
+            <td><input type="checkbox" data-check="2026013"></td>
+            <td>陈静12</td>
+            <td>长风物流</td>
+            <td><span class="tag tag-blue">VIP</span></td>
+            <td class="right">¥ 56,400</td>
+            <td><span class="tag tag-default">停用</span></td>
+            <td class="muted">2026-04-14</td>
+          </tr>
+          <tr data-row-id="2026014">
+            <td><input type="checkbox" data-check="2026014"></td>
+            <td>赵磊13</td>
+            <td>智联教育</td>
+            <td><span class="tag tag-default">普通</span></td>
+            <td class="right">¥ 60,100</td>
+            <td><span class="tag tag-ok">启用</span></td>
+            <td class="muted">2026-05-15</td>
+          </tr>
+          <tr data-row-id="2026015">
+            <td><input type="checkbox" data-check="2026015"></td>
+            <td>孙倩14</td>
+            <td>恒泰金融</td>
+            <td><span class="tag tag-warn">潜力</span></td>
+            <td class="right">¥ 63,800</td>
+            <td><span class="tag tag-ok">启用</span></td>
+            <td class="muted">2026-06-16</td>
+          </tr>
+          <tr data-row-id="2026016">
+            <td><input type="checkbox" data-check="2026016"></td>
+            <td>周涛15</td>
+            <td>华信科技</td>
+            <td><span class="tag tag-blue">VIP</span></td>
+            <td class="right">¥ 67,500</td>
+            <td><span class="tag tag-ok">启用</span></td>
+            <td class="muted">2026-07-17</td>
+          </tr>
+          <tr data-row-id="2026017">
+            <td><input type="checkbox" data-check="2026017"></td>
+            <td>张伟16</td>
+            <td>云图数据</td>
+            <td><span class="tag tag-default">普通</span></td>
+            <td class="right">¥ 71,200</td>
+            <td><span class="tag tag-default">停用</span></td>
+            <td class="muted">2026-08-18</td>
+          </tr>
+          <tr data-row-id="2026018">
+            <td><input type="checkbox" data-check="2026018"></td>
+            <td>李娜17</td>
+            <td>长风物流</td>
+            <td><span class="tag tag-warn">潜力</span></td>
+            <td class="right">¥ 74,900</td>
+            <td><span class="tag tag-ok">启用</span></td>
+            <td class="muted">2026-09-19</td>
+          </tr>
+          <tr data-row-id="2026019">
+            <td><input type="checkbox" data-check="2026019"></td>
+            <td>王强18</td>
+            <td>智联教育</td>
+            <td><span class="tag tag-blue">VIP</span></td>
+            <td class="right">¥ 78,600</td>
+            <td><span class="tag tag-ok">启用</span></td>
+            <td class="muted">2026-01-20</td>
+          </tr>
+          <tr data-row-id="2026020">
+            <td><input type="checkbox" data-check="2026020"></td>
+            <td>刘洋19</td>
+            <td>恒泰金融</td>
+            <td><span class="tag tag-default">普通</span></td>
+            <td class="right">¥ 82,300</td>
+            <td><span class="tag tag-ok">启用</span></td>
+            <td class="muted">2026-02-21</td>
+          </tr>
+          <tr data-row-id="2026021">
+            <td><input type="checkbox" data-check="2026021"></td>
+            <td>陈静20</td>
+            <td>华信科技</td>
+            <td><span class="tag tag-warn">潜力</span></td>
+            <td class="right">¥ 86,000</td>
+            <td><span class="tag tag-default">停用</span></td>
+            <td class="muted">2026-03-22</td>
+          </tr>
+          <tr data-row-id="2026022">
+            <td><input type="checkbox" data-check="2026022"></td>
+            <td>赵磊21</td>
+            <td>云图数据</td>
+            <td><span class="tag tag-blue">VIP</span></td>
+            <td class="right">¥ 89,700</td>
+            <td><span class="tag tag-ok">启用</span></td>
+            <td class="muted">2026-04-23</td>
+          </tr>
+          <tr data-row-id="2026023">
+            <td><input type="checkbox" data-check="2026023"></td>
+            <td>孙倩22</td>
+            <td>长风物流</td>
+            <td><span class="tag tag-default">普通</span></td>
+            <td class="right">¥ 93,400</td>
+            <td><span class="tag tag-ok">启用</span></td>
+            <td class="muted">2026-05-24</td>
+          </tr>
+          </tbody>
+              </table>
+            </div>
+            <div id="mc-pager" class="mt16" data-pager></div>
+          </section>
+        </div>
+      </div>

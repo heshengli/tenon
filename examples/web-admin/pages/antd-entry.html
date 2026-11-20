@@ -1,0 +1,384 @@
+<div class="api-page" data-page="antd-entry">
+      <aside class="api-nav">
+        <div class="api-nav-title">数据录入 · 10 个组件</div>
+        <a href="#form" data-anchor="form" class="active">
+        <span>表单</span><span class="api-nav-en">Form</span>
+      </a><a href="#input" data-anchor="input" class="">
+        <span>输入框</span><span class="api-nav-en">Input</span>
+      </a><a href="#input-number" data-anchor="input-number" class="">
+        <span>数字输入框</span><span class="api-nav-en">InputNumber</span>
+      </a><a href="#select" data-anchor="select" class="">
+        <span>选择器</span><span class="api-nav-en">Select</span>
+      </a><a href="#checkbox" data-anchor="checkbox" class="">
+        <span>多选框</span><span class="api-nav-en">Checkbox</span>
+      </a><a href="#radio" data-anchor="radio" class="">
+        <span>单选框</span><span class="api-nav-en">Radio</span>
+      </a><a href="#switch" data-anchor="switch" class="">
+        <span>开关</span><span class="api-nav-en">Switch</span>
+      </a><a href="#slider" data-anchor="slider" class="">
+        <span>滑动输入条</span><span class="api-nav-en">Slider</span>
+      </a><a href="#rate" data-anchor="rate" class="">
+        <span>评分</span><span class="api-nav-en">Rate</span>
+      </a><a href="#upload" data-anchor="upload" class="">
+        <span>上传</span><span class="api-nav-en">Upload</span>
+      </a>
+      </aside>
+      <div class="api-body">
+        <div class="api-hero">
+          <h2>数据录入</h2>
+          <p>数据录入组件用于收集用户输入，涵盖文本、数字、选择、开关、评分与文件上传，并统一处理校验反馈。</p>
+          <div class="api-hero-tags">
+            <span class="tag tag-blue">Form</span><span class="tag tag-blue">Input</span><span class="tag tag-blue">InputNumber</span><span class="tag tag-blue">Select</span><span class="tag tag-blue">Checkbox</span><span class="tag tag-blue">Radio</span><span class="tag tag-blue">Switch</span><span class="tag tag-blue">Slider</span><span class="tag tag-blue">Rate</span><span class="tag tag-blue">Upload</span>
+          </div>
+        </div>
+        <section class="api-sec" id="form">
+      <h3 class="api-title">表单<span class="api-en">Form</span></h3>
+      <p class="api-desc">一组输入控件的集合，用于数据录入与校验反馈。</p>
+      <div class="api-demo"><div class="form-grid">
+        <label class="field"><span class="field-label">用户名 <span class="req">*</span></span>
+          <input class="input" placeholder="请输入用户名"><span class="hint">支持字母、数字与下划线</span></label>
+        <label class="field"><span class="field-label">手机号 <span class="req">*</span></span>
+          <input class="input is-error" value="1380013"><span class="err-text show">手机号格式不正确</span></label>
+        <label class="field"><span class="field-label">所属部门</span>
+          <select class="select"><option>技术中心</option><option>市场部</option><option>财务部</option></select></label>
+        <label class="field"><span class="field-label">入职日期</span>
+          <input class="input" type="date" value="2026-11-19"></label>
+      </div>
+      <div class="form-actions" style="margin-top:4px">
+        <button class="btn btn-primary" type="button">提 交</button>
+        <button class="btn btn-default" type="button">取 消</button>
+      </div></div>
+      <div class="api-src-wrap">
+      <div class="api-src-bar">
+        <button class="api-src-tog" data-api-src>
+          <i class="fa-solid fa-code"></i><span>查看代码</span>
+          <i class="fa-solid fa-chevron-down api-src-caret"></i>
+        </button>
+        <button class="api-src-copy" data-api-copy title="复制代码">
+          <i class="fa-regular fa-copy"></i><span>复制</span>
+        </button>
+      </div>
+      <pre class="api-src hidden"><code>&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;form-grid&quot;</span>&gt;
+  &lt;<span class="tok-tag">label</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;field&quot;</span>&gt;
+    &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;field-label&quot;</span>&gt;
+      用户名
+      &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;req&quot;</span>&gt;*&lt;/<span class="tok-tag">span</span>&gt;
+    &lt;/<span class="tok-tag">span</span>&gt;
+    &lt;<span class="tok-tag">input</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;input&quot;</span> <span class="tok-attr">placeholder</span>=<span class="tok-str">&quot;请输入用户名&quot;</span>&gt;
+    &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;hint&quot;</span>&gt;支持字母、数字与下划线&lt;/<span class="tok-tag">span</span>&gt;
+  &lt;/<span class="tok-tag">label</span>&gt;
+  &lt;<span class="tok-tag">label</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;field&quot;</span>&gt;
+    &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;field-label&quot;</span>&gt;
+      手机号
+      &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;req&quot;</span>&gt;*&lt;/<span class="tok-tag">span</span>&gt;
+    &lt;/<span class="tok-tag">span</span>&gt;
+    &lt;<span class="tok-tag">input</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;input is-error&quot;</span> <span class="tok-attr">value</span>=<span class="tok-str">&quot;1380013&quot;</span>&gt;
+    &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;err-text show&quot;</span>&gt;手机号格式不正确&lt;/<span class="tok-tag">span</span>&gt;
+  &lt;/<span class="tok-tag">label</span>&gt;
+  &lt;<span class="tok-tag">label</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;field&quot;</span>&gt;
+    &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;field-label&quot;</span>&gt;所属部门&lt;/<span class="tok-tag">span</span>&gt;
+    &lt;<span class="tok-tag">select</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;select&quot;</span>&gt;
+      &lt;<span class="tok-tag">option</span>&gt;技术中心&lt;/<span class="tok-tag">option</span>&gt;
+      &lt;<span class="tok-tag">option</span>&gt;市场部&lt;/<span class="tok-tag">option</span>&gt;
+      &lt;<span class="tok-tag">option</span>&gt;财务部&lt;/<span class="tok-tag">option</span>&gt;
+    &lt;/<span class="tok-tag">select</span>&gt;
+  &lt;/<span class="tok-tag">label</span>&gt;
+  &lt;<span class="tok-tag">label</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;field&quot;</span>&gt;
+    &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;field-label&quot;</span>&gt;入职日期&lt;/<span class="tok-tag">span</span>&gt;
+    &lt;<span class="tok-tag">input</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;input&quot;</span> <span class="tok-attr">type</span>=<span class="tok-str">&quot;date&quot;</span> <span class="tok-attr">value</span>=<span class="tok-str">&quot;2026-11-19&quot;</span>&gt;
+  &lt;/<span class="tok-tag">label</span>&gt;
+&lt;/<span class="tok-tag">div</span>&gt;
+&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;form-actions&quot;</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;margin-top:4px&quot;</span>&gt;
+  &lt;<span class="tok-tag">button</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;btn btn-primary&quot;</span> <span class="tok-attr">type</span>=<span class="tok-str">&quot;button&quot;</span>&gt;提 交&lt;/<span class="tok-tag">button</span>&gt;
+  &lt;<span class="tok-tag">button</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;btn btn-default&quot;</span> <span class="tok-attr">type</span>=<span class="tok-str">&quot;button&quot;</span>&gt;取 消&lt;/<span class="tok-tag">button</span>&gt;
+&lt;/<span class="tok-tag">div</span>&gt;</code></pre>
+    </div>
+    </section><section class="api-sec" id="input">
+      <h3 class="api-title">输入框<span class="api-en">Input</span></h3>
+      <p class="api-desc">基础表单控件，支持前缀后缀、禁用与错误状态。</p>
+      <div class="api-demo"><div class="api-block"><div class="api-label">基础用法</div><input class="input" placeholder="请输入内容" style="max-width:320px"></div><div class="api-block"><div class="api-label">带前后缀</div><div class="a-space" style="gap:16px;flex-wrap:wrap">
+          <div class="a-input-group" style="max-width:220px">
+            <span class="a-addon a-addon-pre">¥</span><input class="input" placeholder="金额">
+          </div>
+          <div class="a-input-group" style="max-width:220px">
+            <input class="input" placeholder="搜索"><span class="a-addon"><span class="a-icon "><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg></span></span>
+          </div>
+        </div></div><div class="api-block"><div class="api-label">状态</div><div class="a-space" style="gap:16px;flex-wrap:wrap">
+          <input class="input" value="禁用状态" disabled style="max-width:200px">
+          <input class="input is-error" value="错误状态" style="max-width:200px">
+        </div></div></div>
+      <div class="api-src-wrap">
+      <div class="api-src-bar">
+        <button class="api-src-tog" data-api-src>
+          <i class="fa-solid fa-code"></i><span>查看代码</span>
+          <i class="fa-solid fa-chevron-down api-src-caret"></i>
+        </button>
+        <button class="api-src-copy" data-api-copy title="复制代码">
+          <i class="fa-regular fa-copy"></i><span>复制</span>
+        </button>
+      </div>
+      <pre class="api-src hidden"><code><span class="tok-com">&lt;!-- 基础用法 --&gt;</span>
+&lt;<span class="tok-tag">input</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;input&quot;</span> <span class="tok-attr">placeholder</span>=<span class="tok-str">&quot;请输入内容&quot;</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;max-width:320px&quot;</span>&gt;
+<span class="tok-com">&lt;!-- 带前后缀 --&gt;</span>
+&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-space&quot;</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;gap:16px;flex-wrap:wrap&quot;</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-input-group&quot;</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;max-width:220px&quot;</span>&gt;
+    &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-addon a-addon-pre&quot;</span>&gt;¥&lt;/<span class="tok-tag">span</span>&gt;
+    &lt;<span class="tok-tag">input</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;input&quot;</span> <span class="tok-attr">placeholder</span>=<span class="tok-str">&quot;金额&quot;</span>&gt;
+  &lt;/<span class="tok-tag">div</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-input-group&quot;</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;max-width:220px&quot;</span>&gt;
+    &lt;<span class="tok-tag">input</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;input&quot;</span> <span class="tok-attr">placeholder</span>=<span class="tok-str">&quot;搜索&quot;</span>&gt;
+    &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-addon&quot;</span>&gt;&lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-icon&quot;</span>&gt;<span class="tok-com">&lt;!-- svg --&gt;</span>&lt;/<span class="tok-tag">span</span>&gt;&lt;/<span class="tok-tag">span</span>&gt;
+  &lt;/<span class="tok-tag">div</span>&gt;
+&lt;/<span class="tok-tag">div</span>&gt;
+<span class="tok-com">&lt;!-- 状态 --&gt;</span>
+&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-space&quot;</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;gap:16px;flex-wrap:wrap&quot;</span>&gt;
+  &lt;<span class="tok-tag">input</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;input&quot;</span> <span class="tok-attr">value</span>=<span class="tok-str">&quot;禁用状态&quot;</span> disabled <span class="tok-attr">style</span>=<span class="tok-str">&quot;max-width:200px&quot;</span>&gt;
+  &lt;<span class="tok-tag">input</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;input is-error&quot;</span> <span class="tok-attr">value</span>=<span class="tok-str">&quot;错误状态&quot;</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;max-width:200px&quot;</span>&gt;
+&lt;/<span class="tok-tag">div</span>&gt;</code></pre>
+    </div>
+    </section><section class="api-sec" id="input-number">
+      <h3 class="api-title">数字输入框<span class="api-en">InputNumber</span></h3>
+      <p class="api-desc">用于输入数字，支持步进按钮与范围限制。</p>
+      <div class="api-demo"><div class="a-stepper">
+        <button>−</button><input class="input" value="10"><button>+</button>
+      </div>
+      <div class="a-space" style="margin-top:12px;gap:16px">
+        <div class="a-input-group" style="max-width:200px">
+          <input class="input" value="1280"><span class="a-addon">px</span>
+        </div>
+        <div class="a-input-group" style="max-width:200px">
+          <span class="a-addon a-addon-pre">¥</span><input class="input" value="8999">
+        </div>
+      </div></div>
+      <div class="api-src-wrap">
+      <div class="api-src-bar">
+        <button class="api-src-tog" data-api-src>
+          <i class="fa-solid fa-code"></i><span>查看代码</span>
+          <i class="fa-solid fa-chevron-down api-src-caret"></i>
+        </button>
+        <button class="api-src-copy" data-api-copy title="复制代码">
+          <i class="fa-regular fa-copy"></i><span>复制</span>
+        </button>
+      </div>
+      <pre class="api-src hidden"><code>&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-stepper&quot;</span>&gt;
+  &lt;<span class="tok-tag">button</span>&gt;−&lt;/<span class="tok-tag">button</span>&gt;
+  &lt;<span class="tok-tag">input</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;input&quot;</span> <span class="tok-attr">value</span>=<span class="tok-str">&quot;10&quot;</span>&gt;
+  &lt;<span class="tok-tag">button</span>&gt;+&lt;/<span class="tok-tag">button</span>&gt;
+&lt;/<span class="tok-tag">div</span>&gt;
+&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-space&quot;</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;margin-top:12px;gap:16px&quot;</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-input-group&quot;</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;max-width:200px&quot;</span>&gt;
+    &lt;<span class="tok-tag">input</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;input&quot;</span> <span class="tok-attr">value</span>=<span class="tok-str">&quot;1280&quot;</span>&gt;
+    &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-addon&quot;</span>&gt;px&lt;/<span class="tok-tag">span</span>&gt;
+  &lt;/<span class="tok-tag">div</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-input-group&quot;</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;max-width:200px&quot;</span>&gt;
+    &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-addon a-addon-pre&quot;</span>&gt;¥&lt;/<span class="tok-tag">span</span>&gt;
+    &lt;<span class="tok-tag">input</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;input&quot;</span> <span class="tok-attr">value</span>=<span class="tok-str">&quot;8999&quot;</span>&gt;
+  &lt;/<span class="tok-tag">div</span>&gt;
+&lt;/<span class="tok-tag">div</span>&gt;</code></pre>
+    </div>
+    </section><section class="api-sec" id="select">
+      <h3 class="api-title">选择器<span class="api-en">Select</span></h3>
+      <p class="api-desc">从预设选项中选择一个或多个值。</p>
+      <div class="api-demo"><div class="a-space" style="gap:16px;flex-wrap:wrap">
+        <select class="select" style="max-width:200px"><option>请选择部门</option><option>技术中心</option><option>市场部</option></select>
+        <select class="select" style="max-width:200px" multiple size="3">
+          <option selected>技术中心</option><option selected>市场部</option><option>财务部</option>
+        </select>
+        <div class="a-fake-select placeholder" style="max-width:200px"><span>请选择（自定义）</span><span class="caret">▾</span></div>
+      </div></div>
+      <div class="api-src-wrap">
+      <div class="api-src-bar">
+        <button class="api-src-tog" data-api-src>
+          <i class="fa-solid fa-code"></i><span>查看代码</span>
+          <i class="fa-solid fa-chevron-down api-src-caret"></i>
+        </button>
+        <button class="api-src-copy" data-api-copy title="复制代码">
+          <i class="fa-regular fa-copy"></i><span>复制</span>
+        </button>
+      </div>
+      <pre class="api-src hidden"><code>&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-space&quot;</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;gap:16px;flex-wrap:wrap&quot;</span>&gt;
+  &lt;<span class="tok-tag">select</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;select&quot;</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;max-width:200px&quot;</span>&gt;
+    &lt;<span class="tok-tag">option</span>&gt;请选择部门&lt;/<span class="tok-tag">option</span>&gt;
+    &lt;<span class="tok-tag">option</span>&gt;技术中心&lt;/<span class="tok-tag">option</span>&gt;
+    &lt;<span class="tok-tag">option</span>&gt;市场部&lt;/<span class="tok-tag">option</span>&gt;
+  &lt;/<span class="tok-tag">select</span>&gt;
+  &lt;<span class="tok-tag">select</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;select&quot;</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;max-width:200px&quot;</span> multiple <span class="tok-attr">size</span>=<span class="tok-str">&quot;3&quot;</span>&gt;
+    &lt;<span class="tok-tag">option</span> selected&gt;技术中心&lt;/<span class="tok-tag">option</span>&gt;
+    &lt;<span class="tok-tag">option</span> selected&gt;市场部&lt;/<span class="tok-tag">option</span>&gt;
+    &lt;<span class="tok-tag">option</span>&gt;财务部&lt;/<span class="tok-tag">option</span>&gt;
+  &lt;/<span class="tok-tag">select</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-fake-select placeholder&quot;</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;max-width:200px&quot;</span>&gt;
+    &lt;<span class="tok-tag">span</span>&gt;请选择（自定义）&lt;/<span class="tok-tag">span</span>&gt;
+    &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;caret&quot;</span>&gt;▾&lt;/<span class="tok-tag">span</span>&gt;
+  &lt;/<span class="tok-tag">div</span>&gt;
+&lt;/<span class="tok-tag">div</span>&gt;</code></pre>
+    </div>
+    </section><section class="api-sec" id="checkbox">
+      <h3 class="api-title">多选框<span class="api-en">Checkbox</span></h3>
+      <p class="api-desc">在一组可选项中进行多项选择。</p>
+      <div class="api-demo"><div class="api-block"><div class="api-label">基础用法</div><div class="checkbox-row">
+        <label class="a-check"><input type="checkbox" checked>选项一</label>
+        <label class="a-check"><input type="checkbox">选项二</label>
+        <label class="a-check"><input type="checkbox" checked>选项三</label>
+      </div></div><div class="api-block"><div class="api-label">禁用状态</div><div class="checkbox-row">
+        <label class="a-check disabled"><input type="checkbox" disabled>禁用未选</label>
+        <label class="a-check disabled"><input type="checkbox" checked disabled>禁用已选</label>
+      </div></div></div>
+      <div class="api-src-wrap">
+      <div class="api-src-bar">
+        <button class="api-src-tog" data-api-src>
+          <i class="fa-solid fa-code"></i><span>查看代码</span>
+          <i class="fa-solid fa-chevron-down api-src-caret"></i>
+        </button>
+        <button class="api-src-copy" data-api-copy title="复制代码">
+          <i class="fa-regular fa-copy"></i><span>复制</span>
+        </button>
+      </div>
+      <pre class="api-src hidden"><code><span class="tok-com">&lt;!-- 基础用法 --&gt;</span>
+&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;checkbox-row&quot;</span>&gt;
+  &lt;<span class="tok-tag">label</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-check&quot;</span>&gt;&lt;<span class="tok-tag">input</span> <span class="tok-attr">type</span>=<span class="tok-str">&quot;checkbox&quot;</span> checked&gt;选项一&lt;/<span class="tok-tag">label</span>&gt;
+  &lt;<span class="tok-tag">label</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-check&quot;</span>&gt;&lt;<span class="tok-tag">input</span> <span class="tok-attr">type</span>=<span class="tok-str">&quot;checkbox&quot;</span>&gt;选项二&lt;/<span class="tok-tag">label</span>&gt;
+  &lt;<span class="tok-tag">label</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-check&quot;</span>&gt;&lt;<span class="tok-tag">input</span> <span class="tok-attr">type</span>=<span class="tok-str">&quot;checkbox&quot;</span> checked&gt;选项三&lt;/<span class="tok-tag">label</span>&gt;
+&lt;/<span class="tok-tag">div</span>&gt;
+<span class="tok-com">&lt;!-- 禁用状态 --&gt;</span>
+&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;checkbox-row&quot;</span>&gt;
+  &lt;<span class="tok-tag">label</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-check disabled&quot;</span>&gt;&lt;<span class="tok-tag">input</span> <span class="tok-attr">type</span>=<span class="tok-str">&quot;checkbox&quot;</span> disabled&gt;禁用未选&lt;/<span class="tok-tag">label</span>&gt;
+  &lt;<span class="tok-tag">label</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-check disabled&quot;</span>&gt;&lt;<span class="tok-tag">input</span> <span class="tok-attr">type</span>=<span class="tok-str">&quot;checkbox&quot;</span> checked disabled&gt;禁用已选&lt;/<span class="tok-tag">label</span>&gt;
+&lt;/<span class="tok-tag">div</span>&gt;</code></pre>
+    </div>
+    </section><section class="api-sec" id="radio">
+      <h3 class="api-title">单选框<span class="api-en">Radio</span></h3>
+      <p class="api-desc">在一组互斥的选项中选择一项。</p>
+      <div class="api-demo"><div class="checkbox-row">
+        <label class="a-check"><input type="radio" name="a-radio" checked>线上支付</label>
+        <label class="a-check"><input type="radio" name="a-radio">对公转账</label>
+        <label class="a-check"><input type="radio" name="a-radio">账期结算</label>
+        <label class="a-check disabled"><input type="radio" name="a-radio" disabled>暂不支持</label>
+      </div></div>
+      <div class="api-src-wrap">
+      <div class="api-src-bar">
+        <button class="api-src-tog" data-api-src>
+          <i class="fa-solid fa-code"></i><span>查看代码</span>
+          <i class="fa-solid fa-chevron-down api-src-caret"></i>
+        </button>
+        <button class="api-src-copy" data-api-copy title="复制代码">
+          <i class="fa-regular fa-copy"></i><span>复制</span>
+        </button>
+      </div>
+      <pre class="api-src hidden"><code>&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;checkbox-row&quot;</span>&gt;
+  &lt;<span class="tok-tag">label</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-check&quot;</span>&gt;&lt;<span class="tok-tag">input</span> <span class="tok-attr">type</span>=<span class="tok-str">&quot;radio&quot;</span> <span class="tok-attr">name</span>=<span class="tok-str">&quot;a-radio&quot;</span> checked&gt;线上支付&lt;/<span class="tok-tag">label</span>&gt;
+  &lt;<span class="tok-tag">label</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-check&quot;</span>&gt;&lt;<span class="tok-tag">input</span> <span class="tok-attr">type</span>=<span class="tok-str">&quot;radio&quot;</span> <span class="tok-attr">name</span>=<span class="tok-str">&quot;a-radio&quot;</span>&gt;对公转账&lt;/<span class="tok-tag">label</span>&gt;
+  &lt;<span class="tok-tag">label</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-check&quot;</span>&gt;&lt;<span class="tok-tag">input</span> <span class="tok-attr">type</span>=<span class="tok-str">&quot;radio&quot;</span> <span class="tok-attr">name</span>=<span class="tok-str">&quot;a-radio&quot;</span>&gt;账期结算&lt;/<span class="tok-tag">label</span>&gt;
+  &lt;<span class="tok-tag">label</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-check disabled&quot;</span>&gt;&lt;<span class="tok-tag">input</span> <span class="tok-attr">type</span>=<span class="tok-str">&quot;radio&quot;</span> <span class="tok-attr">name</span>=<span class="tok-str">&quot;a-radio&quot;</span> disabled&gt;暂不支持&lt;/<span class="tok-tag">label</span>&gt;
+&lt;/<span class="tok-tag">div</span>&gt;</code></pre>
+    </div>
+    </section><section class="api-sec" id="switch">
+      <h3 class="api-title">开关<span class="api-en">Switch</span></h3>
+      <p class="api-desc">表示两种互斥状态之间的切换。</p>
+      <div class="api-demo"><div class="api-row"><button class="switch on" tn-data="switch" data-switch><span class="switch-dot"></span></button>
+        <button class="switch" tn-data="switch" data-switch><span class="switch-dot"></span></button>
+        <button class="switch on" tn-data="switch" disabled><span class="switch-dot"></span></button>
+        <span class="tiny muted" data-no-code>开启 / 关闭 / 禁用</span></div></div>
+      <div class="api-src-wrap">
+      <div class="api-src-bar">
+        <button class="api-src-tog" data-api-src>
+          <i class="fa-solid fa-code"></i><span>查看代码</span>
+          <i class="fa-solid fa-chevron-down api-src-caret"></i>
+        </button>
+        <button class="api-src-copy" data-api-copy title="复制代码">
+          <i class="fa-regular fa-copy"></i><span>复制</span>
+        </button>
+      </div>
+      <pre class="api-src hidden"><code>&lt;<span class="tok-tag">button</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;switch on&quot;</span> data-switch&gt;&lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;switch-dot&quot;</span>&gt;&lt;/<span class="tok-tag">span</span>&gt;&lt;/<span class="tok-tag">button</span>&gt;
+&lt;<span class="tok-tag">button</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;switch&quot;</span> data-switch&gt;&lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;switch-dot&quot;</span>&gt;&lt;/<span class="tok-tag">span</span>&gt;&lt;/<span class="tok-tag">button</span>&gt;
+&lt;<span class="tok-tag">button</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;switch on&quot;</span> disabled&gt;&lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;switch-dot&quot;</span>&gt;&lt;/<span class="tok-tag">span</span>&gt;&lt;/<span class="tok-tag">button</span>&gt;</code></pre>
+    </div>
+    </section><section class="api-sec" id="slider">
+      <h3 class="api-title">滑动输入条<span class="api-en">Slider</span></h3>
+      <p class="api-desc">通过拖动滑块在数值区间内取值。</p>
+      <div class="api-demo"><div class="a-slider">
+        <input type="range" min="0" max="100" value="40">
+      </div>
+      <div class="tiny muted" style="margin-top:8px">当前值：40</div></div>
+      <div class="api-src-wrap">
+      <div class="api-src-bar">
+        <button class="api-src-tog" data-api-src>
+          <i class="fa-solid fa-code"></i><span>查看代码</span>
+          <i class="fa-solid fa-chevron-down api-src-caret"></i>
+        </button>
+        <button class="api-src-copy" data-api-copy title="复制代码">
+          <i class="fa-regular fa-copy"></i><span>复制</span>
+        </button>
+      </div>
+      <pre class="api-src hidden"><code>&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-slider&quot;</span>&gt;&lt;<span class="tok-tag">input</span> <span class="tok-attr">type</span>=<span class="tok-str">&quot;range&quot;</span> <span class="tok-attr">min</span>=<span class="tok-str">&quot;0&quot;</span> <span class="tok-attr">max</span>=<span class="tok-str">&quot;100&quot;</span> <span class="tok-attr">value</span>=<span class="tok-str">&quot;40&quot;</span>&gt;&lt;/<span class="tok-tag">div</span>&gt;
+&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;tiny muted&quot;</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;margin-top:8px&quot;</span>&gt;当前值：40&lt;/<span class="tok-tag">div</span>&gt;</code></pre>
+    </div>
+    </section><section class="api-sec" id="rate">
+      <h3 class="api-title">评分<span class="api-en">Rate</span></h3>
+      <p class="api-desc">对事物进行星级评价。</p>
+      <div class="api-demo"><div class="a-rate" tn-data="rate" data-rate>
+        <i class="on">★</i><i class="on">★</i><i class="on">★</i><i class="on">★</i><i>★</i>
+      </div>
+      <div class="tiny muted" style="margin-top:8px" data-no-code>点击星星可修改评分</div></div>
+      <div class="api-src-wrap">
+      <div class="api-src-bar">
+        <button class="api-src-tog" data-api-src>
+          <i class="fa-solid fa-code"></i><span>查看代码</span>
+          <i class="fa-solid fa-chevron-down api-src-caret"></i>
+        </button>
+        <button class="api-src-copy" data-api-copy title="复制代码">
+          <i class="fa-regular fa-copy"></i><span>复制</span>
+        </button>
+      </div>
+      <pre class="api-src hidden"><code>&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-rate&quot;</span> data-rate&gt;
+  &lt;<span class="tok-tag">i</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;on&quot;</span>&gt;★&lt;/<span class="tok-tag">i</span>&gt;
+  &lt;<span class="tok-tag">i</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;on&quot;</span>&gt;★&lt;/<span class="tok-tag">i</span>&gt;
+  &lt;<span class="tok-tag">i</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;on&quot;</span>&gt;★&lt;/<span class="tok-tag">i</span>&gt;
+  &lt;<span class="tok-tag">i</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;on&quot;</span>&gt;★&lt;/<span class="tok-tag">i</span>&gt;
+  &lt;<span class="tok-tag">i</span>&gt;★&lt;/<span class="tok-tag">i</span>&gt;
+&lt;/<span class="tok-tag">div</span>&gt;</code></pre>
+    </div>
+    </section><section class="api-sec" id="upload">
+      <h3 class="api-title">上传<span class="api-en">Upload</span></h3>
+      <p class="api-desc">上传文件或图片，支持点击与拖拽。</p>
+      <div class="api-demo"><div class="a-space" style="align-items:flex-start;gap:20px;flex-wrap:wrap">
+        <div class="a-upload"><span class="a-upload-plus">+</span><span>上传文件</span></div>
+        <div>
+          <div class="a-upload-list">
+            <div>📄 需求说明书.pdf <span class="muted">2.4 MB</span></div>
+            <div>🖼 界面截图.png <span class="muted">860 KB</span></div>
+          </div>
+        </div>
+      </div></div>
+      <div class="api-src-wrap">
+      <div class="api-src-bar">
+        <button class="api-src-tog" data-api-src>
+          <i class="fa-solid fa-code"></i><span>查看代码</span>
+          <i class="fa-solid fa-chevron-down api-src-caret"></i>
+        </button>
+        <button class="api-src-copy" data-api-copy title="复制代码">
+          <i class="fa-regular fa-copy"></i><span>复制</span>
+        </button>
+      </div>
+      <pre class="api-src hidden"><code>&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-space&quot;</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;align-items:flex-start;gap:20px;flex-wrap:wrap&quot;</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-upload&quot;</span>&gt;
+    &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-upload-plus&quot;</span>&gt;+&lt;/<span class="tok-tag">span</span>&gt;
+    &lt;<span class="tok-tag">span</span>&gt;上传文件&lt;/<span class="tok-tag">span</span>&gt;
+  &lt;/<span class="tok-tag">div</span>&gt;
+  &lt;<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-upload-list&quot;</span>&gt;
+      &lt;<span class="tok-tag">div</span>&gt;
+        📄 需求说明书.pdf
+        &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;muted&quot;</span>&gt;2.4 MB&lt;/<span class="tok-tag">span</span>&gt;
+      &lt;/<span class="tok-tag">div</span>&gt;
+      &lt;<span class="tok-tag">div</span>&gt;
+        🖼 界面截图.png
+        &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;muted&quot;</span>&gt;860 KB&lt;/<span class="tok-tag">span</span>&gt;
+      &lt;/<span class="tok-tag">div</span>&gt;
+    &lt;/<span class="tok-tag">div</span>&gt;
+  &lt;/<span class="tok-tag">div</span>&gt;
+&lt;/<span class="tok-tag">div</span>&gt;</code></pre>
+    </div>
+    </section>
+      </div>
+    </div>

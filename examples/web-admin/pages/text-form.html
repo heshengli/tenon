@@ -1,0 +1,45 @@
+<div class="stack" data-page="text-form" data-script="text-form">
+        <section class="card">
+          <div class="card-hd"><span>有文本输入的表单</span>
+            <span class="card-extra tiny muted">多行文本 + 字数统计 + 提交校验</span></div>
+          <div class="card-bd">
+            <form id="text-form" novalidate>
+              <div class="form-grid">
+                <label class="field"><span class="field-label">标题 <span class="req">*</span></span>
+                  <input class="input" name="title" placeholder="请概括本次反馈的主题">
+                  <span class="err-text"></span></label>
+                <label class="field"><span class="field-label">反馈类型</span>
+                  <select class="select" name="type">
+                    <option>功能建议</option><option>缺陷反馈</option><option>使用咨询</option><option>其它</option>
+                  </select></label>
+              </div>
+
+              <label class="field">
+                <span class="field-label">详细描述 <span class="req">*</span>
+                  <span class="counter" data-counter-for="desc">0 / 500</span></span>
+                <textarea class="textarea" name="desc" rows="5" maxlength="500"
+                  placeholder="请尽量描述清楚复现步骤、期望结果与实际结果…"></textarea>
+                <span class="err-text"></span>
+              </label>
+
+              <label class="field">
+                <span class="field-label">补充说明
+                  <span class="counter" data-counter-for="extra">0 / 200</span></span>
+                <textarea class="textarea" name="extra" rows="3" maxlength="200"
+                  placeholder="选填：环境、账号、相关截图链接等"></textarea>
+              </label>
+
+              <label class="field">
+                <span class="field-label">处理备注（只读）</span>
+                <textarea class="textarea" rows="2" disabled>由受理人填写，提交后不可修改。</textarea>
+              </label>
+
+              <div class="form-actions">
+                <button class="btn btn-primary" type="submit">提 交</button>
+                <button class="btn btn-default" type="reset" data-reset-counter>重 置</button>
+                <span class="tiny muted" style="align-self:center">文本域联动字数统计，超出上限自动截断</span>
+              </div>
+            </form>
+          </div>
+        </section>
+      </div>

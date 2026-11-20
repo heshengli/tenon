@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-app="web-admin">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Admin · Tenon 框架演示</title>
+  <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/demo-pages.css">
+  <link rel="stylesheet" href="assets/css/antd.css">
+  <link rel="stylesheet" href="assets/css/workplace.css">
+  <link rel="stylesheet" href="assets/css/theme.css">
+  <!-- 框架在 ../../src（项目根的 src/）。内核必须最先，主题与鉴权依赖它 -->
+  <script src="../../src/core/tenon.core.js"></script>
+  <script src="../../src/shell/tenon.theme.js"></script>
+  <script src="../../src/shell/tenon.auth.js"></script>
+  <script>Tenon.auth.guard();</script>
+</head>
+<body>
+  <div class="app">
+    <!-- ============================================================
+         侧边菜单 —— 纯 HTML，没有配置文件
+         分组：.menu-group > .menu-parent[data-group] + .menu-children
+         菜单项：a.menu-item[href=片段地址][data-view=页签 id]
+         页签标题、面包屑分组都从这里读，改菜单只改这段 HTML
+         ============================================================ -->
+    <aside class="sider">
+      <div class="logo">
+        <span class="logo-mark"><img src="../../src/tenon-mark.svg" alt="" width="26" height="26"></span>
+        <div>
+          <div class="logo-title">Web Admin</div>
+          <div class="logo-sub">Tenon 框架演示</div>
+        </div>
+      </div>
+
+      <nav id="menu" class="menu">
+        <div class="menu-group" data-group-key="group-0">
+          <button class="menu-parent" data-group>
+            <span class="mi"><i class="fa-solid fa-gauge-high"></i></span>
+            <span class="mt">仪表盘</span>
+            <span class="chev"><i class="fa-solid fa-chevron-down"></i></span>
+          </button>
+          <div class="menu-children">
+            <a class="menu-item" href="pages/dashboard.html" data-view="dashboard">工作台</a>
+            <a class="menu-item" href="pages/chart.html" data-view="chart">分析页</a>
+          </div>
+        </div>
+
+        <div class="menu-group collapsed" data-group-key="group-1">
+          <button class="menu-parent" data-group>
+            <span class="mi"><i class="fa-solid fa-table-columns"></i></span>
+            <span class="mt">数据管理</span>
+            <span class="chev"><i class="fa-solid fa-chevron-down"></i></span>
+          </button>
+          <div class="menu-children">
+            <a class="menu-item" href="pages/users.html" data-view="users">用户管理</a>
+            <a class="menu-item" href="pages/query.html" data-view="query">客户查询</a>
+          </div>
+        </div>
+
+        <div class="menu-group collapsed" data-group-key="group-2">
+          <button class="menu-parent" data-group>
+            <span class="mi"><i class="fa-solid fa-file-lines"></i></span>
+            <span class="mt">典型页面</span>
+            <span class="chev"><i class="fa-solid fa-chevron-down"></i></span>
+          </button>
+          <div class="menu-children">
+            <a class="menu-item" href="pages/my-customers.html" data-view="my-customers">查询我的客户</a>
+            <a class="menu-item" href="pages/form-query.html" data-view="form-query">表单查询页面</a>
+            <a class="menu-item" href="pages/form.html" data-view="form">表单录入页面</a>
+            <a class="menu-item" href="pages/text-form.html" data-view="text-form">有文本输入的表单</a>
+            <a class="menu-item" href="pages/form-tips.html" data-view="form-tips">有提示的表单输入</a>
+            <a class="menu-item" href="pages/tab-chart.html" data-view="tab-chart">选项卡和图形</a>
+            <a class="menu-item" href="pages/tab-chart-switch.html" data-view="tab-chart-switch">选项卡切换图形</a>
+            <a class="menu-item" href="pages/interact.html" data-view="interact">左右两个互动</a>
+            <a class="menu-item" href="pages/list-input.html" data-view="list-input">列表输入</a>
+            <a class="menu-item" href="pages/two-level-list.html" data-view="two-level-list">双层栏目列表</a>
+          </div>
+        </div>
+
+        <div class="menu-group collapsed" data-group-key="group-3">
+          <button class="menu-parent" data-group>
+            <span class="mi"><i class="fa-solid fa-table-cells-large"></i></span>
+            <span class="mt">交互组件</span>
+            <span class="chev"><i class="fa-solid fa-chevron-down"></i></span>
+          </button>
+          <div class="menu-children">
+            <a class="menu-item" href="pages/tabs.html" data-view="tabs">选项卡面板</a>
+            <a class="menu-item" href="pages/dialog.html" data-view="dialog">弹窗</a>
+            <a class="menu-item" href="pages/alert.html" data-view="alert">提示</a>
+            <a class="menu-item" href="pages/tree.html" data-view="tree">树形菜单</a>
+          </div>
+        </div>
+
+        <div class="menu-group collapsed" data-group-key="group-4">
+          <button class="menu-parent" data-group>
+            <span class="mi"><i class="fa-solid fa-layer-group"></i></span>
+            <span class="mt">组件库</span>
+            <span class="chev"><i class="fa-solid fa-chevron-down"></i></span>
+          </button>
+          <div class="menu-children">
+            <a class="menu-item" href="pages/antd-general.html" data-view="antd-general">通用</a>
+            <a class="menu-item" href="pages/antd-layout.html" data-view="antd-layout">布局</a>
+            <a class="menu-item" href="pages/antd-nav.html" data-view="antd-nav">导航</a>
+            <a class="menu-item" href="pages/antd-entry.html" data-view="antd-entry">数据录入</a>
+            <a class="menu-item" href="pages/antd-display.html" data-view="antd-display">数据展示</a>
+            <a class="menu-item" href="pages/antd-feedback.html" data-view="antd-feedback">反馈</a>
+            <a class="menu-item" href="pages/antd-other.html" data-view="antd-other">其他</a>
+            <a class="menu-item" href="pages/kit-gallery.html" data-view="kit-gallery">框架能力</a>
+          </div>
+        </div>
+
+        <div class="menu-group collapsed" data-group-key="group-5">
+          <button class="menu-parent" data-group>
+            <span class="mi"><i class="fa-solid fa-diagram-project"></i></span>
+            <span class="mt">流程</span>
+            <span class="chev"><i class="fa-solid fa-chevron-down"></i></span>
+          </button>
+          <div class="menu-children">
+            <a class="menu-item" href="pages/flow-todo.html" data-view="flow-todo">待办任务</a>
+            <a class="menu-item" href="pages/flow-new.html" data-view="flow-new">新建流程</a>
+            <a class="menu-item" href="pages/flow-mine.html" data-view="flow-mine">我的流程</a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- 不进侧边栏、但要有页签标题与面包屑的页面 -->
+      <div id="menu-extra" hidden>
+        <a class="menu-item" href="pages/profile.html" data-view="profile" data-group="账号">个人中心</a>
+      </div>
+
+      <div class="sider-foot">Tenon v2.0.0 · 框架在 ../../src · 本目录只是 demo</div>
+    </aside>
+
+    <div class="main">
+      <header class="header">
+        <button class="header-btn" id="sider-toggle" title="收起菜单" aria-label="收起菜单">
+          <i class="fa-solid fa-outdent"></i>
+        </button>
+
+        <div class="user-wrap">
+          <button class="icon-btn" id="lang-trigger" title="切换语言" aria-label="切换语言">
+            <span class="lang-code" id="lang-code">EN</span>
+          </button>
+          <button class="icon-btn" id="theme-trigger" title="主题设置" aria-label="主题设置">
+            <i class="fa-solid fa-gear"></i>
+          </button>
+          <button class="user" id="user-trigger" aria-haspopup="menu" aria-expanded="false" title="账号">
+            <span class="avatar" id="user-avatar">A</span>
+            <span class="user-name" id="user-name">admin</span>
+          </button>
+        </div>
+      </header>
+
+      <div class="tabbar-wrap">
+        <button class="tab-scroll hidden" data-tab-scroll="-1" title="向左" aria-label="向左滚动页签">
+          <i class="fa-solid fa-angle-left"></i>
+        </button>
+        <div class="tabbar" id="tabbar" data-sync="hash"></div>
+        <button class="tab-scroll hidden" data-tab-scroll="1" title="向右" aria-label="向右滚动页签">
+          <i class="fa-solid fa-angle-right"></i>
+        </button>
+        <button class="tab-more hidden" id="tab-more" title="全部标签页" aria-label="全部标签页">
+          <i class="fa-solid fa-ellipsis-vertical"></i>
+        </button>
+      </div>
+
+      <div class="pagehead">
+        <nav class="crumb" id="crumb"></nav>
+      </div>
+
+      <main id="workarea" class="workarea">
+        <div class="empty">正在加载…</div>
+      </main>
+    </div>
+  </div>
+
+  <!-- 账号下拉：同样写成 HTML，tenon.dropdown 只负责定位与开合 -->
+  <div class="dropdown user-menu hidden" id="user-menu" role="menu">
+    <button class="dropdown-item" role="menuitem" data-user="profile">
+      <i class="fa-regular fa-user dd-ico"></i><span>个人中心</span>
+    </button>
+    <button class="dropdown-item" role="menuitem" data-user="setting">
+      <i class="fa-solid fa-gear dd-ico"></i><span>个人设置</span>
+    </button>
+    <div class="dropdown-divider"></div>
+    <button class="dropdown-item" role="menuitem" data-user="logout">
+      <i class="fa-solid fa-arrow-right-from-bracket dd-ico"></i><span>退出登录</span>
+    </button>
+  </div>
+
+  <div id="toast-root" class="toast-root"></div>
+
+  <!-- Mock 数据与接口（生产环境可移除） -->
+  <script src="mock/db.js"></script>
+
+  <!-- 内核：DOM 工具 / 组件注册表 / 扫描器（不认识任何类名） -->
+  <script src="../../src/core/tenon.dom.js"></script>
+  <script src="../../src/core/tenon.registry.js"></script>
+  <script src="../../src/core/tenon.i18n.js"></script>
+  <script src="../../src/i18n/tenon.zh-CN.js"></script>
+  <script src="../../src/i18n/tenon.en.js"></script>
+
+  <!-- 套件：先接口与兜底实现，再挂上 Ant Design 皮肤 -->
+  <script src="../../src/ui/tenon.kit.js"></script>
+  <script src="../../src/ui/tenon.kit.antd.js"></script>
+
+  <!-- 反馈类控件 / 请求 / 下拉定位 -->
+  <script src="../../src/ui/tenon.ui.js"></script>
+  <script src="../../src/shell/tenon.ajax.js"></script>
+  <script src="../../src/ui/tenon.dropdown.js"></script>
+
+  <!-- 控件：每个文件一个控件，靠 tn-data 声明被扫描初始化 -->
+  <script src="../../src/ui/tenon.tabs.js"></script>
+  <script src="../../src/ui/tenon.switch.js"></script>
+  <script src="../../src/ui/tenon.collapse.js"></script>
+  <script src="../../src/ui/tenon.segmented.js"></script>
+  <script src="../../src/ui/tenon.rate.js"></script>
+  <script src="../../src/ui/tenon.optionlist.js"></script>
+  <script src="../../src/ui/tenon.popover.js"></script>
+  <script src="../../src/ui/tenon.select.js"></script>
+  <script src="../../src/ui/tenon.cascader.js"></script>
+  <script src="../../src/ui/tenon.upload.js"></script>
+  <script src="../../src/ui/tenon.dialog.js"></script>
+  <script src="../../src/ui/tenon.tree.js"></script>
+  <script src="../../src/ui/tenon.table.js"></script>
+  <script src="../../src/ui/tenon.form.js"></script>
+  <script src="../../src/ui/tenon.chart.js"></script>
+
+  <!-- 本 demo 自己的控件：同样走 Tenon.component 注册，不进框架 -->
+  <script src="demo/demo.codesample.js"></script>
+  <script src="demo/demo.anchor.js"></script>
+
+  <!-- 外壳：页签 / 侧边菜单 / 启动 -->
+  <script src="../../src/shell/tenon.navtab.js"></script>
+  <script src="../../src/shell/tenon.accordion.js"></script>
+  <script src="demo/demo.i18n.js"></script>
+  <script src="demo/demo.boot.js"></script>
+</body>
+</html>

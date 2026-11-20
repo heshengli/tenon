@@ -1,0 +1,54 @@
+/* ===========================================================
+   Design Tokens — Ant Design 5 / Pro 视觉规范
+   -----------------------------------------------------------
+   --primary 系列由 src/shell/tenon.theme.js 在运行时覆盖，
+   其余组件只允许引用变量，禁止写死主题色。
+   =========================================================== */
+:root {
+  /* 主题色（运行时可变） */
+  --primary: #1677ff;
+  --primary-hover: #4096ff;
+  --primary-active: #0958d9;
+  --primary-bg: #e6f4ff;
+  --primary-border: #91caff;
+
+  /* 功能色 */
+  --success: #52c41a;
+  --success-bg: #f6ffed;
+  --success-border: #b7eb8f;
+
+  --warning: #faad14;
+  --warning-bg: #fffbe6;
+  --warning-border: #ffe58f;
+
+  --danger: #ff4d4f;
+  --danger-bg: #fff2f0;
+  --danger-border: #ffccc7;
+
+  /* 文本 */
+  --text: #1f1f1f;
+  --text-2: #595959;
+  --text-3: #8c8c8c;
+  --text-4: #bfbfbf;
+
+  /* 边框 / 背景 */
+  --border: #d9d9d9;
+  --border-2: #f0f0f0;
+  --bg: #f0f2f5;          /* Pro 页面底色 */
+  --bg-2: #fafafa;
+  --white: #ffffff;
+
+  /* 形状与阴影 */
+  --radius: 6px;
+  --radius-lg: 8px;
+  --shadow: 0 6px 16px rgba(0, 0, 0, .08), 0 3px 6px -4px rgba(0, 0, 0, .12);
+  --shadow-card: 0 1px 2px 0 rgba(0, 0, 0, .03), 0 1px 6px -1px rgba(0, 0, 0, .02);
+
+  /* 字体 */
+  --font: -apple-system, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* 布局尺寸 */
+  --sider-w: 224px;
+  --header-h: 56px;
+}

@@ -1,0 +1,22 @@
+<div data-page="hello">
+  <section tn-data-part="card">
+    <h2>最小页面</h2>
+    <p>
+      这是一个页面片段：没有 <code>html/head/body</code>，只有一个根元素，
+      根上带 <code>data-page</code>。页签第一次打开时它才被 fetch 下来。
+    </p>
+    <p tn-data-part="muted">
+      想加行为就写 <code>data-script="名字"</code>，框架会去
+      <code>pages-script/名字.js</code> 取脚本并调用 <code>Tenon.page.define</code> 注册的回调。
+    </p>
+  </section>
+
+  <section tn-data-part="card">
+    <h2>这一页没有一行 JS</h2>
+    <ul>
+      <li>页签、面包屑、菜单高亮、地址栏同步 —— 都由外壳负责</li>
+      <li>页面的长相 —— 全在 <code>skin.css</code> 里</li>
+      <li>页面自己 —— 只有这段 HTML</li>
+    </ul>
+  </section>
+</div>

@@ -1,0 +1,209 @@
+<div class="api-page" data-page="antd-general">
+      <aside class="api-nav">
+        <div class="api-nav-title">通用 · 4 个组件</div>
+        <a href="#btn" data-anchor="btn" class="active">
+        <span>按钮</span><span class="api-nav-en">Button</span>
+      </a><a href="#icon" data-anchor="icon" class="">
+        <span>图标</span><span class="api-nav-en">Icon</span>
+      </a><a href="#typography" data-anchor="typography" class="">
+        <span>排版</span><span class="api-nav-en">Typography</span>
+      </a><a href="#float-button" data-anchor="float-button" class="">
+        <span>悬浮按钮</span><span class="api-nav-en">FloatButton</span>
+      </a>
+      </aside>
+      <div class="api-body">
+        <div class="api-hero">
+          <h2>通用</h2>
+          <p>通用组件是构成界面的最小单元：按钮、图标、排版与悬浮按钮。它们是所有业务页面的基础素材。</p>
+          <div class="api-hero-tags">
+            <span class="tag tag-blue">Button</span><span class="tag tag-blue">Icon</span><span class="tag tag-blue">Typography</span><span class="tag tag-blue">FloatButton</span>
+          </div>
+        </div>
+        <section class="api-sec" id="btn">
+      <h3 class="api-title">按钮<span class="api-en">Button</span></h3>
+      <p class="api-desc">按钮用于开始一个即时操作。提供实心、描边、虚线、文字、链接五种形态，以及三种尺寸与加载状态。</p>
+      <div class="api-demo"><div class="api-block"><div class="api-label">按钮类型</div><div class="api-row">
+        <button class="btn btn-primary">主要按钮</button>
+        <button class="btn btn-default">默认按钮</button>
+        <button class="btn btn-dashed">虚线按钮</button>
+        <button class="btn btn-text">文字按钮</button>
+        <button class="btn btn-link">链接按钮</button>
+        <button class="btn btn-danger">危险按钮</button>
+        <button class="btn btn-danger-solid">危险实心</button></div></div><div class="api-block"><div class="api-label">按钮尺寸</div><div class="api-row">
+        <button class="btn btn-primary btn-lg">大按钮</button>
+        <button class="btn btn-primary">默认</button>
+        <button class="btn btn-primary btn-sm">小按钮</button></div></div><div class="api-block"><div class="api-label">图标与圆角</div><div class="api-row">
+        <button class="btn btn-primary"><span class="a-icon "><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>新建</button>
+        <button class="btn btn-default"><span class="a-icon "><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 11l5 5 5-5"/><path d="M4 20h16"/></svg></span>导出</button>
+        <button class="btn btn-default btn-round">圆角按钮</button>
+        <button class="btn btn-primary btn-loading">加载中</button></div></div><div class="api-block"><div class="api-label">禁用状态</div><div class="api-row">
+        <button class="btn btn-primary" disabled>主要禁用</button>
+        <button class="btn btn-default" disabled>默认禁用</button>
+        <button class="btn btn-dashed" disabled>虚线禁用</button></div></div></div>
+      <div class="api-src-wrap">
+      <div class="api-src-bar">
+        <button class="api-src-tog" data-api-src>
+          <i class="fa-solid fa-code"></i><span>查看代码</span>
+          <i class="fa-solid fa-chevron-down api-src-caret"></i>
+        </button>
+        <button class="api-src-copy" data-api-copy title="复制代码">
+          <i class="fa-regular fa-copy"></i><span>复制</span>
+        </button>
+      </div>
+      <pre class="api-src hidden"><code><span class="tok-com">&lt;!-- 按钮类型 --&gt;</span>
+&lt;<span class="tok-tag">button</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;btn btn-primary&quot;</span>&gt;主要按钮&lt;/<span class="tok-tag">button</span>&gt;
+&lt;<span class="tok-tag">button</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;btn btn-default&quot;</span>&gt;默认按钮&lt;/<span class="tok-tag">button</span>&gt;
+&lt;<span class="tok-tag">button</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;btn btn-dashed&quot;</span>&gt;虚线按钮&lt;/<span class="tok-tag">button</span>&gt;
+&lt;<span class="tok-tag">button</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;btn btn-text&quot;</span>&gt;文字按钮&lt;/<span class="tok-tag">button</span>&gt;
+&lt;<span class="tok-tag">button</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;btn btn-link&quot;</span>&gt;链接按钮&lt;/<span class="tok-tag">button</span>&gt;
+&lt;<span class="tok-tag">button</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;btn btn-danger&quot;</span>&gt;危险按钮&lt;/<span class="tok-tag">button</span>&gt;
+&lt;<span class="tok-tag">button</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;btn btn-danger-solid&quot;</span>&gt;危险实心&lt;/<span class="tok-tag">button</span>&gt;
+<span class="tok-com">&lt;!-- 按钮尺寸 --&gt;</span>
+&lt;<span class="tok-tag">button</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;btn btn-primary btn-lg&quot;</span>&gt;大按钮&lt;/<span class="tok-tag">button</span>&gt;
+&lt;<span class="tok-tag">button</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;btn btn-primary&quot;</span>&gt;默认&lt;/<span class="tok-tag">button</span>&gt;
+&lt;<span class="tok-tag">button</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;btn btn-primary btn-sm&quot;</span>&gt;小按钮&lt;/<span class="tok-tag">button</span>&gt;
+<span class="tok-com">&lt;!-- 图标与圆角 --&gt;</span>
+&lt;<span class="tok-tag">button</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;btn btn-primary&quot;</span>&gt;&lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-icon&quot;</span>&gt;<span class="tok-com">&lt;!-- svg --&gt;</span>&lt;/<span class="tok-tag">span</span>&gt;新建&lt;/<span class="tok-tag">button</span>&gt;
+&lt;<span class="tok-tag">button</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;btn btn-default&quot;</span>&gt;&lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-icon&quot;</span>&gt;<span class="tok-com">&lt;!-- svg --&gt;</span>&lt;/<span class="tok-tag">span</span>&gt;导出&lt;/<span class="tok-tag">button</span>&gt;
+&lt;<span class="tok-tag">button</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;btn btn-default btn-round&quot;</span>&gt;圆角按钮&lt;/<span class="tok-tag">button</span>&gt;
+&lt;<span class="tok-tag">button</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;btn btn-primary btn-loading&quot;</span>&gt;加载中&lt;/<span class="tok-tag">button</span>&gt;
+<span class="tok-com">&lt;!-- 禁用状态 --&gt;</span>
+&lt;<span class="tok-tag">button</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;btn btn-primary&quot;</span> disabled&gt;主要禁用&lt;/<span class="tok-tag">button</span>&gt;
+&lt;<span class="tok-tag">button</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;btn btn-default&quot;</span> disabled&gt;默认禁用&lt;/<span class="tok-tag">button</span>&gt;
+&lt;<span class="tok-tag">button</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;btn btn-dashed&quot;</span> disabled&gt;虚线禁用&lt;/<span class="tok-tag">button</span>&gt;</code></pre>
+    </div>
+    </section><section class="api-sec" id="icon">
+      <h3 class="api-title">图标<span class="api-en">Icon</span></h3>
+      <p class="api-desc">语义化的矢量图标，颜色继承 currentColor，随主题色变化。</p>
+      <div class="api-demo"><div class="a-icon-list">
+        <div class="a-icon-cell"><span class="a-icon "><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5L12 3l9 7.5"/><path d="M5.5 9.5V21h13V9.5"/></svg></span><span>home</span></div><div class="a-icon-cell"><span class="a-icon "><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20.5c0-3.6 3.4-6 7.5-6s7.5 2.4 7.5 6"/></svg></span><span>user</span></div><div class="a-icon-cell"><span class="a-icon "><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 3v2.5M12 18.5V21M3 12h2.5M18.5 12H21M5.6 5.6l1.8 1.8M16.6 16.6l1.8 1.8M18.4 5.6l-1.8 1.8M7.4 16.6l-1.8 1.8"/></svg></span><span>setting</span></div><div class="a-icon-cell"><span class="a-icon "><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg></span><span>search</span></div><div class="a-icon-cell"><span class="a-icon "><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span><span>plus</span></div><div class="a-icon-cell"><span class="a-icon "><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M9 7V4.5h6V7M6 7l1 13h10l1-13"/></svg></span><span>trash</span></div><div class="a-icon-cell"><span class="a-icon "><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-9"/><path d="M18.5 2.5a2.1 2.1 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></span><span>edit</span></div><div class="a-icon-cell"><span class="a-icon "><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 1 0-12 0c0 6-3 7-3 7h18s-3-1-3-7"/><path d="M10.5 20a2 2 0 0 0 3 0"/></svg></span><span>bell</span></div><div class="a-icon-cell"><span class="a-icon "><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><span>mail</span></div><div class="a-icon-cell"><span class="a-icon "><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M12 3.5l2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 10l6.1-.9L12 3.5z"/></svg></span><span>star</span></div><div class="a-icon-cell"><span class="a-icon "><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 11l5 5 5-5"/><path d="M4 20h16"/></svg></span><span>download</span></div>
+      </div>
+      <div class="api-code">尺寸：.a-icon（16px）· .a-icon-lg（24px）· .a-icon-xl（32px）；图标为内联 SVG，示例代码中折叠为注释</div></div>
+      <div class="api-src-wrap">
+      <div class="api-src-bar">
+        <button class="api-src-tog" data-api-src>
+          <i class="fa-solid fa-code"></i><span>查看代码</span>
+          <i class="fa-solid fa-chevron-down api-src-caret"></i>
+        </button>
+        <button class="api-src-copy" data-api-copy title="复制代码">
+          <i class="fa-regular fa-copy"></i><span>复制</span>
+        </button>
+      </div>
+      <pre class="api-src hidden"><code>&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-icon-list&quot;</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-icon-cell&quot;</span>&gt;
+    &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-icon&quot;</span>&gt;<span class="tok-com">&lt;!-- svg --&gt;</span>&lt;/<span class="tok-tag">span</span>&gt;
+    &lt;<span class="tok-tag">span</span>&gt;home&lt;/<span class="tok-tag">span</span>&gt;
+  &lt;/<span class="tok-tag">div</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-icon-cell&quot;</span>&gt;
+    &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-icon&quot;</span>&gt;<span class="tok-com">&lt;!-- svg --&gt;</span>&lt;/<span class="tok-tag">span</span>&gt;
+    &lt;<span class="tok-tag">span</span>&gt;user&lt;/<span class="tok-tag">span</span>&gt;
+  &lt;/<span class="tok-tag">div</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-icon-cell&quot;</span>&gt;
+    &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-icon&quot;</span>&gt;<span class="tok-com">&lt;!-- svg --&gt;</span>&lt;/<span class="tok-tag">span</span>&gt;
+    &lt;<span class="tok-tag">span</span>&gt;setting&lt;/<span class="tok-tag">span</span>&gt;
+  &lt;/<span class="tok-tag">div</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-icon-cell&quot;</span>&gt;
+    &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-icon&quot;</span>&gt;<span class="tok-com">&lt;!-- svg --&gt;</span>&lt;/<span class="tok-tag">span</span>&gt;
+    &lt;<span class="tok-tag">span</span>&gt;search&lt;/<span class="tok-tag">span</span>&gt;
+  &lt;/<span class="tok-tag">div</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-icon-cell&quot;</span>&gt;
+    &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-icon&quot;</span>&gt;<span class="tok-com">&lt;!-- svg --&gt;</span>&lt;/<span class="tok-tag">span</span>&gt;
+    &lt;<span class="tok-tag">span</span>&gt;plus&lt;/<span class="tok-tag">span</span>&gt;
+  &lt;/<span class="tok-tag">div</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-icon-cell&quot;</span>&gt;
+    &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-icon&quot;</span>&gt;<span class="tok-com">&lt;!-- svg --&gt;</span>&lt;/<span class="tok-tag">span</span>&gt;
+    &lt;<span class="tok-tag">span</span>&gt;trash&lt;/<span class="tok-tag">span</span>&gt;
+  &lt;/<span class="tok-tag">div</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-icon-cell&quot;</span>&gt;
+    &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-icon&quot;</span>&gt;<span class="tok-com">&lt;!-- svg --&gt;</span>&lt;/<span class="tok-tag">span</span>&gt;
+    &lt;<span class="tok-tag">span</span>&gt;edit&lt;/<span class="tok-tag">span</span>&gt;
+  &lt;/<span class="tok-tag">div</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-icon-cell&quot;</span>&gt;
+    &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-icon&quot;</span>&gt;<span class="tok-com">&lt;!-- svg --&gt;</span>&lt;/<span class="tok-tag">span</span>&gt;
+    &lt;<span class="tok-tag">span</span>&gt;bell&lt;/<span class="tok-tag">span</span>&gt;
+  &lt;/<span class="tok-tag">div</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-icon-cell&quot;</span>&gt;
+    &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-icon&quot;</span>&gt;<span class="tok-com">&lt;!-- svg --&gt;</span>&lt;/<span class="tok-tag">span</span>&gt;
+    &lt;<span class="tok-tag">span</span>&gt;mail&lt;/<span class="tok-tag">span</span>&gt;
+  &lt;/<span class="tok-tag">div</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-icon-cell&quot;</span>&gt;
+    &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-icon&quot;</span>&gt;<span class="tok-com">&lt;!-- svg --&gt;</span>&lt;/<span class="tok-tag">span</span>&gt;
+    &lt;<span class="tok-tag">span</span>&gt;star&lt;/<span class="tok-tag">span</span>&gt;
+  &lt;/<span class="tok-tag">div</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-icon-cell&quot;</span>&gt;
+    &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-icon&quot;</span>&gt;<span class="tok-com">&lt;!-- svg --&gt;</span>&lt;/<span class="tok-tag">span</span>&gt;
+    &lt;<span class="tok-tag">span</span>&gt;download&lt;/<span class="tok-tag">span</span>&gt;
+  &lt;/<span class="tok-tag">div</span>&gt;
+&lt;/<span class="tok-tag">div</span>&gt;
+<span class="tok-com">&lt;!-- 尺寸：.a-icon（16px）· .a-icon-lg（24px）· .a-icon-xl（32px）；图标为内联 SVG，示例代码中折叠为注释 --&gt;</span></code></pre>
+    </div>
+    </section><section class="api-sec" id="typography">
+      <h3 class="api-title">排版<span class="api-en">Typography</span></h3>
+      <p class="api-desc">文本的基本格式，包含标题层级与语义化文本样式。</p>
+      <div class="api-demo"><div class="a-h1">一级标题 38px</div>
+      <div class="a-h2" style="margin-top:10px">二级标题 30px</div>
+      <div class="a-h3" style="margin-top:10px">三级标题 24px</div>
+      <div class="a-h4" style="margin-top:10px">四级标题 20px</div>
+      <div class="a-h5" style="margin-top:10px">五级标题 16px</div>
+      <hr class="a-divider">
+      <div class="a-space" style="flex-wrap:wrap;gap:16px">
+        <span class="a-text">默认文本</span>
+        <span class="a-text a-text-secondary">次要文本</span>
+        <span class="a-text a-text-success">成功文本</span>
+        <span class="a-text a-text-warning">警告文本</span>
+        <span class="a-text a-text-danger">错误文本</span>
+        <span class="a-text a-text-mark">标记文本</span>
+        <span class="a-text-code">const a = 1;</span>
+      </div>
+      <div class="a-text a-text-ellipsis" style="margin-top:14px">
+        这是一段超长文本，超出宽度后会自动省略并显示为单行截断效果，鼠标悬停可查看完整内容。
+      </div></div>
+      <div class="api-src-wrap">
+      <div class="api-src-bar">
+        <button class="api-src-tog" data-api-src>
+          <i class="fa-solid fa-code"></i><span>查看代码</span>
+          <i class="fa-solid fa-chevron-down api-src-caret"></i>
+        </button>
+        <button class="api-src-copy" data-api-copy title="复制代码">
+          <i class="fa-regular fa-copy"></i><span>复制</span>
+        </button>
+      </div>
+      <pre class="api-src hidden"><code>&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-h1&quot;</span>&gt;一级标题 38px&lt;/<span class="tok-tag">div</span>&gt;
+&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-h2&quot;</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;margin-top:10px&quot;</span>&gt;二级标题 30px&lt;/<span class="tok-tag">div</span>&gt;
+&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-h3&quot;</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;margin-top:10px&quot;</span>&gt;三级标题 24px&lt;/<span class="tok-tag">div</span>&gt;
+&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-h4&quot;</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;margin-top:10px&quot;</span>&gt;四级标题 20px&lt;/<span class="tok-tag">div</span>&gt;
+&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-h5&quot;</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;margin-top:10px&quot;</span>&gt;五级标题 16px&lt;/<span class="tok-tag">div</span>&gt;
+&lt;<span class="tok-tag">hr</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-divider&quot;</span>&gt;
+&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-space&quot;</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;flex-wrap:wrap;gap:16px&quot;</span>&gt;
+  &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-text&quot;</span>&gt;默认文本&lt;/<span class="tok-tag">span</span>&gt;
+  &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-text a-text-secondary&quot;</span>&gt;次要文本&lt;/<span class="tok-tag">span</span>&gt;
+  &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-text a-text-success&quot;</span>&gt;成功文本&lt;/<span class="tok-tag">span</span>&gt;
+  &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-text a-text-warning&quot;</span>&gt;警告文本&lt;/<span class="tok-tag">span</span>&gt;
+  &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-text a-text-danger&quot;</span>&gt;错误文本&lt;/<span class="tok-tag">span</span>&gt;
+  &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-text a-text-mark&quot;</span>&gt;标记文本&lt;/<span class="tok-tag">span</span>&gt;
+  &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-text-code&quot;</span>&gt;const a = 1;&lt;/<span class="tok-tag">span</span>&gt;
+&lt;/<span class="tok-tag">div</span>&gt;
+&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-text a-text-ellipsis&quot;</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;margin-top:14px&quot;</span>&gt;这是一段超长文本，超出宽度后会自动省略并显示为单行截断效果，鼠标悬停可查看完整内容。&lt;/<span class="tok-tag">div</span>&gt;</code></pre>
+    </div>
+    </section><section class="api-sec" id="float-button">
+      <h3 class="api-title">悬浮按钮<span class="api-en">FloatButton</span></h3>
+      <p class="api-desc">漂浮在页面上的快捷操作入口，常用于回到顶部或快速新建。</p>
+      <div class="api-demo"><div class="api-row"><button class="a-float"><span class="a-icon "><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <button class="a-float">↑</button>
+        <span class="tiny muted" data-no-code>实际项目中固定在右下角，此处为静态展示</span></div></div>
+      <div class="api-src-wrap">
+      <div class="api-src-bar">
+        <button class="api-src-tog" data-api-src>
+          <i class="fa-solid fa-code"></i><span>查看代码</span>
+          <i class="fa-solid fa-chevron-down api-src-caret"></i>
+        </button>
+        <button class="api-src-copy" data-api-copy title="复制代码">
+          <i class="fa-regular fa-copy"></i><span>复制</span>
+        </button>
+      </div>
+      <pre class="api-src hidden"><code>&lt;<span class="tok-tag">button</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-float&quot;</span>&gt;&lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-icon&quot;</span>&gt;<span class="tok-com">&lt;!-- svg --&gt;</span>&lt;/<span class="tok-tag">span</span>&gt;&lt;/<span class="tok-tag">button</span>&gt;
+&lt;<span class="tok-tag">button</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-float&quot;</span>&gt;↑&lt;/<span class="tok-tag">button</span>&gt;</code></pre>
+    </div>
+    </section>
+      </div>
+    </div>

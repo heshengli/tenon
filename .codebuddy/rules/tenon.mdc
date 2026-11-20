@@ -1,0 +1,145 @@
+---
+description: Tenon 框架开发约定：零构建、属性驱动、kit 皮肤分层、控件生命周期、回归与文档同步
+globs: src/**/*.js, src/**/*.html, examples/**/*.js, examples/**/*.html, examples/web-admin/index.html, examples/web-admin/pages/*.html, tools/*.js
+alwaysApply: false
+---
+
+# Tenon（榫）开发约定
+
+不打包、不编译、零运行时依赖的后台微框架。**框架只读属性，CSS 只读类名，两边不越界。**
+
+全局命名空间只有 `window.Tenon`，没有别名。依赖方向严格单向：
+
+```
+core  ←  ui  ←  shell  ←  pages
+```
+
+## 分层：新文件放哪
+
+放之前问两句话，答案不一致说明这个文件干了两件事，该拆：
+
+1. 这文件知道 CSS 类名吗？知道 → 不能进 `src/core`。
+2. 换掉皮肤之后要不要改？要改 → 它是 kit，不是控件。
+
+| 层 | 允许知道 | 禁止知道 |
+|---|---|---|
+| `src/core` | 元素、事件、选择器、文案 | 任何类名、颜色、尺寸 |
+| `src/ui` | 逻辑状态名、逻辑部件名 | 物理类名（交给 kit） |
+| `src/shell` | 外壳骨架：页签条、侧边菜单、路由 | 业务数据 |
+| `examples/minimal`、`examples/web-admin` | 业务数据与交互 | 框架内部实现 |
+
+## 属性命名
+
+| 形态 | 谁写谁读 | 用途 |
+|---|---|---|
+| `tn-data="a b"` | 页面写、扫描器读 | 声明控件，空格分隔可多值 |
+| `tn-data-<参数>` | 框架 | 内部参数，如 `tn-data-accordion` |
+| `tn-data-done` | 扫描器 | 初始化标记，不要手写 |
+| `tn-data-part="x"` | kit 写、CSS 读 | 逻辑部件，kebab-case |
+| `tn-data-state-<名>` | kit 写、CSS 读 | 逻辑状态，kebab-case |
+| `data-<短名>` | 页面与控件 | 控件公开参数：`data-page-size` `data-sort` `data-rule` |
+| `data-<业务名>` | 宿主 | 业务数据：`data-row-id` `data-view`，与框架属性永不撞车 |
+
+**参数兼作声明的四个例外**，不要再补 `tn-data`：
+`tn-data-dialog`、`tn-data-dropdown`、`tn-data-validate`、`tn-data-toast`。
+
+所有**运行期拼出来的**属性名必须走 `Tenon.attr(suffix)` 或 `Tenon.PREFIX`，不要手写 `"tn-data-"` 字面量。
+控件选择器必须含 `Tenon.PREFIX`（自检里有断言盯着）；改 `PREFIX` 要连静态选择器和页面标记一起改。
+
+## 新增一个控件
+
+```js
+Tenon.component("rate", {
+  selector: '[tn-data~="rate"]',   // 只读属性，不读类名
+  init(el, root) { /* 返回实例或 null */ },
+  destroy(el, instance) { /* 回收监听与定时器 */ }
+});
+```
+
+硬要求：
+
+- `init` 里只用 `Tenon.kit.setState / hasState / part / node / tpl / icon`，**不出现类名字面量**。
+- 事件一律委托：`Tenon.core.on(root, "click", "[tn-data~=x]", fn)`，因为片段会被整体替换。
+- 定时器、全局监听、`ResizeObserver` 必须在 `destroy` 里解绑（页签关闭与刷新靠它）。
+- 用户操作只派发事件，不直接调业务函数：`tenon:<控件名>`，`bubbles: true`，数据放 `detail`。
+- 需要补 ARIA 时只补语义，不改「哪些是选中态」——初始态由 HTML 决定。
+- 文件头注释写用法示例，示例里的 `tn-data` 不能省。
+
+## kit 规则（换皮肤的唯一开关）
+
+外壳与控件不许知道类名；需要类名、结构、图标的场景一律转给 kit：
+
+```js
+Tenon.kit.setState(item, "open", true);              // 逻辑状态
+box.querySelector(Tenon.kit.part("sortArrow"));      // 逻辑部件
+box.innerHTML = Tenon.kit.pager(page, pages, total); // 片段
+const btn = Tenon.kit.node("tab");                   // 容器
+btn.innerHTML = Tenon.kit.tpl("tab", { id, title }); // 结构
+icon.className = Tenon.kit.icon("fold");             // 图标字体也是皮肤
+```
+
+判据：`src/ui` 与 `src/shell` 的**代码**里搜不到类名字面量（文件头注释里的用法示例除外），
+`class` 只出现在 `tenon.kit.js` / `tenon.kit.antd.js` 与宿主 HTML 里。
+`tenon.kit.js`（`plain` 兜底）必须保持零类名输出 —— `src/showcase/` 的「整页 class 为 0」是这条的实证。
+
+## 页面与页面脚本
+
+页面片段没有 `html/head/body`，只有一个根元素，其中 `data-page` 是页签 id：
+
+```html
+<div data-page="users" data-script="users"> … </div>
+```
+
+- `data-script` 声明后自动加载 `pages-script/<name>.js`；
+- 脚本只注册、不自动执行：`Tenon.page.define("users", (root) => { … })`；
+- 片段必须是幂等静态标记，不能带上一次的运行残留；
+- 刷新链路是 `destroy(pane)` → 重新 fetch → `init(pane)`，不要绕过它手改 DOM。
+
+表单提交后的统一协议交给 `Tenon.ajax.handle(res, ctx)`：`{ statusCode, message, callbackType, navTabId }`，
+页面自己更新过 DOM 时传 `{ skipRefresh: true }`。
+
+## 国际化
+
+- 框架只说自己的话（分页、空态、右键菜单、确定/取消、占位）；业务文案归宿主。
+- 新增词条两份文件都要加：`src/i18n/tenon.zh-CN.js`（基准）与 `src/i18n/tenon.en.js`。
+- `zh-CN` 是基准语言，其它语言缺词条自动回落，最后回落 key 本身；**不要静默空掉**。
+- 标记用 `tn-data-i18n` / `-ph` / `-title`；切语言后已挂载控件自己重绘，别重新初始化。
+
+## bundle 与测试
+
+`src/tenon.all.js` 与 `src/tenon.all.min.js` 是**产物**：
+
+- 绝不手改；改了 `src/**` 就 `npm run build`，提交前 `npm run check` 必须通过。
+- 新增模块要同时加进 `tools/build.js` 的 `FILES`（顺序即加载顺序，与 `src/README.md` 的「加载顺序」一致）。
+
+回归（无头 Edge/Chrome，退出码即结果）：
+
+```bash
+npm test                     # selftest / bundle / bundle-min / e2e / login / showcase
+npm run test:verbose         # 失败时打断言原文
+node tools/test.js e2e       # 只跑某支
+```
+
+- 新增**约定**就要在 `src/selftest.js` 加一条断言，而不只是改文档。
+- 自检断言只读逻辑状态（`kit.hasState` / 实例 API），**不读计算样式** —— 那是皮肤的事。
+- 自检页刻意不引任何皮肤 CSS；e2e 才测「框架 + 皮肤 + 外壳」合起来。
+
+## 文档同步
+
+改完代码顺手核对这几处，数字要重新统计，不要沿用旧值：
+
+| 位置 | 容易过期的内容 |
+|---|---|
+| `README.md`（根） | 文件数/行数、入口地址、命令清单 |
+| `src/README.md` | 加载顺序、文件清单、公共 API 表、事件表、自检分组、bundle 体积 |
+| `examples/web-admin/README.md` | 页面数与脚本数、框架体量、菜单结构、e2e 项数 |
+| `examples/minimal/README.md`、`src/showcase/README.md` | 文件清单与断言数 |
+
+## 禁止事项
+
+- 不引入打包器、不引入 jQuery、不新增第三方运行时依赖（图标字体由使用方提供）。
+- 不新增命名空间别名（`Tenon.define` / `DWZ` / `data-dwz` 已在 v2.0 删除，不要复活）。
+- 不在 `src/core` 里写类名，不在 `src/ui` / `src/shell` 里写类名字面量。
+- 不用 `querySelector` 直接找业务节点代替事件委托。
+- 不改 `#tabbar` `#workarea` `#crumb` `#menu` `#menu-extra` `#sider-toggle` `#theme-trigger` 这些契约 id。
+- 不在框架里写业务动作（「打开个人中心」这类属于宿主的 `demo.boot.js`）。

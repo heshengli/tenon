@@ -1,0 +1,55 @@
+<div data-page="overview">
+  <div tn-data-part="stat-grid">
+    <div tn-data-part="stat">
+      <div tn-data-part="stat-value">1,286</div>
+      <div tn-data-part="stat-label">客户总数</div>
+    </div>
+    <div tn-data-part="stat" tn-data-state-up>
+      <div tn-data-part="stat-value">¥ 486.2 万</div>
+      <div tn-data-part="stat-label">本月合同额</div>
+    </div>
+    <div tn-data-part="stat">
+      <div tn-data-part="stat-value">93.5%</div>
+      <div tn-data-part="stat-label">交付准时率</div>
+    </div>
+    <div tn-data-part="stat">
+      <div tn-data-part="stat-value">17</div>
+      <div tn-data-part="stat-label">待办事项</div>
+    </div>
+  </div>
+
+  <div tn-data-part="note" style="margin-bottom:14px">
+    这张表是 tenon.table 的完整能力：点表头排序、底部切页、勾选跨排序与翻页保留。
+    它认识的不是 class，而是 <code>data-sort</code> / <code>data-pager</code> / <code>data-check</code> 这些属性。
+  </div>
+
+  <section tn-data-part="card">
+    <h2 tn-data-part="card-title">成员名单</h2>
+    <div tn-data-part="table-wrap">
+      <table tn-data="table" data-page-size="6">
+        <thead>
+          <tr>
+            <th style="width:38px"><input type="checkbox" data-check-all></th>
+            <th data-sort="name">姓名 <span tn-data-part="sort-arrow">⇅</span></th>
+            <th data-sort="age">年龄 <span tn-data-part="sort-arrow">⇅</span></th>
+            <th data-sort="city">城市 <span tn-data-part="sort-arrow">⇅</span></th>
+            <th>角色</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-row-id="1"><td><input type="checkbox" data-check="1"></td><td>张伟</td><td>32</td><td>北京</td><td>客户经理</td></tr>
+          <tr data-row-id="2"><td><input type="checkbox" data-check="2"></td><td>李娜</td><td>27</td><td>上海</td><td>售前顾问</td></tr>
+          <tr data-row-id="3"><td><input type="checkbox" data-check="3"></td><td>王强</td><td>41</td><td>深圳</td><td>交付总监</td></tr>
+          <tr data-row-id="4"><td><input type="checkbox" data-check="4"></td><td>刘洋</td><td>23</td><td>杭州</td><td>前端工程师</td></tr>
+          <tr data-row-id="5"><td><input type="checkbox" data-check="5"></td><td>陈静</td><td>35</td><td>成都</td><td>产品经理</td></tr>
+          <tr data-row-id="6"><td><input type="checkbox" data-check="6"></td><td>赵磊</td><td>29</td><td>武汉</td><td>后端工程师</td></tr>
+          <tr data-row-id="7"><td><input type="checkbox" data-check="7"></td><td>孙悦</td><td>26</td><td>西安</td><td>测试工程师</td></tr>
+          <tr data-row-id="8"><td><input type="checkbox" data-check="8"></td><td>周涛</td><td>38</td><td>南京</td><td>解决方案</td></tr>
+          <tr data-row-id="9"><td><input type="checkbox" data-check="9"></td><td>吴敏</td><td>31</td><td>广州</td><td>客户成功</td></tr>
+          <tr data-row-id="10"><td><input type="checkbox" data-check="10"></td><td>郑凯</td><td>45</td><td>天津</td><td>总经理</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div data-pager></div>
+  </section>
+</div>

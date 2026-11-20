@@ -1,0 +1,6 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+<title>Tenon 标记</title>
+<desc>青色实心方标中的白色字母 T。</desc>
+<rect x="0" y="0" width="512" height="512" rx="112" fill="#2BB8D8"/>
+<path fill="#FFFFFF" d="M132 81 L380 81 Q396 81 396 97 L396 139 Q396 155 380 155 L277 155 L277 415 Q277 431 261 431 L219 431 Q203 431 203 415 L203 155 L132 155 Q116 155 116 139 L116 97 Q116 81 132 81 Z"/>
+</svg>

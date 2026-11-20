@@ -1,0 +1,86 @@
+<div class="stack" data-page="form-tips">
+        <section class="card">
+          <div class="card-hd">
+            <span>有提示的表单输入页面</span>
+            <span class="card-extra tiny muted">字段级提示 / 帮助图标 / 校验文案</span>
+          </div>
+          <div class="card-bd">
+            <div class="tabs" tn-data="tabs">
+              <button class="tab-item active" data-tab="one">页面一</button>
+              <button class="tab-item" data-tab="two">页面二</button>
+            </div>
+            <form id="tips-form" novalidate tn-data-validate data-action="/api/form/submit">
+              <div data-pane="one">
+        <div class="form-section">账户信息</div>
+        <div class="form-grid">
+          <label class="field"><span class="field-label">登录账号 <span class="req">*</span></span>
+            <input class="input" name="account" placeholder="4-20 位字母或数字">
+            <span class="tip-line">账号创建后不可修改，请谨慎填写。</span></label>
+          <label class="field"><span class="field-label">显示名称 <span class="req">*</span></span>
+            <input class="input" name="nick" placeholder="用于列表与审批流的展示">
+            <span class="tip-line">建议使用真实姓名，长度 2-16 个字符。</span></label>
+          <label class="field"><span class="field-label">手机号 <span class="req">*</span></span>
+            <input class="input" name="phone" placeholder="11 位手机号">
+            <span class="tip-line">用于接收登录验证码与流程提醒，支持随时更换。</span></label>
+          <label class="field"><span class="field-label">邮箱</span>
+            <input class="input" name="email" placeholder="name@example.com">
+            <span class="tip-line">选填，用于找回密码与接收周报。</span></label>
+        </div>
+
+        <div class="form-section">权限设置</div>
+        <div class="form-grid">
+          <label class="field"><span class="field-label">所属角色</span>
+            <select class="select" name="role"><option>管理员</option><option>编辑</option><option>访客</option></select>
+            <span class="tip-line">角色决定可见菜单范围，创建后可由管理员调整。</span></label>
+          <label class="field"><span class="field-label">所属部门</span>
+            <select class="select" name="dept"><option>技术中心</option><option>市场部</option><option>财务部</option></select>
+            <span class="tip-line">影响流程审批链路与数据可见范围。</span></label>
+        </div>
+
+        <label class="field"><span class="field-label">备注</span>
+          <textarea class="textarea" rows="2" name="remark" placeholder="选填"></textarea>
+          <span class="tip-line">最多 200 字，仅在用户详情页展示。</span></label></div>
+              <div data-pane="two" class="hidden">
+        <div class="form-section">带帮助图标的字段</div>
+        <div class="form-grid">
+          <label class="field"><span class="field-label">接口地址 <span class="req">*</span>
+              <i class="tip-help" title="需以 https:// 开头，支持路径参数，例如 /api/users/:id">?</i></span>
+            <input class="input" name="endpoint" placeholder="https://api.example.com/v1/users">
+            <span class="tip-line">保存时会做一次可达性探测，失败不影响保存。</span></label>
+          <label class="field"><span class="field-label">请求方式
+              <i class="tip-help" title="GET 幂等，POST 用于创建，PUT 用于更新">?</i></span>
+            <select class="select" name="method"><option>GET</option><option>POST</option><option>PUT</option><option>DELETE</option></select>
+            <span class="tip-line">建议按资源语义选择，避免用 GET 做写操作。</span></label>
+          <label class="field"><span class="field-label">超时时间（毫秒）
+              <i class="tip-help" title="默认 3000ms，网关上限 10000ms">?</i></span>
+            <input class="input" name="timeout" value="3000">
+            <span class="tip-line">超过该时长前端将中断请求并提示重试。</span></label>
+          <label class="field"><span class="field-label">重试次数
+              <i class="tip-help" title="仅对网络错误与 5xx 生效">?</i></span>
+            <input class="input" name="retry" value="2">
+            <span class="tip-line">指数退避，间隔为 1s、2s、4s…</span></label>
+        </div>
+
+        <div class="form-section">校验提示</div>
+        <div class="form-grid">
+          <label class="field"><span class="field-label">校验状态</span>
+            <input class="input is-error" value="abc" readonly>
+            <span class="tip-line" style="color:var(--danger)">格式不正确：只允许数字。</span></label>
+          <label class="field"><span class="field-label">校验成功</span>
+            <input class="input" value="2026-11-19" readonly>
+            <span class="tip-line" style="color:var(--success)">✓ 格式校验通过。</span></label>
+        </div>
+
+        <div class="alert alert-info" style="margin-top:4px">
+          <span class="alert-icon">i</span>
+          <div><div class="alert-title">页面二说明</div>
+            <div class="alert-desc">这一页演示「帮助图标 + 字段下方提示 + 校验状态文案」三种提示形态的组合用法。</div></div>
+        </div></div>
+              <div class="form-actions" style="margin-top:8px">
+                <button class="btn btn-primary" type="submit">保 存</button>
+                <button class="btn btn-default" type="reset">重 置</button>
+              </div>
+            </form>
+          </div>
+        </section>
+      </div>

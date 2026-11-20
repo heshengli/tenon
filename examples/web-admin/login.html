@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-app="web-admin">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>登录 · Web Admin</title>
+  <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/login.css">
+  <script src="../../src/core/tenon.core.js"></script>
+  <script src="../../src/shell/tenon.theme.js"></script>
+  <script src="../../src/shell/tenon.auth.js"></script>
+</head>
+<body class="login-body">
+  <div class="login">
+    <section class="login-brand">
+      <div class="login-logo">
+        <span class="logo-mark">W</span>
+        <span>Web Admin</span>
+      </div>
+
+      <h1 class="login-slogan">Tenon 框架<br>页签 + 属性驱动的管理框架</h1>
+      <p class="login-desc">
+        保留 navTab 多页签与服务端响应协议，去掉 jQuery；
+        页面是 HTML 片段，控件是 tenon.*.js，无需构建工具。
+      </p>
+
+      <ul class="login-points">
+        <li><i class="fa-solid fa-check"></i>29 个 HTML 页面片段，打开即 fetch 渲染</li>
+        <li><i class="fa-solid fa-check"></i>页签右键菜单、横向翻页与全部标签视图</li>
+        <li><i class="fa-solid fa-check"></i>主题色实时切换，SVG 图表同步重绘</li>
+      </ul>
+
+      <div class="login-brand-foot">Tenon v2.0.0 · 框架在 ../../src · 本目录只是 demo</div>
+    </section>
+
+    <section class="login-panel">
+      <form class="login-card" id="login-form" novalidate>
+        <h2>欢迎回来</h2>
+        <p class="login-sub">登录后继续使用后台管理系统</p>
+
+        <div class="field">
+          <span class="field-label">用户名</span>
+          <div class="login-ctl">
+            <i class="fa-regular fa-user"></i>
+            <input class="input" id="username" name="username" value="admin"
+                   autocomplete="username" aria-label="用户名" placeholder="请输入用户名">
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-label">密码</span>
+          <div class="login-ctl">
+            <i class="fa-solid fa-lock"></i>
+            <input class="input" id="password" name="password" type="password" value="admin123"
+                   autocomplete="current-password" aria-label="密码" placeholder="请输入密码">
+            <button type="button" class="login-eye" data-eye aria-label="显示密码">
+              <i class="fa-regular fa-eye"></i>
+            </button>
+          </div>
+        </div>
+
+        <p class="err-text" id="login-err"></p>
+
+        <div class="login-row">
+          <label class="check-line"><input type="checkbox" id="remember" checked> 记住我</label>
+          <a class="login-link" href="#" data-forgot>忘记密码？</a>
+        </div>
+
+        <button class="btn btn-primary login-submit" id="login-submit" type="submit">登 录</button>
+
+        <p class="login-tip">演示账号 <b>admin</b>，密码任意；勾选「记住我」可免登录 7 天</p>
+      </form>
+    </section>
+  </div>
+
+  <script>
+  (function () {
+    const form = document.getElementById("login-form");
+    const nameEl = document.getElementById("username");
+    const pwdEl = document.getElementById("password");
+    const rememberEl = document.getElementById("remember");
+    const errEl = document.getElementById("login-err");
+    const submit = document.getElementById("login-submit");
+
+    function fail(msg) {
+      errEl.textContent = msg;
+      errEl.classList.add("show");
+    }
+
+    // 密码可见切换
+    form.addEventListener("click", (e) => {
+      const eye = e.target.closest("[data-eye]");
+      if (!eye) return;
+      const show = pwdEl.type === "password";
+      pwdEl.type = show ? "text" : "password";
+      eye.innerHTML = `<i class="fa-regular fa-${show ? "eye-slash" : "eye"}"></i>`;
+      eye.setAttribute("aria-label", show ? "隐藏密码" : "显示密码");
+    });
+
+    form.querySelector("[data-forgot]").addEventListener("click", (e) => {
+      e.preventDefault();
+      fail("演示环境：请联系管理员重置密码");
+    });
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      errEl.classList.remove("show");
+
+      const name = nameEl.value.trim();
+      if (!name) { fail("请输入用户名"); nameEl.focus(); return; }
+      if (!pwdEl.value) { fail("请输入密码"); pwdEl.focus(); return; }
+
+      Tenon.auth.login(name, rememberEl.checked);
+      submit.disabled = true;
+      submit.textContent = "登录中…";
+      setTimeout(() => location.replace("index.html"), 220);
+    });
+
+    // 已登录时给个提示，避免重复登录
+    const u = Tenon.auth.user();
+    if (u) {
+      const tip = document.querySelector(".login-sub");
+      tip.innerHTML = `当前已登录 <b>${u.name}</b>，可直接<a class="login-link" href="index.html">进入后台</a>`;
+    }
+
+    nameEl.focus();
+  })();
+  </script>
+</body>
+</html>

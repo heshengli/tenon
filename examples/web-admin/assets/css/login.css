@@ -1,0 +1,146 @@
+/* ===========================================================
+   Login — 登录页（左品牌区 + 右表单）
+   =========================================================== */
+.login-body {
+  min-height: 100%;
+  background: var(--white);
+}
+
+.login {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  min-height: 100vh;
+}
+
+/* ---------- 左侧品牌区 ---------- */
+.login-brand {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 48px 56px;
+  color: #fff;
+  background: linear-gradient(150deg, var(--primary) 0%, var(--primary-active) 100%);
+}
+/* 两个装饰光斑，纯静态无需交互 */
+.login-brand::before,
+.login-brand::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .08);
+}
+.login-brand::before { left: -90px; top: -130px; width: 320px; height: 320px; }
+.login-brand::after { right: -140px; bottom: -180px; width: 460px; height: 460px; }
+.login-brand > * { position: relative; z-index: 1; }
+
+.login-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 17px;
+  font-weight: 500;
+}
+.login-logo .logo-mark {
+  width: 34px; height: 34px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: var(--radius);
+  background: #fff;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.login-slogan {
+  margin-top: 44px;
+  max-width: 430px;
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+.login-desc {
+  margin-top: 16px;
+  max-width: 400px;
+  font-size: 14px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, .8);
+}
+
+.login-points {
+  margin: 28px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 12px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, .92);
+}
+.login-points li { display: flex; align-items: center; gap: 10px; }
+.login-points i { font-size: 12px; color: rgba(255, 255, 255, .7); }
+
+.login-brand-foot {
+  margin-top: auto;
+  padding-top: 32px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, .6);
+}
+
+/* ---------- 右侧表单 ---------- */
+.login-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  background: var(--white);
+}
+.login-card { width: 100%; max-width: 360px; }
+.login-card h2 { font-size: 26px; font-weight: 600; }
+.login-sub { margin: 8px 0 28px; font-size: 14px; color: var(--text-3); }
+
+.login-ctl { position: relative; display: flex; align-items: center; }
+.login-ctl > i {
+  position: absolute;
+  left: 12px;
+  font-size: 13px;
+  color: var(--text-4);
+  pointer-events: none;
+}
+.login-ctl .input { height: 40px; padding-left: 34px; }
+
+.login-eye {
+  position: absolute;
+  right: 4px;
+  width: 30px; height: 30px;
+  display: flex; align-items: center; justify-content: center;
+  border: 0;
+  border-radius: var(--radius);
+  background: none;
+  color: var(--text-4);
+  font-size: 13px;
+}
+.login-eye:hover { background: var(--bg-2); color: var(--text-2); }
+
+.login-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 4px 0 20px;
+}
+.login-link { font-size: 14px; }
+.login-link:hover { color: var(--primary-hover); }
+
+.login-submit { width: 100%; height: 42px; font-size: 15px; }
+.login-tip {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--text-4);
+}
+.login-tip b { color: var(--text-2); font-weight: 500; }
+.login-card .err-text { margin: 0 0 14px; }
+
+@media (max-width: 900px) {
+  .login { grid-template-columns: 1fr; }
+  .login-brand { display: none; }
+  .login-panel { min-height: 100vh; }
+}

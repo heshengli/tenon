@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tenon 自检</title>
+<style>
+  /* 自检页刻意不引 demo 的 CSS：
+     框架的行为不该依赖任何皮肤样式，能跑通才说明分层是干净的。 */
+  :root { --ok: #1a7f37; --bad: #c62828; --line: #e3e6ea; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 24px 28px;
+    font: 14px/1.65 -apple-system, "Segoe UI", "Microsoft YaHei", sans-serif;
+    color: #1f2328; background: #fff;
+  }
+  h1 { font-size: 19px; font-weight: 600; margin: 0 0 4px; }
+  .sub { color: #606872; font-size: 13px; margin-bottom: 18px; }
+  .sum {
+    display: inline-flex; gap: 18px; align-items: center;
+    padding: 10px 16px; border: 1px solid var(--line); border-radius: 8px;
+    font-variant-numeric: tabular-nums; margin-bottom: 20px;
+  }
+  .sum b { font-size: 20px; }
+  .pass { color: var(--ok); }
+  .fail { color: var(--bad); }
+  ol { list-style: none; padding: 0; margin: 0; }
+  li {
+    display: flex; gap: 10px; padding: 5px 0;
+    border-bottom: 1px solid #f2f4f6;
+  }
+  li .tag {
+    flex: 0 0 46px; font-size: 12px; font-weight: 600;
+    text-align: center; border-radius: 4px; height: 20px; line-height: 20px;
+  }
+  li.ok .tag { color: var(--ok); background: #e8f5ec; }
+  li.no .tag { color: var(--bad); background: #fdeaea; }
+  li .name { flex: 1 1 auto; }
+  li.no .name { color: var(--bad); }
+  li .err {
+    display: block; color: #8a4b00; background: #fff8e6;
+    padding: 4px 8px; border-radius: 4px; margin-top: 4px;
+    font-family: ui-monospace, Consolas, monospace; font-size: 12px;
+  }
+  #fixtures { position: absolute; left: -9999px; top: 0; }
+  #toast-root { position: fixed; top: 10px; left: 50%; transform: translateX(-50%); }
+</style>
+<body>
+<h1>Tenon 自检</h1>
+<div class="sub">断言覆盖 core / registry / kit / 12 个控件 / 反馈链路。不引 demo 样式，行为必须自成一体。</div>
+<div id="sum" class="sum">运行中…</div>
+<ol id="out"></ol>
+<div id="fixtures"></div>
+<div id="toast-root"></div>
+
+<!-- 只引一个文件：bundle。加 ?min 则用压缩版。
+     这一页存在的意义：证明 tenon.all.js / .min.js 与逐个引入等价。 -->
+<script>
+  document.write('<script src="' +
+    (location.search.indexOf("min") >= 0 ? "tenon.all.min.js" : "tenon.all.js") +
+    '"><\/script>');
+</script>
+<script src="selftest.js"></script>
+</body>
+</html>

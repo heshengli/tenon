@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-primary="#a3e635">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tenon 皮肤实证 · 零类名</title>
+
+<!-- 主题色：只写 CSS 变量，套件与外壳都不参与 -->
+<script src="../core/tenon.core.js"></script>
+<script src="../shell/tenon.theme.js"></script>
+
+<link rel="stylesheet" href="skin.css">
+
+<!--
+  ===========================================================
+  这一页是「换肤」的实证，请对照 ../README.md 的「外壳与套件的分界」看：
+
+    1. 全文没有 class 属性，一个都没有；
+    2. 没有 tenon.kit.antd.js —— 用的是裸套件 plain；
+    3. 骨架靠 tn-data-part 定位，状态靠 tn-data-state-*；
+    4. 全部外观来自 skin.css，它只用属性选择器。
+
+  也就是说：不写一行 JS 套件，只写一份 CSS，
+  同一套 src/shell/*.js 与 src/ui/*.js 就能换个完全不同的长相。
+  ===========================================================
+-->
+</head>
+<body>
+
+<div tn-data-part="app">
+  <!-- ---------------- 侧栏 ---------------- -->
+  <aside tn-data-part="sider">
+    <div tn-data-part="brand">
+      <b>T</b><span>Tenon</span>
+    </div>
+
+    <nav id="menu" tn-data-part="menu">
+      <div tn-data-part="menu-group">
+        <button data-group>
+          <span tn-data-part="menu-title">基础</span>
+          <i>›</i>
+        </button>
+        <div tn-data-part="menu-children">
+          <a href="pages/overview.html" data-view="overview">概览</a>
+          <a href="pages/form.html" data-view="form">表单</a>
+        </div>
+      </div>
+
+      <div tn-data-part="menu-group" tn-data-state-collapsed>
+        <button data-group>
+          <span tn-data-part="menu-title">组件</span>
+          <i>›</i>
+        </button>
+        <div tn-data-part="menu-children">
+          <a href="pages/tree.html" data-view="tree">树与折叠</a>
+        </div>
+      </div>
+    </nav>
+
+    <div tn-data-part="sider-foot">裸套件 · 仅一份 CSS</div>
+  </aside>
+
+  <!-- ---------------- 主区 ---------------- -->
+  <div tn-data-part="main">
+    <header tn-data-part="header">
+      <button id="sider-toggle" title="收起菜单" aria-label="收起菜单">≡</button>
+      <span tn-data-part="header-title">皮肤实证</span>
+      <span tn-data-part="header-spacer"></span>
+      <button id="theme-trigger" tn-data-part="icon-btn" title="主题色" aria-label="主题色">◐</button>
+    </header>
+
+    <div tn-data-part="tabbar-wrap">
+      <button data-tab-scroll="-1" tn-data-state-hidden title="向左">‹</button>
+      <!-- data-home 覆盖首页页签 id，框架不再硬编码 dashboard -->
+      <div id="tabbar" tn-data-part="tabbar" data-home="overview" data-sync="hash"></div>
+      <button data-tab-scroll="1" tn-data-state-hidden title="向右">›</button>
+      <button id="tab-more" tn-data-state-hidden title="全部标签页">⋯</button>
+    </div>
+
+    <div tn-data-part="pagehead">
+      <nav id="crumb"></nav>
+    </div>
+
+    <main id="workarea" tn-data-part="workarea"></main>
+  </div>
+</div>
+
+<div id="toast-root" tn-data-part="toast-root"></div>
+
+<!-- ============ 内核 ============ -->
+<script src="../core/tenon.dom.js"></script>
+<script src="../core/tenon.registry.js"></script>
+<script src="../core/tenon.i18n.js"></script>
+<script src="../i18n/tenon.zh-CN.js"></script>
+<script src="../i18n/tenon.en.js"></script>
+
+<!-- ============ 套件：只有接口与兜底实现，没有皮肤文件 ============ -->
+<script src="../ui/tenon.kit.js"></script>
+
+<!-- ============ 反馈与请求 ============ -->
+<script src="../ui/tenon.ui.js"></script>
+<script src="../shell/tenon.ajax.js"></script>
+<script src="../ui/tenon.dropdown.js"></script>
+
+<!-- ============ 控件 ============ -->
+<script src="../ui/tenon.tabs.js"></script>
+<script src="../ui/tenon.switch.js"></script>
+<script src="../ui/tenon.collapse.js"></script>
+<script src="../ui/tenon.segmented.js"></script>
+<script src="../ui/tenon.rate.js"></script>
+<script src="../ui/tenon.optionlist.js"></script>
+  <script src="../ui/tenon.popover.js"></script>
+  <script src="../ui/tenon.select.js"></script>
+  <script src="../ui/tenon.cascader.js"></script>
+<script src="../ui/tenon.upload.js"></script>
+<script src="../ui/tenon.dialog.js"></script>
+<script src="../ui/tenon.tree.js"></script>
+<script src="../ui/tenon.table.js"></script>
+<script src="../ui/tenon.form.js"></script>
+
+<!-- ============ 外壳 ============ -->
+<script src="../shell/tenon.navtab.js"></script>
+<script src="../shell/tenon.accordion.js"></script>
+
+<script>
+/* 外壳装配是宿主的事：三行，没有 boot 文件 */
+Tenon.accordion.init();
+Tenon.navtab.init();
+Tenon.navtab.start();      // 地址栏有 #/form 就打开表单，否则打开 data-home
+</script>
+</body>
+</html>

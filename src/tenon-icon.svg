@@ -1,0 +1,6 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+<title>Tenon 标识</title>
+<desc>大写 T 与较小的 enon 组成的字标，基线对齐、紧凑排布。</desc>
+<path fill="#2BB8D8" d="M63 119 L257 119 Q270 119 270 132 L270 164 Q270 177 257 177 L189 177 L189 381 Q189 394 176 394 L144 394 Q131 394 131 381 L131 177 L63 177 Q50 177 50 164 L50 132 Q50 119 63 119 Z"/>
+<text x="207" y="394" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="124" font-weight="500" letter-spacing="-3" fill="#2BB8D8">enon</text>
+</svg>

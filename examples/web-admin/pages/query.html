@@ -1,0 +1,187 @@
+<div class="stack" data-page="query" data-script="query">
+        <section class="card">
+      <div class="card-hd"><span>查询条件</span><span class="card-extra"></span></div>
+      <div class="card-bd"><div class="form-grid" style="gap:0 16px">
+          <label class="field"><span class="field-label">客户姓名 / 公司</span>
+            <input class="input" id="q-name" value="" placeholder="支持模糊查询"></label>
+          <div class="form-grid" style="gap:0 16px">
+            <label class="field"><span class="field-label">等级</span>
+              <select class="select" id="q-level"><option value="" selected>全部</option><option value="VIP" >VIP</option><option value="普通" >普通</option><option value="潜力" >潜力</option></select></label>
+            <label class="field"><span class="field-label">状态</span>
+              <select class="select" id="q-status"><option value="" selected>全部</option><option value="启用" >启用</option><option value="停用" >停用</option></select></label>
+          </div>
+        </div>
+        <div class="flex"><span class="tiny muted" id="q-count">共 23 条</span></div></div>
+    </section>
+        <section class="card">
+      <div class="card-hd"><span>查询结果</span><span class="card-extra"></span></div>
+      <div class="card-bd"><div id="q-table"><div class="table-wrap"><table class="table table-hover" tn-data="table" data-page-size="10" data-pager="#q-pager">
+      <thead><tr><th>客户</th><th>公司</th><th>等级</th><th>合同额</th><th>状态</th><th>建档日期</th></tr></thead>
+      <tbody>
+      <tr data-row-id="2026001">
+        <td>张伟</td><td>华信科技</td>
+        <td><span class="tag tag-blue">VIP</span></td>
+        <td>¥ 12,000</td>
+        <td><span class="tag tag-default">停用</span></td>
+        <td>2026-01-02</td>
+      </tr>
+      <tr data-row-id="2026002">
+        <td>李娜</td><td>云图数据</td>
+        <td><span class="tag tag-default">普通</span></td>
+        <td>¥ 15,700</td>
+        <td><span class="tag tag-ok">启用</span></td>
+        <td>2026-02-03</td>
+      </tr>
+      <tr data-row-id="2026003">
+        <td>王强</td><td>长风物流</td>
+        <td><span class="tag tag-warn">潜力</span></td>
+        <td>¥ 19,400</td>
+        <td><span class="tag tag-ok">启用</span></td>
+        <td>2026-03-04</td>
+      </tr>
+      <tr data-row-id="2026004">
+        <td>刘洋</td><td>智联教育</td>
+        <td><span class="tag tag-blue">VIP</span></td>
+        <td>¥ 23,100</td>
+        <td><span class="tag tag-ok">启用</span></td>
+        <td>2026-04-05</td>
+      </tr>
+      <tr data-row-id="2026005">
+        <td>陈静</td><td>恒泰金融</td>
+        <td><span class="tag tag-default">普通</span></td>
+        <td>¥ 26,800</td>
+        <td><span class="tag tag-default">停用</span></td>
+        <td>2026-05-06</td>
+      </tr>
+      <tr data-row-id="2026006">
+        <td>赵磊</td><td>华信科技</td>
+        <td><span class="tag tag-warn">潜力</span></td>
+        <td>¥ 30,500</td>
+        <td><span class="tag tag-ok">启用</span></td>
+        <td>2026-06-07</td>
+      </tr>
+      <tr data-row-id="2026007">
+        <td>孙倩</td><td>云图数据</td>
+        <td><span class="tag tag-blue">VIP</span></td>
+        <td>¥ 34,200</td>
+        <td><span class="tag tag-ok">启用</span></td>
+        <td>2026-07-08</td>
+      </tr>
+      <tr data-row-id="2026008">
+        <td>周涛</td><td>长风物流</td>
+        <td><span class="tag tag-default">普通</span></td>
+        <td>¥ 37,900</td>
+        <td><span class="tag tag-ok">启用</span></td>
+        <td>2026-08-09</td>
+      </tr>
+      <tr data-row-id="2026009">
+        <td>张伟8</td><td>智联教育</td>
+        <td><span class="tag tag-warn">潜力</span></td>
+        <td>¥ 41,600</td>
+        <td><span class="tag tag-default">停用</span></td>
+        <td>2026-09-10</td>
+      </tr>
+      <tr data-row-id="2026010">
+        <td>李娜9</td><td>恒泰金融</td>
+        <td><span class="tag tag-blue">VIP</span></td>
+        <td>¥ 45,300</td>
+        <td><span class="tag tag-ok">启用</span></td>
+        <td>2026-01-11</td>
+      </tr>
+      <tr data-row-id="2026011">
+        <td>王强10</td><td>华信科技</td>
+        <td><span class="tag tag-default">普通</span></td>
+        <td>¥ 49,000</td>
+        <td><span class="tag tag-ok">启用</span></td>
+        <td>2026-02-12</td>
+      </tr>
+      <tr data-row-id="2026012">
+        <td>刘洋11</td><td>云图数据</td>
+        <td><span class="tag tag-warn">潜力</span></td>
+        <td>¥ 52,700</td>
+        <td><span class="tag tag-ok">启用</span></td>
+        <td>2026-03-13</td>
+      </tr>
+      <tr data-row-id="2026013">
+        <td>陈静12</td><td>长风物流</td>
+        <td><span class="tag tag-blue">VIP</span></td>
+        <td>¥ 56,400</td>
+        <td><span class="tag tag-default">停用</span></td>
+        <td>2026-04-14</td>
+      </tr>
+      <tr data-row-id="2026014">
+        <td>赵磊13</td><td>智联教育</td>
+        <td><span class="tag tag-default">普通</span></td>
+        <td>¥ 60,100</td>
+        <td><span class="tag tag-ok">启用</span></td>
+        <td>2026-05-15</td>
+      </tr>
+      <tr data-row-id="2026015">
+        <td>孙倩14</td><td>恒泰金融</td>
+        <td><span class="tag tag-warn">潜力</span></td>
+        <td>¥ 63,800</td>
+        <td><span class="tag tag-ok">启用</span></td>
+        <td>2026-06-16</td>
+      </tr>
+      <tr data-row-id="2026016">
+        <td>周涛15</td><td>华信科技</td>
+        <td><span class="tag tag-blue">VIP</span></td>
+        <td>¥ 67,500</td>
+        <td><span class="tag tag-ok">启用</span></td>
+        <td>2026-07-17</td>
+      </tr>
+      <tr data-row-id="2026017">
+        <td>张伟16</td><td>云图数据</td>
+        <td><span class="tag tag-default">普通</span></td>
+        <td>¥ 71,200</td>
+        <td><span class="tag tag-default">停用</span></td>
+        <td>2026-08-18</td>
+      </tr>
+      <tr data-row-id="2026018">
+        <td>李娜17</td><td>长风物流</td>
+        <td><span class="tag tag-warn">潜力</span></td>
+        <td>¥ 74,900</td>
+        <td><span class="tag tag-ok">启用</span></td>
+        <td>2026-09-19</td>
+      </tr>
+      <tr data-row-id="2026019">
+        <td>王强18</td><td>智联教育</td>
+        <td><span class="tag tag-blue">VIP</span></td>
+        <td>¥ 78,600</td>
+        <td><span class="tag tag-ok">启用</span></td>
+        <td>2026-01-20</td>
+      </tr>
+      <tr data-row-id="2026020">
+        <td>刘洋19</td><td>恒泰金融</td>
+        <td><span class="tag tag-default">普通</span></td>
+        <td>¥ 82,300</td>
+        <td><span class="tag tag-ok">启用</span></td>
+        <td>2026-02-21</td>
+      </tr>
+      <tr data-row-id="2026021">
+        <td>陈静20</td><td>华信科技</td>
+        <td><span class="tag tag-warn">潜力</span></td>
+        <td>¥ 86,000</td>
+        <td><span class="tag tag-default">停用</span></td>
+        <td>2026-03-22</td>
+      </tr>
+      <tr data-row-id="2026022">
+        <td>赵磊21</td><td>云图数据</td>
+        <td><span class="tag tag-blue">VIP</span></td>
+        <td>¥ 89,700</td>
+        <td><span class="tag tag-ok">启用</span></td>
+        <td>2026-04-23</td>
+      </tr>
+      <tr data-row-id="2026023">
+        <td>孙倩22</td><td>长风物流</td>
+        <td><span class="tag tag-default">普通</span></td>
+        <td>¥ 93,400</td>
+        <td><span class="tag tag-ok">启用</span></td>
+        <td>2026-05-24</td>
+      </tr>
+      </tbody>
+    </table></div></div>
+          <div id="q-pager" class="mt16" data-pager></div>
+        </div>
+    </section>
+      </div>

@@ -1,0 +1,80 @@
+<div data-page="tree" data-script="tree">
+  <section tn-data-part="card">
+    <h2 tn-data-part="card-title">组织架构</h2>
+    <p tn-data-part="muted" style="margin:0 0 10px">
+      点箭头展开、点行选中。展开态是 <code>tn-data-state-open</code>，收起是子级的
+      <code>tn-data-state-hidden</code> —— 都由控件写，皮肤只读。
+    </p>
+
+    <ul tn-data="tree">
+      <li>
+        <div tn-data-part="tree-row" data-node="1">
+          <span tn-data-part="tree-caret" data-caret="1">▶</span>
+          <span>华信科技集团</span>
+        </div>
+        <ul tn-data-part="tree-children" tn-data-state-hidden>
+          <li>
+            <div tn-data-part="tree-row" data-node="2">
+              <span tn-data-part="tree-caret" data-caret="1">▶</span>
+              <span>技术中心</span>
+            </div>
+            <ul tn-data-part="tree-children" tn-data-state-hidden>
+              <li>
+                <div tn-data-part="tree-row" data-node="21">
+                  <span tn-data-part="tree-caret" data-caret="0">▶</span>
+                  <span>前端组</span>
+                </div>
+              </li>
+              <li>
+                <div tn-data-part="tree-row" data-node="22">
+                  <span tn-data-part="tree-caret" data-caret="0">▶</span>
+                  <span>后端组</span>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <div tn-data-part="tree-row" data-node="3">
+              <span tn-data-part="tree-caret" data-caret="0">▶</span>
+              <span>销售中心</span>
+            </div>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <div tn-data-part="divider"></div>
+    <div tn-data-part="note" id="tree-detail">还没选部门</div>
+  </section>
+
+  <section tn-data-part="card">
+    <h2 tn-data-part="card-title">折叠面板</h2>
+    <p tn-data-part="muted" style="margin:0 0 10px">
+      容器加了 <code>tn-data-accordion</code> 就变成手风琴，同时只开一个。
+    </p>
+
+    <div tn-data="collapse" tn-data-accordion>
+      <div tn-data-part="collapse-item" tn-data-state-open>
+        <button data-collapse><span>这套皮肤是怎么做出来的</span><i>›</i></button>
+        <div tn-data-part="collapse-body">
+          只有一份 skin.css，选择器全写成 <code>[tn-data-part="…"]</code> 与
+          <code>[tn-data-state-…]</code>。没有 JS 皮肤文件，也没有一个类名。
+        </div>
+      </div>
+      <div tn-data-part="collapse-item">
+        <button data-collapse><span>那换一套长相要改什么</span><i>›</i></button>
+        <div tn-data-part="collapse-body">
+          改这份 CSS 就行。如果连结构都想要不一样（比如页签变成胶囊），
+          那就再写一个 <code>tenon.kit.&lt;名字&gt;.js</code> 覆盖 <code>tpl()</code>。
+        </div>
+      </div>
+      <div tn-data-part="collapse-item">
+        <button data-collapse><span>框架本身知道这套皮肤吗</span><i>›</i></button>
+        <div tn-data-part="collapse-body">
+          不知道。<code>src/shell</code> 与 <code>src/ui</code> 里没有任何一个类名字面量，
+          它们只认 <code>id</code>、<code>data-*</code> 与那几个逻辑状态名。
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

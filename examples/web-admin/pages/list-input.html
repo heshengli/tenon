@@ -1,0 +1,66 @@
+<div class="stack" data-page="list-input" data-script="list-input">
+        <section class="card">
+          <div class="card-hd"><span>列表输入的页面</span>
+            <span class="card-extra tiny muted">行内编辑 · 金额自动计算</span></div>
+          <div class="card-bd" style="padding:0">
+            <div class="table-wrap">
+              <table class="table-edit">
+                <thead><tr>
+                  <th style="width:44px">#</th>
+                  <th>物品名称</th>
+                  <th>规格型号</th>
+                  <th class="right" style="width:110px">数量</th>
+                  <th class="right" style="width:130px">单价（元）</th>
+                  <th class="right" style="width:140px">金额（元）</th>
+                  <th style="width:70px">操作</th>
+                </tr></thead>
+                <tbody>
+                  <tr data-li-row="0">
+                    <td class="muted">1</td>
+                    <td><input class="input" data-li="name" data-idx="0" value="开发笔记本 14&quot;" placeholder="物品名称"></td>
+                    <td><input class="input" data-li="spec" data-idx="0" value="i7 / 32G / 1T" placeholder="规格"></td>
+                    <td><input class="input num" type="number" min="0" data-li="qty" data-idx="0" value="5"></td>
+                    <td><input class="input num" type="number" min="0" data-li="price" data-idx="0" value="8999"></td>
+                    <td class="right" data-li-amount="0">¥ 44,995</td>
+                    <td><button class="del-btn" data-li-del="0">删除</button></td>
+                  </tr><tr data-li-row="1">
+                    <td class="muted">2</td>
+                    <td><input class="input" data-li="name" data-idx="1" value="外接显示器 27&quot;" placeholder="物品名称"></td>
+                    <td><input class="input" data-li="spec" data-idx="1" value="2K / IPS" placeholder="规格"></td>
+                    <td><input class="input num" type="number" min="0" data-li="qty" data-idx="1" value="5"></td>
+                    <td><input class="input num" type="number" min="0" data-li="price" data-idx="1" value="1599"></td>
+                    <td class="right" data-li-amount="1">¥ 7,995</td>
+                    <td><button class="del-btn" data-li-del="1">删除</button></td>
+                  </tr><tr data-li-row="2">
+                    <td class="muted">3</td>
+                    <td><input class="input" data-li="name" data-idx="2" value="机械键盘" placeholder="物品名称"></td>
+                    <td><input class="input" data-li="spec" data-idx="2" value="87 键 / 静音红轴" placeholder="规格"></td>
+                    <td><input class="input num" type="number" min="0" data-li="qty" data-idx="2" value="8"></td>
+                    <td><input class="input num" type="number" min="0" data-li="price" data-idx="2" value="399"></td>
+                    <td class="right" data-li-amount="2">¥ 3,192</td>
+                    <td><button class="del-btn" data-li-del="2">删除</button></td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td colspan="3">合计</td>
+                    <td class="right" data-li-qty>18</td>
+                    <td></td>
+                    <td class="right" data-li-total>¥ 56,182</td>
+                    <td></td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </div>
+          <div class="card-bd" style="padding:12px 24px">
+            <div class="between">
+              <button class="btn btn-dashed btn-sm" data-li-add>+ 新增一行</button>
+              <div class="flex">
+                <button class="btn btn-default" data-li-reset>还 原</button>
+                <button class="btn btn-primary" data-li-save>提交审批</button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>

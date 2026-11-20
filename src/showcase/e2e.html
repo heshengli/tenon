@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tenon 换肤实证 · 自检</title>
+<style>
+  body { margin: 0; padding: 20px 24px; font: 14px/1.7 -apple-system, "Segoe UI", "Microsoft YaHei", sans-serif; color: #1f2328; }
+  h1 { font-size: 18px; margin: 0 0 4px; }
+  .sub { color: #606872; font-size: 13px; margin-bottom: 14px; }
+  #sum { display: inline-block; padding: 8px 14px; border: 1px solid #e3e6ea; border-radius: 8px; margin-bottom: 14px; font-variant-numeric: tabular-nums; }
+  #sum b { font-size: 18px; }
+  .ok { color: #1a7f37; } .no { color: #c62828; }
+  #log { white-space: pre-wrap; font: 12px/1.65 ui-monospace, Consolas, monospace; margin: 0; }
+  iframe { position: absolute; left: -4000px; top: 0; width: 1440px; height: 900px; border: 0; }
+</style>
+</head>
+<body>
+<h1>Tenon 换肤实证 · 自检</h1>
+<div class="sub">
+  跑的是 <code>showcase/index.html</code>：裸套件 + 一份 skin.css，没有 tenon.kit.antd.js。
+  前半段验行为（同一套框架代码在这里得一模一样地工作），后半段验「整页零 class」。
+</div>
+<div id="sum">运行中…</div>
+<pre id="log"></pre>
+<iframe id="f" src="index.html"></iframe>
+
+<script>
+const out = [];
+const errs = [];
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+const chk = (n, c, extra) => out.push((c ? "ok   " : "FAIL ") + n + (c || !extra ? "" : " :: " + extra));
+
+async function waitFor(fn, ms) {
+  const t0 = Date.now();
+  while (Date.now() - t0 < (ms || 5000)) {
+    try { const v = fn(); if (v) return v; } catch (e) { /* 接着等 */ }
+    await sleep(40);
+  }
+  return null;
+}
+
+const frame = document.getElementById("f");
+frame.addEventListener("load", async () => {
+  const W = frame.contentWindow;
+  const D = () => frame.contentDocument;
+  try {
+    W.addEventListener("error", (e) => errs.push("onerror " + (e.filename || "").split("/").pop() + ":" + e.lineno + " " + e.message));
+    const oe = W.console.error;
+    W.console.error = function () { errs.push("console.error " + [].join.call(arguments, " ").slice(0, 140)); return oe.apply(this, arguments); };
+
+    const T = W.Tenon;
+    const K = T.kit;
+    chk("跑的是裸套件，不是 antd", K.name === "plain", K.name);
+
+    const tabCount = () => D().querySelectorAll("#tabbar [data-tab-id]").length;
+    const home = () => D().querySelector('#tabbar [data-tab-id="overview"]');
+    const crumbCur = () => (D().querySelector("#crumb [tn-data-part='crumb-cur']") || {}).textContent;
+
+    /* ================= 一、外壳 ================= */
+    await waitFor(() => D().querySelector('#workarea [data-page="overview"]'));
+    chk("首页按 data-home 打开（不是硬编码 dashboard）", tabCount() === 1 && !!home());
+    chk("首页页签不可关：固定态 + 无关闭按钮",
+      home().hasAttribute("tn-data-state-fixed") && !home().querySelector("[data-tab-close]"));
+    chk("首页页签是当前态", home().hasAttribute("tn-data-state-active"));
+    chk("面包屑是属性结构，没有类名",
+      crumbCur() === "概览" && !D().querySelector('#crumb [data-goto]'), crumbCur());
+
+    /* ================= 二、开页签 / 高亮 / 面包屑 ================= */
+    D().querySelector('#menu a[data-view="form"]').click();
+    await waitFor(() => D().querySelector('#workarea [data-page="form"] [tn-data-part="field"]'));
+    const formTab = D().querySelector('#tabbar [data-tab-id="form"]');
+    chk("点菜单开页签并抢高亮",
+      tabCount() === 2 && formTab.hasAttribute("tn-data-state-active") && !home().hasAttribute("tn-data-state-active"));
+    chk("普通页签有关闭按钮", !!formTab.querySelector("[data-tab-close]"));
+    chk("面包屑跟着换", crumbCur() === "表单", crumbCur());
+    chk("分组自动展开并标 has-active", (() => {
+      const g = D().querySelectorAll('[tn-data-part="menu-group"]')[0];
+      return !g.hasAttribute("tn-data-state-collapsed") && g.hasAttribute("tn-data-state-has-active");
+    })());
+    chk("菜单项高亮", D().querySelector('#menu a[data-view="form"]').hasAttribute("tn-data-state-active"));
+    chk("面板互斥", (() => {
+      const p = D().querySelectorAll('[tn-data-part="pane"]');
+      return p.length === 2 && p[0].hasAttribute("tn-data-state-hidden") && !p[1].hasAttribute("tn-data-state-hidden");
+    })());
+
+    /* ================= 三、控件在裸套件下照常 ================= */
+    chk("开关初始态来自 HTML（tn-data-state-on）",
+      D().querySelector('[tn-data~="switch"]').hasAttribute("tn-data-state-on"));
+    D().querySelector('[tn-data~="switch"]').click();
+    chk("点开关翻面", !D().querySelector('[tn-data~="switch"]').hasAttribute("tn-data-state-on"));
+
+    const segs = D().querySelectorAll("[data-seg]");
+    segs[2].click();
+    chk("分段控制器单选", segs[2].hasAttribute("tn-data-state-active") && !segs[0].hasAttribute("tn-data-state-active"));
+
+    const stars = [...D().querySelectorAll('[tn-data-part="rate-star"]')];
+    stars[4].click();
+    chk("评分点亮到第 5 颗",
+      stars[4].hasAttribute("tn-data-state-on") && stars.every((s) => s.hasAttribute("tn-data-state-on")),
+      stars.map((s) => (s.hasAttribute("tn-data-state-on") ? 1 : 0)).join(""));
+
+    const opts = D().querySelectorAll("[data-option]");
+    opts[1].click();
+    chk("选项列表单选", opts[1].hasAttribute("tn-data-state-active") && !opts[0].hasAttribute("tn-data-state-active"));
+
+    /* ================= 四、表单校验 ================= */
+    D().querySelector('[data-page="form"] form').dispatchEvent(new W.Event("submit", { bubbles: true, cancelable: true }));
+    await sleep(120);
+    chk("空提交：必填项标错误态",
+      D().querySelectorAll('[data-page="form"] [tn-data-state-error]').length >= 2,
+      D().querySelectorAll('[data-page="form"] [tn-data-state-error]').length);
+    chk("错误文案写进 error-text",
+      /请输入客户名称/.test(D().querySelector('[data-page="form"] [tn-data-part="error-text"]').textContent),
+      (D().querySelector('[data-page="form"] [tn-data-part="error-text"]') || {}).textContent);
+
+    const cname = D().querySelector('[data-page="form"] input[name="cname"]');
+    cname.value = "华信科技";
+    cname.dispatchEvent(new W.Event("input", { bubbles: true }));
+    chk("输入后清掉该字段的错误", !cname.hasAttribute("tn-data-state-error"));
+
+    /* ================= 五、折叠 / 树 ================= */
+    D().querySelectorAll('[data-page="form"] [data-act]')[0].click();
+    chk("toast 挂进 tn-data-part=toast-root", !!D().querySelector('#toast-root [tn-data-part="toast"]'));
+
+    D().querySelector('#menu a[data-view="tree"]').click();
+    await waitFor(() => D().querySelector('[data-page="tree"] [tn-data-part="tree-row"]'));
+    const rootRow = D().querySelector('[tn-data-part="tree-row"][data-node="1"]');
+    const kids = rootRow.parentElement.querySelector(':scope > [tn-data-part="tree-children"]');
+    rootRow.querySelector("[data-caret]").click();
+    chk("树：点箭头从收起变展开",
+      kids.hasAttribute("tn-data-state-hidden") === false
+      && rootRow.querySelector("[data-caret]").hasAttribute("tn-data-state-open"));
+    rootRow.click();
+    chk("树：点行选中", rootRow.hasAttribute("tn-data-state-active"));
+
+    const item = D().querySelector('[data-page="tree"] [tn-data-part="collapse-item"]');
+    const second = D().querySelectorAll('[data-page="tree"] [tn-data-part="collapse-item"]')[1];
+    second.querySelector("[data-collapse]").click();
+    chk("手风琴：开第二节就收起第一节",
+      second.hasAttribute("tn-data-state-open") && !item.hasAttribute("tn-data-state-open"));
+
+    /* ================= 六、主题抽屉 ================= */
+    D().querySelector("#theme-trigger").click();
+    const drawer = D().querySelector('[tn-data-part="theme-drawer"]');
+    chk("主题抽屉由 kit.tpl 生成", !!drawer && drawer.querySelectorAll('[tn-data-part="swatch"]').length === 9);
+    chk("默认主色来自 <html data-primary>",
+      D().documentElement.style.getPropertyValue("--primary") === "#a3e635",
+      D().documentElement.style.getPropertyValue("--primary"));
+    const swatch = [...drawer.querySelectorAll('[tn-data-part="swatch"]')].find((b) => b.dataset.color === "#722ed1");
+    swatch.click();
+    chk("点色板：主色变量与选中态一起走",
+      D().documentElement.style.getPropertyValue("--primary") === "#722ed1"
+      && swatch.hasAttribute("tn-data-state-active")
+      && drawer.querySelectorAll('[tn-data-part="swatch"][tn-data-state-active]').length === 1);
+    drawer.querySelector('[tn-data-part="theme-close"]').click();
+    chk("抽屉可关闭", !D().querySelector('[tn-data-part="theme-drawer"]'));
+
+    /* ================= 七、关页签回到首页 ================= */
+    D().querySelector('#tabbar [data-tab-id="tree"] [data-tab-close]').click();
+    await sleep(120);
+    chk("点 × 关页签后激活剩下的最后一个页签",
+      !D().querySelector('#tabbar [data-tab-id="tree"]')
+      && D().querySelector('#tabbar [data-tab-id="form"]').hasAttribute("tn-data-state-active"));
+
+    /* ================= 八、整页零类名 ================= */
+    const withClass = [...D().querySelectorAll("[class]")];
+    chk("整页 class 属性为 0 个（这是换肤的核心证据）",
+      withClass.length === 0,
+      "仍然有 " + withClass.length + " 个：" + withClass.slice(0, 4).map((n) => n.tagName + "." + n.className).join(" | "));
+
+    const parts = D().querySelectorAll("[tn-data-part]").length;
+    chk("骨架部件靠 tn-data-part 定位", parts > 40, "共 " + parts + " 个");
+
+    chk("运行期零报错", errs.length === 0, errs.join(" | "));
+  } catch (e) {
+    out.push("FAIL 驱动脚本异常 :: " + (e && e.stack ? e.stack.split("\n")[0] : e));
+  }
+
+  const pass = out.filter((l) => l.startsWith("ok")).length;
+  const fail = out.filter((l) => l.startsWith("FAIL")).length;
+  document.getElementById("sum").innerHTML =
+    "共 <b>" + (pass + fail) + "</b> 项：<span class='ok'>通过 <b>" + pass + "</b></span> · "
+    + "<span class='" + (fail ? "no" : "ok") + "'>失败 <b>" + fail + "</b></span>";
+  document.getElementById("log").textContent = out.join("\n");
+  window.__showcase = { total: pass + fail, pass, fail, errs, out };
+});
+</script>
+</body>
+</html>

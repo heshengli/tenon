@@ -1,0 +1,232 @@
+<div class="stack" data-page="users" data-script="users">
+        <section class="card">
+      <div class="card-hd"><span>用户管理</span><span class="card-extra"></span></div>
+      <div class="card-bd">
+          <div class="between" style="margin-bottom:12px">
+            <div class="flex">
+              <input id="users-q" class="input" style="width:240px" placeholder="搜索姓名 / 角色 / 部门" value="">
+              <button class="btn btn-default" data-act="reset">重置</button>
+            </div>
+            <div class="flex">
+              <button class="btn btn-danger" data-act="batch-del">批量删除</button>
+              <button class="btn btn-primary" data-act="add">+ 新增用户</button>
+            </div>
+          </div>
+          <div id="users-table"><div class="table-wrap"><table class="table table-hover" tn-data="table" data-page-size="8" data-pager="#users-pager">
+      <thead><tr>
+        <th style="width:40px"><input type="checkbox" data-check-all></th>
+        <th class="th-sort" data-sort="id">编号 <span class="th-arrow">⇅</span></th>
+        <th class="th-sort" data-sort="name">姓名 <span class="th-arrow">⇅</span></th>
+        <th>角色</th>
+        <th>部门</th>
+        <th class="th-sort" data-sort="age">年龄 <span class="th-arrow">⇅</span></th>
+        <th>状态</th>
+        <th class="cell-right">操作</th>
+      </tr></thead>
+      <tbody>
+      <tr data-row-id="1">
+        <td><input type="checkbox" data-check="1"></td>
+        <td>1</td>
+        <td>张伟</td>
+        <td>管理员</td>
+        <td>技术中心</td>
+        <td>32</td>
+        <td><span class="tag tag-ok">启用</span></td>
+        <td class="cell-right">
+          <button class="link" data-act="edit" data-id="1">编辑</button>
+          <button class="link danger" data-act="del" data-id="1">删除</button>
+        </td>
+      </tr>
+      <tr data-row-id="2">
+        <td><input type="checkbox" data-check="2"></td>
+        <td>2</td>
+        <td>李娜</td>
+        <td>编辑</td>
+        <td>市场部</td>
+        <td>28</td>
+        <td><span class="tag tag-ok">启用</span></td>
+        <td class="cell-right">
+          <button class="link" data-act="edit" data-id="2">编辑</button>
+          <button class="link danger" data-act="del" data-id="2">删除</button>
+        </td>
+      </tr>
+      <tr data-row-id="3">
+        <td><input type="checkbox" data-check="3"></td>
+        <td>3</td>
+        <td>王强</td>
+        <td>访客</td>
+        <td>财务部</td>
+        <td>35</td>
+        <td><span class="tag tag-ok">启用</span></td>
+        <td class="cell-right">
+          <button class="link" data-act="edit" data-id="3">编辑</button>
+          <button class="link danger" data-act="del" data-id="3">删除</button>
+        </td>
+      </tr>
+      <tr data-row-id="4">
+        <td><input type="checkbox" data-check="4"></td>
+        <td>4</td>
+        <td>刘洋</td>
+        <td>编辑</td>
+        <td>技术中心</td>
+        <td>26</td>
+        <td><span class="tag tag-ok">启用</span></td>
+        <td class="cell-right">
+          <button class="link" data-act="edit" data-id="4">编辑</button>
+          <button class="link danger" data-act="del" data-id="4">删除</button>
+        </td>
+      </tr>
+      <tr data-row-id="5">
+        <td><input type="checkbox" data-check="5"></td>
+        <td>5</td>
+        <td>陈静</td>
+        <td>访客</td>
+        <td>人力资源部</td>
+        <td>41</td>
+        <td><span class="tag tag-default">停用</span></td>
+        <td class="cell-right">
+          <button class="link" data-act="edit" data-id="5">编辑</button>
+          <button class="link danger" data-act="del" data-id="5">删除</button>
+        </td>
+      </tr>
+      <tr data-row-id="6">
+        <td><input type="checkbox" data-check="6"></td>
+        <td>6</td>
+        <td>赵磊</td>
+        <td>管理员</td>
+        <td>技术中心</td>
+        <td>38</td>
+        <td><span class="tag tag-ok">启用</span></td>
+        <td class="cell-right">
+          <button class="link" data-act="edit" data-id="6">编辑</button>
+          <button class="link danger" data-act="del" data-id="6">删除</button>
+        </td>
+      </tr>
+      <tr data-row-id="7">
+        <td><input type="checkbox" data-check="7"></td>
+        <td>7</td>
+        <td>孙倩</td>
+        <td>编辑</td>
+        <td>市场部</td>
+        <td>30</td>
+        <td><span class="tag tag-ok">启用</span></td>
+        <td class="cell-right">
+          <button class="link" data-act="edit" data-id="7">编辑</button>
+          <button class="link danger" data-act="del" data-id="7">删除</button>
+        </td>
+      </tr>
+      <tr data-row-id="8">
+        <td><input type="checkbox" data-check="8"></td>
+        <td>8</td>
+        <td>周涛</td>
+        <td>访客</td>
+        <td>财务部</td>
+        <td>24</td>
+        <td><span class="tag tag-ok">启用</span></td>
+        <td class="cell-right">
+          <button class="link" data-act="edit" data-id="8">编辑</button>
+          <button class="link danger" data-act="del" data-id="8">删除</button>
+        </td>
+      </tr>
+      <tr data-row-id="9">
+        <td><input type="checkbox" data-check="9"></td>
+        <td>9</td>
+        <td>吴敏</td>
+        <td>编辑</td>
+        <td>技术中心</td>
+        <td>33</td>
+        <td><span class="tag tag-ok">启用</span></td>
+        <td class="cell-right">
+          <button class="link" data-act="edit" data-id="9">编辑</button>
+          <button class="link danger" data-act="del" data-id="9">删除</button>
+        </td>
+      </tr>
+      <tr data-row-id="10">
+        <td><input type="checkbox" data-check="10"></td>
+        <td>10</td>
+        <td>郑爽</td>
+        <td>访客</td>
+        <td>市场部</td>
+        <td>29</td>
+        <td><span class="tag tag-default">停用</span></td>
+        <td class="cell-right">
+          <button class="link" data-act="edit" data-id="10">编辑</button>
+          <button class="link danger" data-act="del" data-id="10">删除</button>
+        </td>
+      </tr>
+      <tr data-row-id="11">
+        <td><input type="checkbox" data-check="11"></td>
+        <td>11</td>
+        <td>冯磊</td>
+        <td>管理员</td>
+        <td>技术中心</td>
+        <td>45</td>
+        <td><span class="tag tag-ok">启用</span></td>
+        <td class="cell-right">
+          <button class="link" data-act="edit" data-id="11">编辑</button>
+          <button class="link danger" data-act="del" data-id="11">删除</button>
+        </td>
+      </tr>
+      <tr data-row-id="12">
+        <td><input type="checkbox" data-check="12"></td>
+        <td>12</td>
+        <td>许晴</td>
+        <td>编辑</td>
+        <td>人力资源部</td>
+        <td>27</td>
+        <td><span class="tag tag-ok">启用</span></td>
+        <td class="cell-right">
+          <button class="link" data-act="edit" data-id="12">编辑</button>
+          <button class="link danger" data-act="del" data-id="12">删除</button>
+        </td>
+      </tr>
+      <tr data-row-id="13">
+        <td><input type="checkbox" data-check="13"></td>
+        <td>13</td>
+        <td>何军</td>
+        <td>访客</td>
+        <td>财务部</td>
+        <td>36</td>
+        <td><span class="tag tag-ok">启用</span></td>
+        <td class="cell-right">
+          <button class="link" data-act="edit" data-id="13">编辑</button>
+          <button class="link danger" data-act="del" data-id="13">删除</button>
+        </td>
+      </tr>
+      <tr data-row-id="14">
+        <td><input type="checkbox" data-check="14"></td>
+        <td>14</td>
+        <td>高圆</td>
+        <td>编辑</td>
+        <td>市场部</td>
+        <td>31</td>
+        <td><span class="tag tag-ok">启用</span></td>
+        <td class="cell-right">
+          <button class="link" data-act="edit" data-id="14">编辑</button>
+          <button class="link danger" data-act="del" data-id="14">删除</button>
+        </td>
+      </tr>
+      <tr data-row-id="15">
+        <td><input type="checkbox" data-check="15"></td>
+        <td>15</td>
+        <td>林峰</td>
+        <td>访客</td>
+        <td>技术中心</td>
+        <td>22</td>
+        <td><span class="tag tag-default">停用</span></td>
+        <td class="cell-right">
+          <button class="link" data-act="edit" data-id="15">编辑</button>
+          <button class="link danger" data-act="del" data-id="15">删除</button>
+        </td>
+      </tr>
+      </tbody>
+    </table></div></div>
+          <div id="users-pager" class="mt16"><div class="pager">
+      <span class="pager-info">共 15 条</span>
+      <button class="pager-btn disabled" data-act="page" data-page="0">上一页</button>
+      <button class="pager-btn active" data-act="page" data-page="1">1</button><button class="pager-btn " data-act="page" data-page="2">2</button>
+      <button class="pager-btn " data-act="page" data-page="2">下一页</button>
+    </div></div>
+        </div>
+    </section>
+      </div>

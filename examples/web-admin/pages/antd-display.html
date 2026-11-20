@@ -1,0 +1,729 @@
+<div class="api-page" data-page="antd-display">
+      <aside class="api-nav">
+        <div class="api-nav-title">数据展示 · 16 个组件</div>
+        <a href="#avatar" data-anchor="avatar" class="active">
+        <span>头像</span><span class="api-nav-en">Avatar</span>
+      </a><a href="#badge" data-anchor="badge" class="">
+        <span>徽标</span><span class="api-nav-en">Badge</span>
+      </a><a href="#calendar" data-anchor="calendar" class="">
+        <span>日历</span><span class="api-nav-en">Calendar</span>
+      </a><a href="#card" data-anchor="card" class="">
+        <span>卡片</span><span class="api-nav-en">Card</span>
+      </a><a href="#carousel" data-anchor="carousel" class="">
+        <span>走马灯</span><span class="api-nav-en">Carousel</span>
+      </a><a href="#collapse" data-anchor="collapse" class="">
+        <span>折叠面板</span><span class="api-nav-en">Collapse</span>
+      </a><a href="#descriptions" data-anchor="descriptions" class="">
+        <span>描述列表</span><span class="api-nav-en">Descriptions</span>
+      </a><a href="#empty" data-anchor="empty" class="">
+        <span>空状态</span><span class="api-nav-en">Empty</span>
+      </a><a href="#list" data-anchor="list" class="">
+        <span>列表</span><span class="api-nav-en">List</span>
+      </a><a href="#qrcode" data-anchor="qrcode" class="">
+        <span>二维码</span><span class="api-nav-en">QRCode</span>
+      </a><a href="#segmented" data-anchor="segmented" class="">
+        <span>分段控制器</span><span class="api-nav-en">Segmented</span>
+      </a><a href="#statistic" data-anchor="statistic" class="">
+        <span>统计数值</span><span class="api-nav-en">Statistic</span>
+      </a><a href="#table" data-anchor="table" class="">
+        <span>表格</span><span class="api-nav-en">Table</span>
+      </a><a href="#tag" data-anchor="tag" class="">
+        <span>标签</span><span class="api-nav-en">Tag</span>
+      </a><a href="#timeline" data-anchor="timeline" class="">
+        <span>时间线</span><span class="api-nav-en">Timeline</span>
+      </a><a href="#tooltip" data-anchor="tooltip" class="">
+        <span>文字提示</span><span class="api-nav-en">Tooltip</span>
+      </a>
+      </aside>
+      <div class="api-body">
+        <div class="api-hero">
+          <h2>数据展示</h2>
+          <p>数据展示组件用于呈现信息：从轻量的标签、头像、徽标，到表格、时间线、统计数值与空状态。</p>
+          <div class="api-hero-tags">
+            <span class="tag tag-blue">Avatar</span><span class="tag tag-blue">Badge</span><span class="tag tag-blue">Calendar</span><span class="tag tag-blue">Card</span><span class="tag tag-blue">Collapse</span><span class="tag tag-blue">Descriptions</span><span class="tag tag-blue">Table</span><span class="tag tag-blue">Timeline</span>
+          </div>
+        </div>
+        <section class="api-sec" id="avatar">
+      <h3 class="api-title">头像<span class="api-en">Avatar</span></h3>
+      <p class="api-desc">展示用户或事物的图像、图标或字符。</p>
+      <div class="api-demo"><div class="api-row"><span class="a-avatar">A</span>
+        <span class="a-avatar a-avatar-sm">B</span>
+        <span class="a-avatar a-avatar-lg">C</span>
+        <span class="a-avatar a-avatar-square">方</span>
+        <span class="a-avatar"><span class="a-icon "><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20.5c0-3.6 3.4-6 7.5-6s7.5 2.4 7.5 6"/></svg></span></span>
+        <span class="a-avatar-group">
+          <span class="a-avatar a-avatar-sm">张</span>
+          <span class="a-avatar a-avatar-sm">李</span>
+          <span class="a-avatar a-avatar-sm">王</span>
+          <span class="a-avatar a-avatar-sm">+5</span>
+        </span></div></div>
+      <div class="api-src-wrap">
+      <div class="api-src-bar">
+        <button class="api-src-tog" data-api-src>
+          <i class="fa-solid fa-code"></i><span>查看代码</span>
+          <i class="fa-solid fa-chevron-down api-src-caret"></i>
+        </button>
+        <button class="api-src-copy" data-api-copy title="复制代码">
+          <i class="fa-regular fa-copy"></i><span>复制</span>
+        </button>
+      </div>
+      <pre class="api-src hidden"><code>&lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-avatar&quot;</span>&gt;A&lt;/<span class="tok-tag">span</span>&gt;
+&lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-avatar a-avatar-sm&quot;</span>&gt;B&lt;/<span class="tok-tag">span</span>&gt;
+&lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-avatar a-avatar-lg&quot;</span>&gt;C&lt;/<span class="tok-tag">span</span>&gt;
+&lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-avatar a-avatar-square&quot;</span>&gt;方&lt;/<span class="tok-tag">span</span>&gt;
+&lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-avatar&quot;</span>&gt;&lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-icon&quot;</span>&gt;<span class="tok-com">&lt;!-- svg --&gt;</span>&lt;/<span class="tok-tag">span</span>&gt;&lt;/<span class="tok-tag">span</span>&gt;
+&lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-avatar-group&quot;</span>&gt;
+  &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-avatar a-avatar-sm&quot;</span>&gt;张&lt;/<span class="tok-tag">span</span>&gt;
+  &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-avatar a-avatar-sm&quot;</span>&gt;李&lt;/<span class="tok-tag">span</span>&gt;
+  &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-avatar a-avatar-sm&quot;</span>&gt;王&lt;/<span class="tok-tag">span</span>&gt;
+  &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-avatar a-avatar-sm&quot;</span>&gt;+5&lt;/<span class="tok-tag">span</span>&gt;
+&lt;/<span class="tok-tag">span</span>&gt;</code></pre>
+    </div>
+    </section><section class="api-sec" id="badge">
+      <h3 class="api-title">徽标<span class="api-en">Badge</span></h3>
+      <p class="api-desc">图标右上角的数字或状态标记。</p>
+      <div class="api-demo"><div class="api-row"><span class="a-badge-wrap"><span class="a-badge-box"><span class="a-icon "><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 1 0-12 0c0 6-3 7-3 7h18s-3-1-3-7"/><path d="M10.5 20a2 2 0 0 0 3 0"/></svg></span></span>
+          <span class="a-badge-count">9</span></span>
+        <span class="a-badge-wrap"><span class="a-badge-box"><span class="a-icon "><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span></span>
+          <span class="a-badge-dot"></span></span>
+        <span class="a-status"><i></i>运行中</span>
+        <span class="a-status warn"><i></i>待审批</span>
+        <span class="a-status err"><i></i>已驳回</span>
+        <span class="a-status off"><i></i>已停用</span></div></div>
+      <div class="api-src-wrap">
+      <div class="api-src-bar">
+        <button class="api-src-tog" data-api-src>
+          <i class="fa-solid fa-code"></i><span>查看代码</span>
+          <i class="fa-solid fa-chevron-down api-src-caret"></i>
+        </button>
+        <button class="api-src-copy" data-api-copy title="复制代码">
+          <i class="fa-regular fa-copy"></i><span>复制</span>
+        </button>
+      </div>
+      <pre class="api-src hidden"><code>&lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-badge-wrap&quot;</span>&gt;
+  &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-badge-box&quot;</span>&gt;&lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-icon&quot;</span>&gt;<span class="tok-com">&lt;!-- svg --&gt;</span>&lt;/<span class="tok-tag">span</span>&gt;&lt;/<span class="tok-tag">span</span>&gt;
+  &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-badge-count&quot;</span>&gt;9&lt;/<span class="tok-tag">span</span>&gt;
+&lt;/<span class="tok-tag">span</span>&gt;
+&lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-badge-wrap&quot;</span>&gt;
+  &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-badge-box&quot;</span>&gt;&lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-icon&quot;</span>&gt;<span class="tok-com">&lt;!-- svg --&gt;</span>&lt;/<span class="tok-tag">span</span>&gt;&lt;/<span class="tok-tag">span</span>&gt;
+  &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-badge-dot&quot;</span>&gt;&lt;/<span class="tok-tag">span</span>&gt;
+&lt;/<span class="tok-tag">span</span>&gt;
+&lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-status&quot;</span>&gt;&lt;<span class="tok-tag">i</span>&gt;&lt;/<span class="tok-tag">i</span>&gt;运行中&lt;/<span class="tok-tag">span</span>&gt;
+&lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-status warn&quot;</span>&gt;&lt;<span class="tok-tag">i</span>&gt;&lt;/<span class="tok-tag">i</span>&gt;待审批&lt;/<span class="tok-tag">span</span>&gt;
+&lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-status err&quot;</span>&gt;&lt;<span class="tok-tag">i</span>&gt;&lt;/<span class="tok-tag">i</span>&gt;已驳回&lt;/<span class="tok-tag">span</span>&gt;
+&lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-status off&quot;</span>&gt;&lt;<span class="tok-tag">i</span>&gt;&lt;/<span class="tok-tag">i</span>&gt;已停用&lt;/<span class="tok-tag">span</span>&gt;</code></pre>
+    </div>
+    </section><section class="api-sec" id="calendar">
+      <h3 class="api-title">日历<span class="api-en">Calendar</span></h3>
+      <p class="api-desc">按日期展示数据的容器，可标记当天。</p>
+      <div class="api-demo"><div class="a-calendar">
+      <div class="a-calendar-hd"><span>2026 年 11 月</span>
+        <span class="tiny muted">今天：11 月 19 日</span></div>
+      <div class="a-calendar-grid"><div class="wk">日</div><div class="wk">一</div><div class="wk">二</div><div class="wk">三</div><div class="wk">四</div><div class="wk">五</div><div class="wk">六</div><div class="">1</div><div class="">2</div><div class="">3</div><div class="">4</div><div class="">5</div><div class="">6</div><div class="">7</div><div class="">8</div><div class="">9</div><div class="">10</div><div class="">11</div><div class="">12</div><div class="">13</div><div class="">14</div><div class="">15</div><div class="">16</div><div class="">17</div><div class="">18</div><div class="today">19</div><div class="">20</div><div class="">21</div><div class="">22</div><div class="">23</div><div class="">24</div><div class="">25</div><div class="">26</div><div class="">27</div><div class="">28</div><div class="">29</div><div class="">30</div><div class="out">37</div><div class="out">38</div><div class="out">39</div><div class="out">40</div><div class="out">41</div></div>
+    </div></div>
+      <div class="api-src-wrap">
+      <div class="api-src-bar">
+        <button class="api-src-tog" data-api-src>
+          <i class="fa-solid fa-code"></i><span>查看代码</span>
+          <i class="fa-solid fa-chevron-down api-src-caret"></i>
+        </button>
+        <button class="api-src-copy" data-api-copy title="复制代码">
+          <i class="fa-regular fa-copy"></i><span>复制</span>
+        </button>
+      </div>
+      <pre class="api-src hidden"><code>&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-calendar&quot;</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-calendar-hd&quot;</span>&gt;
+    &lt;<span class="tok-tag">span</span>&gt;2026 年 11 月&lt;/<span class="tok-tag">span</span>&gt;
+    &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;tiny muted&quot;</span>&gt;今天：11 月 19 日&lt;/<span class="tok-tag">span</span>&gt;
+  &lt;/<span class="tok-tag">div</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-calendar-grid&quot;</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;wk&quot;</span>&gt;日&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;wk&quot;</span>&gt;一&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;wk&quot;</span>&gt;二&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;wk&quot;</span>&gt;三&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;wk&quot;</span>&gt;四&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;wk&quot;</span>&gt;五&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;wk&quot;</span>&gt;六&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> class&gt;1&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> class&gt;2&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> class&gt;3&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> class&gt;4&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> class&gt;5&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> class&gt;6&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> class&gt;7&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> class&gt;8&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> class&gt;9&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> class&gt;10&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> class&gt;11&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> class&gt;12&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> class&gt;13&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> class&gt;14&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> class&gt;15&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> class&gt;16&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> class&gt;17&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> class&gt;18&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;today&quot;</span>&gt;19&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> class&gt;20&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> class&gt;21&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> class&gt;22&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> class&gt;23&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> class&gt;24&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> class&gt;25&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> class&gt;26&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> class&gt;27&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> class&gt;28&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> class&gt;29&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> class&gt;30&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;out&quot;</span>&gt;37&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;out&quot;</span>&gt;38&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;out&quot;</span>&gt;39&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;out&quot;</span>&gt;40&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;out&quot;</span>&gt;41&lt;/<span class="tok-tag">div</span>&gt;
+  &lt;/<span class="tok-tag">div</span>&gt;
+&lt;/<span class="tok-tag">div</span>&gt;</code></pre>
+    </div>
+    </section><section class="api-sec" id="card">
+      <h3 class="api-title">卡片<span class="api-en">Card</span></h3>
+      <p class="api-desc">最基础的容器，承载信息与操作。</p>
+      <div class="api-demo"><div class="grid2" style="gap:16px">
+        <section class="card">
+      <div class="card-hd"><span>项目进度</span><span class="card-extra"></span></div>
+      <div class="card-bd"><div class="tiny muted">恒泰金融 CRM 迁移</div>
+          <div style="margin:10px 0 6px">完成度 65%</div>
+          <div class="a-progress-track"><div class="a-progress-bar" style="width:65%"></div></div></div>
+    </section>
+        <section class="card">
+      <div class="card-hd"><span>卡片操作</span><span class="card-extra"><span class="tiny muted">更多</span></span></div>
+      <div class="card-bd"><p class="muted" style="margin-bottom:12px">卡片头部可放标题与操作区。</p>
+          <div class="btn-row"><button class="btn btn-sm btn-primary">查看</button>
+          <button class="btn btn-sm btn-default">编辑</button></div></div>
+    </section>
+      </div></div>
+      <div class="api-src-wrap">
+      <div class="api-src-bar">
+        <button class="api-src-tog" data-api-src>
+          <i class="fa-solid fa-code"></i><span>查看代码</span>
+          <i class="fa-solid fa-chevron-down api-src-caret"></i>
+        </button>
+        <button class="api-src-copy" data-api-copy title="复制代码">
+          <i class="fa-regular fa-copy"></i><span>复制</span>
+        </button>
+      </div>
+      <pre class="api-src hidden"><code>&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;grid2&quot;</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;gap:16px&quot;</span>&gt;
+  &lt;<span class="tok-tag">section</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;card&quot;</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;card-hd&quot;</span>&gt;
+      &lt;<span class="tok-tag">span</span>&gt;项目进度&lt;/<span class="tok-tag">span</span>&gt;
+      &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;card-extra&quot;</span>&gt;&lt;/<span class="tok-tag">span</span>&gt;
+    &lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;card-bd&quot;</span>&gt;
+      &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;tiny muted&quot;</span>&gt;恒泰金融 CRM 迁移&lt;/<span class="tok-tag">div</span>&gt;
+      &lt;<span class="tok-tag">div</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;margin:10px 0 6px&quot;</span>&gt;完成度 65%&lt;/<span class="tok-tag">div</span>&gt;
+      &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-progress-track&quot;</span>&gt;&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-progress-bar&quot;</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;width:65%&quot;</span>&gt;&lt;/<span class="tok-tag">div</span>&gt;&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;/<span class="tok-tag">div</span>&gt;
+  &lt;/<span class="tok-tag">section</span>&gt;
+  &lt;<span class="tok-tag">section</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;card&quot;</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;card-hd&quot;</span>&gt;
+      &lt;<span class="tok-tag">span</span>&gt;卡片操作&lt;/<span class="tok-tag">span</span>&gt;
+      &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;card-extra&quot;</span>&gt;
+        &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;tiny muted&quot;</span>&gt;更多&lt;/<span class="tok-tag">span</span>&gt;
+      &lt;/<span class="tok-tag">span</span>&gt;
+    &lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;card-bd&quot;</span>&gt;
+      &lt;<span class="tok-tag">p</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;muted&quot;</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;margin-bottom:12px&quot;</span>&gt;卡片头部可放标题与操作区。&lt;/<span class="tok-tag">p</span>&gt;
+      &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;btn-row&quot;</span>&gt;
+        &lt;<span class="tok-tag">button</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;btn btn-sm btn-primary&quot;</span>&gt;查看&lt;/<span class="tok-tag">button</span>&gt;
+        &lt;<span class="tok-tag">button</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;btn btn-sm btn-default&quot;</span>&gt;编辑&lt;/<span class="tok-tag">button</span>&gt;
+      &lt;/<span class="tok-tag">div</span>&gt;
+    &lt;/<span class="tok-tag">div</span>&gt;
+  &lt;/<span class="tok-tag">section</span>&gt;
+&lt;/<span class="tok-tag">div</span>&gt;</code></pre>
+    </div>
+    </section><section class="api-sec" id="carousel">
+      <h3 class="api-title">走马灯<span class="api-en">Carousel</span></h3>
+      <p class="api-desc">一组轮播区域，用于展示重点内容。</p>
+      <div class="api-demo"><div class="a-carousel">
+        <span>幻灯片 1 / 共 3 张</span>
+        <div class="a-carousel-dots"><i class="on"></i><i></i><i></i></div>
+      </div></div>
+      <div class="api-src-wrap">
+      <div class="api-src-bar">
+        <button class="api-src-tog" data-api-src>
+          <i class="fa-solid fa-code"></i><span>查看代码</span>
+          <i class="fa-solid fa-chevron-down api-src-caret"></i>
+        </button>
+        <button class="api-src-copy" data-api-copy title="复制代码">
+          <i class="fa-regular fa-copy"></i><span>复制</span>
+        </button>
+      </div>
+      <pre class="api-src hidden"><code>&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-carousel&quot;</span>&gt;
+  &lt;<span class="tok-tag">span</span>&gt;幻灯片 1 / 共 3 张&lt;/<span class="tok-tag">span</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-carousel-dots&quot;</span>&gt;&lt;<span class="tok-tag">i</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;on&quot;</span>&gt;&lt;/<span class="tok-tag">i</span>&gt;&lt;<span class="tok-tag">i</span>&gt;&lt;/<span class="tok-tag">i</span>&gt;&lt;<span class="tok-tag">i</span>&gt;&lt;/<span class="tok-tag">i</span>&gt;&lt;/<span class="tok-tag">div</span>&gt;
+&lt;/<span class="tok-tag">div</span>&gt;</code></pre>
+    </div>
+    </section><section class="api-sec" id="collapse">
+      <h3 class="api-title">折叠面板<span class="api-en">Collapse</span></h3>
+      <p class="api-desc">对复杂区域进行分组与折叠收纳。</p>
+      <div class="api-demo"><div class="a-collapse" tn-data="collapse">
+        <div class="a-collapse-item open">
+            <button class="a-collapse-hd" data-collapse><span>账号与安全</span><span class="caret">▶</span></button>
+            <div class="a-collapse-bd">修改密码、绑定手机、开启二次验证。</div>
+          </div><div class="a-collapse-item ">
+            <button class="a-collapse-hd" data-collapse><span>通知设置</span><span class="caret">▶</span></button>
+            <div class="a-collapse-bd">可分别配置站内信、邮件与短信的接收范围。</div>
+          </div><div class="a-collapse-item ">
+            <button class="a-collapse-hd" data-collapse><span>数据权限</span><span class="caret">▶</span></button>
+            <div class="a-collapse-bd">按部门与角色控制可见字段与导出权限。</div>
+          </div>
+      </div></div>
+      <div class="api-src-wrap">
+      <div class="api-src-bar">
+        <button class="api-src-tog" data-api-src>
+          <i class="fa-solid fa-code"></i><span>查看代码</span>
+          <i class="fa-solid fa-chevron-down api-src-caret"></i>
+        </button>
+        <button class="api-src-copy" data-api-copy title="复制代码">
+          <i class="fa-regular fa-copy"></i><span>复制</span>
+        </button>
+      </div>
+      <pre class="api-src hidden"><code>&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-collapse&quot;</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-collapse-item open&quot;</span>&gt;
+    &lt;<span class="tok-tag">button</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-collapse-hd&quot;</span> data-collapse&gt;
+      &lt;<span class="tok-tag">span</span>&gt;账号与安全&lt;/<span class="tok-tag">span</span>&gt;
+      &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;caret&quot;</span>&gt;▶&lt;/<span class="tok-tag">span</span>&gt;
+    &lt;/<span class="tok-tag">button</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-collapse-bd&quot;</span>&gt;修改密码、绑定手机、开启二次验证。&lt;/<span class="tok-tag">div</span>&gt;
+  &lt;/<span class="tok-tag">div</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-collapse-item&quot;</span>&gt;
+    &lt;<span class="tok-tag">button</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-collapse-hd&quot;</span> data-collapse&gt;
+      &lt;<span class="tok-tag">span</span>&gt;通知设置&lt;/<span class="tok-tag">span</span>&gt;
+      &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;caret&quot;</span>&gt;▶&lt;/<span class="tok-tag">span</span>&gt;
+    &lt;/<span class="tok-tag">button</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-collapse-bd&quot;</span>&gt;可分别配置站内信、邮件与短信的接收范围。&lt;/<span class="tok-tag">div</span>&gt;
+  &lt;/<span class="tok-tag">div</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-collapse-item&quot;</span>&gt;
+    &lt;<span class="tok-tag">button</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-collapse-hd&quot;</span> data-collapse&gt;
+      &lt;<span class="tok-tag">span</span>&gt;数据权限&lt;/<span class="tok-tag">span</span>&gt;
+      &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;caret&quot;</span>&gt;▶&lt;/<span class="tok-tag">span</span>&gt;
+    &lt;/<span class="tok-tag">button</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-collapse-bd&quot;</span>&gt;按部门与角色控制可见字段与导出权限。&lt;/<span class="tok-tag">div</span>&gt;
+  &lt;/<span class="tok-tag">div</span>&gt;
+&lt;/<span class="tok-tag">div</span>&gt;</code></pre>
+    </div>
+    </section><section class="api-sec" id="descriptions">
+      <h3 class="api-title">描述列表<span class="api-en">Descriptions</span></h3>
+      <p class="api-desc">成组展示多个只读字段，常用于详情页。</p>
+      <div class="api-demo"><table class="a-desc">
+        <tr><th>客户名称</th><td>华信科技</td><th>客户编号</th><td>2026001</td></tr>
+        <tr><th>客户等级</th><td>VIP</td><th>合作状态</th><td>启用</td></tr>
+        <tr><th>联系人</th><td>张伟</td><th>联系电话</th><td>138****8000</td></tr>
+        <tr><th>建档日期</th><td colspan="3">2026-11-19</td></tr>
+      </table></div>
+      <div class="api-src-wrap">
+      <div class="api-src-bar">
+        <button class="api-src-tog" data-api-src>
+          <i class="fa-solid fa-code"></i><span>查看代码</span>
+          <i class="fa-solid fa-chevron-down api-src-caret"></i>
+        </button>
+        <button class="api-src-copy" data-api-copy title="复制代码">
+          <i class="fa-regular fa-copy"></i><span>复制</span>
+        </button>
+      </div>
+      <pre class="api-src hidden"><code>&lt;<span class="tok-tag">table</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-desc&quot;</span>&gt;
+  &lt;<span class="tok-tag">tbody</span>&gt;
+    &lt;<span class="tok-tag">tr</span>&gt;
+      &lt;<span class="tok-tag">th</span>&gt;客户名称&lt;/<span class="tok-tag">th</span>&gt;
+      &lt;<span class="tok-tag">td</span>&gt;华信科技&lt;/<span class="tok-tag">td</span>&gt;
+      &lt;<span class="tok-tag">th</span>&gt;客户编号&lt;/<span class="tok-tag">th</span>&gt;
+      &lt;<span class="tok-tag">td</span>&gt;2026001&lt;/<span class="tok-tag">td</span>&gt;
+    &lt;/<span class="tok-tag">tr</span>&gt;
+    &lt;<span class="tok-tag">tr</span>&gt;
+      &lt;<span class="tok-tag">th</span>&gt;客户等级&lt;/<span class="tok-tag">th</span>&gt;
+      &lt;<span class="tok-tag">td</span>&gt;VIP&lt;/<span class="tok-tag">td</span>&gt;
+      &lt;<span class="tok-tag">th</span>&gt;合作状态&lt;/<span class="tok-tag">th</span>&gt;
+      &lt;<span class="tok-tag">td</span>&gt;启用&lt;/<span class="tok-tag">td</span>&gt;
+    &lt;/<span class="tok-tag">tr</span>&gt;
+    &lt;<span class="tok-tag">tr</span>&gt;
+      &lt;<span class="tok-tag">th</span>&gt;联系人&lt;/<span class="tok-tag">th</span>&gt;
+      &lt;<span class="tok-tag">td</span>&gt;张伟&lt;/<span class="tok-tag">td</span>&gt;
+      &lt;<span class="tok-tag">th</span>&gt;联系电话&lt;/<span class="tok-tag">th</span>&gt;
+      &lt;<span class="tok-tag">td</span>&gt;138****8000&lt;/<span class="tok-tag">td</span>&gt;
+    &lt;/<span class="tok-tag">tr</span>&gt;
+    &lt;<span class="tok-tag">tr</span>&gt;
+      &lt;<span class="tok-tag">th</span>&gt;建档日期&lt;/<span class="tok-tag">th</span>&gt;
+      &lt;<span class="tok-tag">td</span> <span class="tok-attr">colspan</span>=<span class="tok-str">&quot;3&quot;</span>&gt;2026-11-19&lt;/<span class="tok-tag">td</span>&gt;
+    &lt;/<span class="tok-tag">tr</span>&gt;
+  &lt;/<span class="tok-tag">tbody</span>&gt;
+&lt;/<span class="tok-tag">table</span>&gt;</code></pre>
+    </div>
+    </section><section class="api-sec" id="empty">
+      <h3 class="api-title">空状态<span class="api-en">Empty</span></h3>
+      <p class="api-desc">当前无数据时的占位提示。</p>
+      <div class="api-demo"><div class="a-empty"><div class="a-empty-art"></div>
+        <div class="a-empty-text">暂无数据</div></div></div>
+      <div class="api-src-wrap">
+      <div class="api-src-bar">
+        <button class="api-src-tog" data-api-src>
+          <i class="fa-solid fa-code"></i><span>查看代码</span>
+          <i class="fa-solid fa-chevron-down api-src-caret"></i>
+        </button>
+        <button class="api-src-copy" data-api-copy title="复制代码">
+          <i class="fa-regular fa-copy"></i><span>复制</span>
+        </button>
+      </div>
+      <pre class="api-src hidden"><code>&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-empty&quot;</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-empty-art&quot;</span>&gt;&lt;/<span class="tok-tag">div</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-empty-text&quot;</span>&gt;暂无数据&lt;/<span class="tok-tag">div</span>&gt;
+&lt;/<span class="tok-tag">div</span>&gt;</code></pre>
+    </div>
+    </section><section class="api-sec" id="list">
+      <h3 class="api-title">列表<span class="api-en">List</span></h3>
+      <p class="api-desc">基础列表展示，可承载头像、标题与描述。</p>
+      <div class="api-demo"><div class="a-list">
+        <div class="a-list-item">
+            <span class="a-avatar a-avatar-sm">张</span>
+            <span>提交了采购申请</span><span class="a-list-meta">2 分钟前</span>
+          </div><div class="a-list-item">
+            <span class="a-avatar a-avatar-sm">李</span>
+            <span>审批通过合同用印</span><span class="a-list-meta">1 小时前</span>
+          </div><div class="a-list-item">
+            <span class="a-avatar a-avatar-sm">王</span>
+            <span>上传了月度报表</span><span class="a-list-meta">昨天</span>
+          </div>
+      </div></div>
+      <div class="api-src-wrap">
+      <div class="api-src-bar">
+        <button class="api-src-tog" data-api-src>
+          <i class="fa-solid fa-code"></i><span>查看代码</span>
+          <i class="fa-solid fa-chevron-down api-src-caret"></i>
+        </button>
+        <button class="api-src-copy" data-api-copy title="复制代码">
+          <i class="fa-regular fa-copy"></i><span>复制</span>
+        </button>
+      </div>
+      <pre class="api-src hidden"><code>&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-list&quot;</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-list-item&quot;</span>&gt;
+    &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-avatar a-avatar-sm&quot;</span>&gt;张&lt;/<span class="tok-tag">span</span>&gt;
+    &lt;<span class="tok-tag">span</span>&gt;提交了采购申请&lt;/<span class="tok-tag">span</span>&gt;
+    &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-list-meta&quot;</span>&gt;2 分钟前&lt;/<span class="tok-tag">span</span>&gt;
+  &lt;/<span class="tok-tag">div</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-list-item&quot;</span>&gt;
+    &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-avatar a-avatar-sm&quot;</span>&gt;李&lt;/<span class="tok-tag">span</span>&gt;
+    &lt;<span class="tok-tag">span</span>&gt;审批通过合同用印&lt;/<span class="tok-tag">span</span>&gt;
+    &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-list-meta&quot;</span>&gt;1 小时前&lt;/<span class="tok-tag">span</span>&gt;
+  &lt;/<span class="tok-tag">div</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-list-item&quot;</span>&gt;
+    &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-avatar a-avatar-sm&quot;</span>&gt;王&lt;/<span class="tok-tag">span</span>&gt;
+    &lt;<span class="tok-tag">span</span>&gt;上传了月度报表&lt;/<span class="tok-tag">span</span>&gt;
+    &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-list-meta&quot;</span>&gt;昨天&lt;/<span class="tok-tag">span</span>&gt;
+  &lt;/<span class="tok-tag">div</span>&gt;
+&lt;/<span class="tok-tag">div</span>&gt;</code></pre>
+    </div>
+    </section><section class="api-sec" id="qrcode">
+      <h3 class="api-title">二维码<span class="api-en">QRCode</span></h3>
+      <p class="api-desc">将文本或链接生成二维码图片。</p>
+      <div class="api-demo"><div class="a-space" style="gap:20px;align-items:flex-start">
+        <div class="a-qrcode"><svg viewBox="0 0 21 21" shape-rendering="crispEdges" fill="#1f1f1f"><rect x="0" y="0" width="1" height="1"/><rect x="1" y="0" width="1" height="1"/><rect x="2" y="0" width="1" height="1"/><rect x="3" y="0" width="1" height="1"/><rect x="4" y="0" width="1" height="1"/><rect x="5" y="0" width="1" height="1"/><rect x="6" y="0" width="1" height="1"/><rect x="8" y="0" width="1" height="1"/><rect x="10" y="0" width="1" height="1"/><rect x="13" y="0" width="1" height="1"/><rect x="14" y="0" width="1" height="1"/><rect x="15" y="0" width="1" height="1"/><rect x="16" y="0" width="1" height="1"/><rect x="17" y="0" width="1" height="1"/><rect x="18" y="0" width="1" height="1"/><rect x="19" y="0" width="1" height="1"/><rect x="20" y="0" width="1" height="1"/><rect x="0" y="1" width="1" height="1"/><rect x="6" y="1" width="1" height="1"/><rect x="8" y="1" width="1" height="1"/><rect x="10" y="1" width="1" height="1"/><rect x="13" y="1" width="1" height="1"/><rect x="14" y="1" width="1" height="1"/><rect x="20" y="1" width="1" height="1"/><rect x="0" y="2" width="1" height="1"/><rect x="2" y="2" width="1" height="1"/><rect x="3" y="2" width="1" height="1"/><rect x="4" y="2" width="1" height="1"/><rect x="6" y="2" width="1" height="1"/><rect x="7" y="2" width="1" height="1"/><rect x="11" y="2" width="1" height="1"/><rect x="12" y="2" width="1" height="1"/><rect x="14" y="2" width="1" height="1"/><rect x="16" y="2" width="1" height="1"/><rect x="17" y="2" width="1" height="1"/><rect x="18" y="2" width="1" height="1"/><rect x="20" y="2" width="1" height="1"/><rect x="0" y="3" width="1" height="1"/><rect x="2" y="3" width="1" height="1"/><rect x="3" y="3" width="1" height="1"/><rect x="4" y="3" width="1" height="1"/><rect x="6" y="3" width="1" height="1"/><rect x="14" y="3" width="1" height="1"/><rect x="16" y="3" width="1" height="1"/><rect x="17" y="3" width="1" height="1"/><rect x="18" y="3" width="1" height="1"/><rect x="20" y="3" width="1" height="1"/><rect x="0" y="4" width="1" height="1"/><rect x="2" y="4" width="1" height="1"/><rect x="3" y="4" width="1" height="1"/><rect x="4" y="4" width="1" height="1"/><rect x="6" y="4" width="1" height="1"/><rect x="7" y="4" width="1" height="1"/><rect x="11" y="4" width="1" height="1"/><rect x="12" y="4" width="1" height="1"/><rect x="14" y="4" width="1" height="1"/><rect x="16" y="4" width="1" height="1"/><rect x="17" y="4" width="1" height="1"/><rect x="18" y="4" width="1" height="1"/><rect x="20" y="4" width="1" height="1"/><rect x="0" y="5" width="1" height="1"/><rect x="6" y="5" width="1" height="1"/><rect x="8" y="5" width="1" height="1"/><rect x="10" y="5" width="1" height="1"/><rect x="13" y="5" width="1" height="1"/><rect x="14" y="5" width="1" height="1"/><rect x="20" y="5" width="1" height="1"/><rect x="0" y="6" width="1" height="1"/><rect x="1" y="6" width="1" height="1"/><rect x="2" y="6" width="1" height="1"/><rect x="3" y="6" width="1" height="1"/><rect x="4" y="6" width="1" height="1"/><rect x="5" y="6" width="1" height="1"/><rect x="6" y="6" width="1" height="1"/><rect x="8" y="6" width="1" height="1"/><rect x="10" y="6" width="1" height="1"/><rect x="13" y="6" width="1" height="1"/><rect x="14" y="6" width="1" height="1"/><rect x="15" y="6" width="1" height="1"/><rect x="16" y="6" width="1" height="1"/><rect x="17" y="6" width="1" height="1"/><rect x="18" y="6" width="1" height="1"/><rect x="19" y="6" width="1" height="1"/><rect x="20" y="6" width="1" height="1"/><rect x="1" y="7" width="1" height="1"/><rect x="2" y="7" width="1" height="1"/><rect x="6" y="7" width="1" height="1"/><rect x="7" y="7" width="1" height="1"/><rect x="11" y="7" width="1" height="1"/><rect x="12" y="7" width="1" height="1"/><rect x="16" y="7" width="1" height="1"/><rect x="17" y="7" width="1" height="1"/><rect x="1" y="9" width="1" height="1"/><rect x="2" y="9" width="1" height="1"/><rect x="6" y="9" width="1" height="1"/><rect x="7" y="9" width="1" height="1"/><rect x="11" y="9" width="1" height="1"/><rect x="12" y="9" width="1" height="1"/><rect x="16" y="9" width="1" height="1"/><rect x="17" y="9" width="1" height="1"/><rect x="0" y="10" width="1" height="1"/><rect x="3" y="10" width="1" height="1"/><rect x="5" y="10" width="1" height="1"/><rect x="8" y="10" width="1" height="1"/><rect x="10" y="10" width="1" height="1"/><rect x="13" y="10" width="1" height="1"/><rect x="15" y="10" width="1" height="1"/><rect x="18" y="10" width="1" height="1"/><rect x="20" y="10" width="1" height="1"/><rect x="0" y="11" width="1" height="1"/><rect x="3" y="11" width="1" height="1"/><rect x="5" y="11" width="1" height="1"/><rect x="8" y="11" width="1" height="1"/><rect x="10" y="11" width="1" height="1"/><rect x="13" y="11" width="1" height="1"/><rect x="15" y="11" width="1" height="1"/><rect x="18" y="11" width="1" height="1"/><rect x="20" y="11" width="1" height="1"/><rect x="1" y="12" width="1" height="1"/><rect x="2" y="12" width="1" height="1"/><rect x="6" y="12" width="1" height="1"/><rect x="7" y="12" width="1" height="1"/><rect x="11" y="12" width="1" height="1"/><rect x="12" y="12" width="1" height="1"/><rect x="16" y="12" width="1" height="1"/><rect x="17" y="12" width="1" height="1"/><rect x="0" y="14" width="1" height="1"/><rect x="1" y="14" width="1" height="1"/><rect x="2" y="14" width="1" height="1"/><rect x="3" y="14" width="1" height="1"/><rect x="4" y="14" width="1" height="1"/><rect x="5" y="14" width="1" height="1"/><rect x="6" y="14" width="1" height="1"/><rect x="7" y="14" width="1" height="1"/><rect x="11" y="14" width="1" height="1"/><rect x="12" y="14" width="1" height="1"/><rect x="16" y="14" width="1" height="1"/><rect x="17" y="14" width="1" height="1"/><rect x="0" y="15" width="1" height="1"/><rect x="6" y="15" width="1" height="1"/><rect x="8" y="15" width="1" height="1"/><rect x="10" y="15" width="1" height="1"/><rect x="13" y="15" width="1" height="1"/><rect x="15" y="15" width="1" height="1"/><rect x="18" y="15" width="1" height="1"/><rect x="20" y="15" width="1" height="1"/><rect x="0" y="16" width="1" height="1"/><rect x="2" y="16" width="1" height="1"/><rect x="3" y="16" width="1" height="1"/><rect x="4" y="16" width="1" height="1"/><rect x="6" y="16" width="1" height="1"/><rect x="8" y="16" width="1" height="1"/><rect x="10" y="16" width="1" height="1"/><rect x="13" y="16" width="1" height="1"/><rect x="15" y="16" width="1" height="1"/><rect x="18" y="16" width="1" height="1"/><rect x="20" y="16" width="1" height="1"/><rect x="0" y="17" width="1" height="1"/><rect x="2" y="17" width="1" height="1"/><rect x="3" y="17" width="1" height="1"/><rect x="4" y="17" width="1" height="1"/><rect x="6" y="17" width="1" height="1"/><rect x="7" y="17" width="1" height="1"/><rect x="11" y="17" width="1" height="1"/><rect x="12" y="17" width="1" height="1"/><rect x="16" y="17" width="1" height="1"/><rect x="17" y="17" width="1" height="1"/><rect x="0" y="18" width="1" height="1"/><rect x="2" y="18" width="1" height="1"/><rect x="3" y="18" width="1" height="1"/><rect x="4" y="18" width="1" height="1"/><rect x="6" y="18" width="1" height="1"/><rect x="0" y="19" width="1" height="1"/><rect x="6" y="19" width="1" height="1"/><rect x="7" y="19" width="1" height="1"/><rect x="11" y="19" width="1" height="1"/><rect x="12" y="19" width="1" height="1"/><rect x="16" y="19" width="1" height="1"/><rect x="17" y="19" width="1" height="1"/><rect x="0" y="20" width="1" height="1"/><rect x="1" y="20" width="1" height="1"/><rect x="2" y="20" width="1" height="1"/><rect x="3" y="20" width="1" height="1"/><rect x="4" y="20" width="1" height="1"/><rect x="5" y="20" width="1" height="1"/><rect x="6" y="20" width="1" height="1"/><rect x="8" y="20" width="1" height="1"/><rect x="10" y="20" width="1" height="1"/><rect x="13" y="20" width="1" height="1"/><rect x="15" y="20" width="1" height="1"/><rect x="18" y="20" width="1" height="1"/><rect x="20" y="20" width="1" height="1"/></svg></div>
+        <div class="tiny muted" style="line-height:1.9">
+          扫描可访问示例链接<br>
+          支持自定义尺寸与前景色<br>
+          可通过 Tenon 接口动态生成
+        </div>
+      </div></div>
+      <div class="api-src-wrap">
+      <div class="api-src-bar">
+        <button class="api-src-tog" data-api-src>
+          <i class="fa-solid fa-code"></i><span>查看代码</span>
+          <i class="fa-solid fa-chevron-down api-src-caret"></i>
+        </button>
+        <button class="api-src-copy" data-api-copy title="复制代码">
+          <i class="fa-regular fa-copy"></i><span>复制</span>
+        </button>
+      </div>
+      <pre class="api-src hidden"><code>&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-space&quot;</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;gap:20px;align-items:flex-start&quot;</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-qrcode&quot;</span>&gt;<span class="tok-com">&lt;!-- svg --&gt;</span>&lt;/<span class="tok-tag">div</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;tiny muted&quot;</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;line-height:1.9&quot;</span>&gt;扫描可访问示例链接&lt;<span class="tok-tag">br</span>&gt;支持自定义尺寸与前景色&lt;<span class="tok-tag">br</span>&gt;可通过 Tenon 接口动态生成&lt;/<span class="tok-tag">div</span>&gt;
+&lt;/<span class="tok-tag">div</span>&gt;</code></pre>
+    </div>
+    </section><section class="api-sec" id="segmented">
+      <h3 class="api-title">分段控制器<span class="api-en">Segmented</span></h3>
+      <p class="api-desc">在多个互斥选项间切换，适合 2-5 个选项。</p>
+      <div class="api-demo"><div class="a-seg" tn-data="segmented">
+        <button class="active" data-seg>日</button>
+        <button data-seg>周</button>
+        <button data-seg>月</button>
+        <button data-seg>年</button>
+      </div></div>
+      <div class="api-src-wrap">
+      <div class="api-src-bar">
+        <button class="api-src-tog" data-api-src>
+          <i class="fa-solid fa-code"></i><span>查看代码</span>
+          <i class="fa-solid fa-chevron-down api-src-caret"></i>
+        </button>
+        <button class="api-src-copy" data-api-copy title="复制代码">
+          <i class="fa-regular fa-copy"></i><span>复制</span>
+        </button>
+      </div>
+      <pre class="api-src hidden"><code>&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-seg&quot;</span>&gt;
+  &lt;<span class="tok-tag">button</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;active&quot;</span> data-seg&gt;日&lt;/<span class="tok-tag">button</span>&gt;
+  &lt;<span class="tok-tag">button</span> data-seg&gt;周&lt;/<span class="tok-tag">button</span>&gt;
+  &lt;<span class="tok-tag">button</span> data-seg&gt;月&lt;/<span class="tok-tag">button</span>&gt;
+  &lt;<span class="tok-tag">button</span> data-seg&gt;年&lt;/<span class="tok-tag">button</span>&gt;
+&lt;/<span class="tok-tag">div</span>&gt;</code></pre>
+    </div>
+    </section><section class="api-sec" id="statistic">
+      <h3 class="api-title">统计数值<span class="api-en">Statistic</span></h3>
+      <p class="api-desc">突出展示某个关键指标。</p>
+      <div class="api-demo"><div class="grid4" style="gap:16px">
+        <div><div class="a-stat-title">客户总数</div>
+          <div class="a-stat-value">1,286</div>
+          <div class="a-stat-foot up">↑ 12.0% 较上月</div></div>
+        <div><div class="a-stat-title">合同总额</div>
+          <div class="a-stat-value"><span class="a-stat-prefix">¥</span>486,200</div>
+          <div class="a-stat-foot up">↑ 8.4% 较上月</div></div>
+        <div><div class="a-stat-title">待办任务</div>
+          <div class="a-stat-value">2</div>
+          <div class="a-stat-foot">今日新增 2 项</div></div>
+        <div><div class="a-stat-title">服务可用率</div>
+          <div class="a-stat-value">99.98<span class="a-stat-suffix">%</span></div>
+          <div class="a-stat-foot down">↓ 0.01% 较上月</div></div>
+      </div></div>
+      <div class="api-src-wrap">
+      <div class="api-src-bar">
+        <button class="api-src-tog" data-api-src>
+          <i class="fa-solid fa-code"></i><span>查看代码</span>
+          <i class="fa-solid fa-chevron-down api-src-caret"></i>
+        </button>
+        <button class="api-src-copy" data-api-copy title="复制代码">
+          <i class="fa-regular fa-copy"></i><span>复制</span>
+        </button>
+      </div>
+      <pre class="api-src hidden"><code>&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;grid4&quot;</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;gap:16px&quot;</span>&gt;
+  &lt;<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-stat-title&quot;</span>&gt;客户总数&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-stat-value&quot;</span>&gt;1,286&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-stat-foot up&quot;</span>&gt;↑ 12.0% 较上月&lt;/<span class="tok-tag">div</span>&gt;
+  &lt;/<span class="tok-tag">div</span>&gt;
+  &lt;<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-stat-title&quot;</span>&gt;合同总额&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-stat-value&quot;</span>&gt;
+      &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-stat-prefix&quot;</span>&gt;¥&lt;/<span class="tok-tag">span</span>&gt;
+      486,200
+    &lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-stat-foot up&quot;</span>&gt;↑ 8.4% 较上月&lt;/<span class="tok-tag">div</span>&gt;
+  &lt;/<span class="tok-tag">div</span>&gt;
+  &lt;<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-stat-title&quot;</span>&gt;待办任务&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-stat-value&quot;</span>&gt;2&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-stat-foot&quot;</span>&gt;今日新增 2 项&lt;/<span class="tok-tag">div</span>&gt;
+  &lt;/<span class="tok-tag">div</span>&gt;
+  &lt;<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-stat-title&quot;</span>&gt;服务可用率&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-stat-value&quot;</span>&gt;
+      99.98
+      &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-stat-suffix&quot;</span>&gt;%&lt;/<span class="tok-tag">span</span>&gt;
+    &lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-stat-foot down&quot;</span>&gt;↓ 0.01% 较上月&lt;/<span class="tok-tag">div</span>&gt;
+  &lt;/<span class="tok-tag">div</span>&gt;
+&lt;/<span class="tok-tag">div</span>&gt;</code></pre>
+    </div>
+    </section><section class="api-sec" id="table">
+      <h3 class="api-title">表格<span class="api-en">Table</span></h3>
+      <p class="api-desc">展示行列数据，支持排序、选择与操作列。</p>
+      <div class="api-demo"><div class="table-wrap"><table class="table table-hover" tn-data="table">
+        <thead><tr>
+          <th style="width:40px"><input type="checkbox" data-check-all></th>
+          <th>客户名称</th><th>等级</th><th>合同额</th><th>状态</th><th class="right">操作</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+              <td><input type="checkbox" data-check></td>
+              <td>华信科技</td>
+              <td><span class="tag tag-blue">VIP</span></td>
+              <td>¥ 128,000</td><td><span class="tag tag-ok">启用</span></td>
+              <td class="cell-right"><button class="link">编辑</button><button class="link danger">删除</button></td>
+            </tr><tr>
+              <td><input type="checkbox" data-check></td>
+              <td>云图数据</td>
+              <td><span class="tag tag-default">普通</span></td>
+              <td>¥ 86,500</td><td><span class="tag tag-ok">启用</span></td>
+              <td class="cell-right"><button class="link">编辑</button><button class="link danger">删除</button></td>
+            </tr><tr>
+              <td><input type="checkbox" data-check></td>
+              <td>长风物流</td>
+              <td><span class="tag tag-warn">潜力</span></td>
+              <td>¥ 42,300</td><td><span class="tag tag-default">停用</span></td>
+              <td class="cell-right"><button class="link">编辑</button><button class="link danger">删除</button></td>
+            </tr>
+        </tbody>
+      </table></div></div>
+      <div class="api-src-wrap">
+      <div class="api-src-bar">
+        <button class="api-src-tog" data-api-src>
+          <i class="fa-solid fa-code"></i><span>查看代码</span>
+          <i class="fa-solid fa-chevron-down api-src-caret"></i>
+        </button>
+        <button class="api-src-copy" data-api-copy title="复制代码">
+          <i class="fa-regular fa-copy"></i><span>复制</span>
+        </button>
+      </div>
+      <pre class="api-src hidden"><code>&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;table-wrap&quot;</span>&gt;
+  &lt;<span class="tok-tag">table</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;table table-hover&quot;</span>&gt;
+    &lt;<span class="tok-tag">thead</span>&gt;
+      &lt;<span class="tok-tag">tr</span>&gt;
+        &lt;<span class="tok-tag">th</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;width:40px&quot;</span>&gt;&lt;<span class="tok-tag">input</span> <span class="tok-attr">type</span>=<span class="tok-str">&quot;checkbox&quot;</span> data-check-all&gt;&lt;/<span class="tok-tag">th</span>&gt;
+        &lt;<span class="tok-tag">th</span>&gt;客户名称&lt;/<span class="tok-tag">th</span>&gt;
+        &lt;<span class="tok-tag">th</span>&gt;等级&lt;/<span class="tok-tag">th</span>&gt;
+        &lt;<span class="tok-tag">th</span>&gt;合同额&lt;/<span class="tok-tag">th</span>&gt;
+        &lt;<span class="tok-tag">th</span>&gt;状态&lt;/<span class="tok-tag">th</span>&gt;
+        &lt;<span class="tok-tag">th</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;right&quot;</span>&gt;操作&lt;/<span class="tok-tag">th</span>&gt;
+      &lt;/<span class="tok-tag">tr</span>&gt;
+    &lt;/<span class="tok-tag">thead</span>&gt;
+    &lt;<span class="tok-tag">tbody</span>&gt;
+      &lt;<span class="tok-tag">tr</span>&gt;
+        &lt;<span class="tok-tag">td</span>&gt;&lt;<span class="tok-tag">input</span> <span class="tok-attr">type</span>=<span class="tok-str">&quot;checkbox&quot;</span> data-check&gt;&lt;/<span class="tok-tag">td</span>&gt;
+        &lt;<span class="tok-tag">td</span>&gt;华信科技&lt;/<span class="tok-tag">td</span>&gt;
+        &lt;<span class="tok-tag">td</span>&gt;
+          &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;tag tag-blue&quot;</span>&gt;VIP&lt;/<span class="tok-tag">span</span>&gt;
+        &lt;/<span class="tok-tag">td</span>&gt;
+        &lt;<span class="tok-tag">td</span>&gt;¥ 128,000&lt;/<span class="tok-tag">td</span>&gt;
+        &lt;<span class="tok-tag">td</span>&gt;
+          &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;tag tag-ok&quot;</span>&gt;启用&lt;/<span class="tok-tag">span</span>&gt;
+        &lt;/<span class="tok-tag">td</span>&gt;
+        &lt;<span class="tok-tag">td</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;cell-right&quot;</span>&gt;
+          &lt;<span class="tok-tag">button</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;link&quot;</span>&gt;编辑&lt;/<span class="tok-tag">button</span>&gt;
+          &lt;<span class="tok-tag">button</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;link danger&quot;</span>&gt;删除&lt;/<span class="tok-tag">button</span>&gt;
+        &lt;/<span class="tok-tag">td</span>&gt;
+      &lt;/<span class="tok-tag">tr</span>&gt;
+      &lt;<span class="tok-tag">tr</span>&gt;
+        &lt;<span class="tok-tag">td</span>&gt;&lt;<span class="tok-tag">input</span> <span class="tok-attr">type</span>=<span class="tok-str">&quot;checkbox&quot;</span> data-check&gt;&lt;/<span class="tok-tag">td</span>&gt;
+        &lt;<span class="tok-tag">td</span>&gt;云图数据&lt;/<span class="tok-tag">td</span>&gt;
+        &lt;<span class="tok-tag">td</span>&gt;
+          &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;tag tag-default&quot;</span>&gt;普通&lt;/<span class="tok-tag">span</span>&gt;
+        &lt;/<span class="tok-tag">td</span>&gt;
+        &lt;<span class="tok-tag">td</span>&gt;¥ 86,500&lt;/<span class="tok-tag">td</span>&gt;
+        &lt;<span class="tok-tag">td</span>&gt;
+          &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;tag tag-ok&quot;</span>&gt;启用&lt;/<span class="tok-tag">span</span>&gt;
+        &lt;/<span class="tok-tag">td</span>&gt;
+        &lt;<span class="tok-tag">td</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;cell-right&quot;</span>&gt;
+          &lt;<span class="tok-tag">button</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;link&quot;</span>&gt;编辑&lt;/<span class="tok-tag">button</span>&gt;
+          &lt;<span class="tok-tag">button</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;link danger&quot;</span>&gt;删除&lt;/<span class="tok-tag">button</span>&gt;
+        &lt;/<span class="tok-tag">td</span>&gt;
+      &lt;/<span class="tok-tag">tr</span>&gt;
+      &lt;<span class="tok-tag">tr</span>&gt;
+        &lt;<span class="tok-tag">td</span>&gt;&lt;<span class="tok-tag">input</span> <span class="tok-attr">type</span>=<span class="tok-str">&quot;checkbox&quot;</span> data-check&gt;&lt;/<span class="tok-tag">td</span>&gt;
+        &lt;<span class="tok-tag">td</span>&gt;长风物流&lt;/<span class="tok-tag">td</span>&gt;
+        &lt;<span class="tok-tag">td</span>&gt;
+          &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;tag tag-warn&quot;</span>&gt;潜力&lt;/<span class="tok-tag">span</span>&gt;
+        &lt;/<span class="tok-tag">td</span>&gt;
+        &lt;<span class="tok-tag">td</span>&gt;¥ 42,300&lt;/<span class="tok-tag">td</span>&gt;
+        &lt;<span class="tok-tag">td</span>&gt;
+          &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;tag tag-default&quot;</span>&gt;停用&lt;/<span class="tok-tag">span</span>&gt;
+        &lt;/<span class="tok-tag">td</span>&gt;
+        &lt;<span class="tok-tag">td</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;cell-right&quot;</span>&gt;
+          &lt;<span class="tok-tag">button</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;link&quot;</span>&gt;编辑&lt;/<span class="tok-tag">button</span>&gt;
+          &lt;<span class="tok-tag">button</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;link danger&quot;</span>&gt;删除&lt;/<span class="tok-tag">button</span>&gt;
+        &lt;/<span class="tok-tag">td</span>&gt;
+      &lt;/<span class="tok-tag">tr</span>&gt;
+    &lt;/<span class="tok-tag">tbody</span>&gt;
+  &lt;/<span class="tok-tag">table</span>&gt;
+&lt;/<span class="tok-tag">div</span>&gt;</code></pre>
+    </div>
+    </section><section class="api-sec" id="tag">
+      <h3 class="api-title">标签<span class="api-en">Tag</span></h3>
+      <p class="api-desc">用于标记属性与分类的小型容器。</p>
+      <div class="api-demo"><div class="api-row">
+        <span class="tag tag-blue">进行中</span><span class="tag tag-ok">已完成</span><span class="tag tag-warn">待审批</span><span class="tag tag-err">已驳回</span><span class="tag tag-default">已归档</span>
+      </div></div>
+      <div class="api-src-wrap">
+      <div class="api-src-bar">
+        <button class="api-src-tog" data-api-src>
+          <i class="fa-solid fa-code"></i><span>查看代码</span>
+          <i class="fa-solid fa-chevron-down api-src-caret"></i>
+        </button>
+        <button class="api-src-copy" data-api-copy title="复制代码">
+          <i class="fa-regular fa-copy"></i><span>复制</span>
+        </button>
+      </div>
+      <pre class="api-src hidden"><code>&lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;tag tag-blue&quot;</span>&gt;进行中&lt;/<span class="tok-tag">span</span>&gt;
+&lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;tag tag-ok&quot;</span>&gt;已完成&lt;/<span class="tok-tag">span</span>&gt;
+&lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;tag tag-warn&quot;</span>&gt;待审批&lt;/<span class="tok-tag">span</span>&gt;
+&lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;tag tag-err&quot;</span>&gt;已驳回&lt;/<span class="tok-tag">span</span>&gt;
+&lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;tag tag-default&quot;</span>&gt;已归档&lt;/<span class="tok-tag">span</span>&gt;</code></pre>
+    </div>
+    </section><section class="api-sec" id="timeline">
+      <h3 class="api-title">时间线<span class="api-en">Timeline</span></h3>
+      <p class="api-desc">按时间顺序展示事件流。</p>
+      <div class="api-demo"><ul class="a-timeline">
+        <li class="ok"><div class="tl-t">流程已提交</div><div class="tl-d">2026-11-19 09:12 · 张伟</div></li>
+        <li class="now"><div class="tl-t">部门经理审批中</div><div class="tl-d">2026-11-19 10:40 · 当前节点</div></li>
+        <li><div class="tl-t">财务复核</div><div class="tl-d">等待前一节点完成</div></li>
+        <li><div class="tl-t">归档</div><div class="tl-d">流程结束</div></li>
+      </ul></div>
+      <div class="api-src-wrap">
+      <div class="api-src-bar">
+        <button class="api-src-tog" data-api-src>
+          <i class="fa-solid fa-code"></i><span>查看代码</span>
+          <i class="fa-solid fa-chevron-down api-src-caret"></i>
+        </button>
+        <button class="api-src-copy" data-api-copy title="复制代码">
+          <i class="fa-regular fa-copy"></i><span>复制</span>
+        </button>
+      </div>
+      <pre class="api-src hidden"><code>&lt;<span class="tok-tag">ul</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-timeline&quot;</span>&gt;
+  &lt;<span class="tok-tag">li</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;ok&quot;</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;tl-t&quot;</span>&gt;流程已提交&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;tl-d&quot;</span>&gt;2026-11-19 09:12 · 张伟&lt;/<span class="tok-tag">div</span>&gt;
+  &lt;/<span class="tok-tag">li</span>&gt;
+  &lt;<span class="tok-tag">li</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;now&quot;</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;tl-t&quot;</span>&gt;部门经理审批中&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;tl-d&quot;</span>&gt;2026-11-19 10:40 · 当前节点&lt;/<span class="tok-tag">div</span>&gt;
+  &lt;/<span class="tok-tag">li</span>&gt;
+  &lt;<span class="tok-tag">li</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;tl-t&quot;</span>&gt;财务复核&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;tl-d&quot;</span>&gt;等待前一节点完成&lt;/<span class="tok-tag">div</span>&gt;
+  &lt;/<span class="tok-tag">li</span>&gt;
+  &lt;<span class="tok-tag">li</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;tl-t&quot;</span>&gt;归档&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;tl-d&quot;</span>&gt;流程结束&lt;/<span class="tok-tag">div</span>&gt;
+  &lt;/<span class="tok-tag">li</span>&gt;
+&lt;/<span class="tok-tag">ul</span>&gt;</code></pre>
+    </div>
+    </section><section class="api-sec" id="tooltip">
+      <h3 class="api-title">文字提示<span class="api-en">Tooltip</span></h3>
+      <p class="api-desc">简单的文字提示与承载更多内容的气泡卡片（Popover）。</p>
+      <div class="api-demo"><div class="a-space" style="gap:24px;flex-wrap:wrap;align-items:flex-start">
+        <span class="a-bubble">这是一条提示</span>
+        <div class="a-popover" style="max-width:240px">
+          <div class="a-popover-title">气泡卡片标题</div>
+          <div class="tiny muted">可承载多行内容、链接与操作按钮。</div>
+          <div class="a-popover-ft">
+            <button class="btn btn-sm btn-default">取消</button>
+            <button class="btn btn-sm btn-primary">确定</button>
+          </div>
+        </div>
+      </div></div>
+      <div class="api-src-wrap">
+      <div class="api-src-bar">
+        <button class="api-src-tog" data-api-src>
+          <i class="fa-solid fa-code"></i><span>查看代码</span>
+          <i class="fa-solid fa-chevron-down api-src-caret"></i>
+        </button>
+        <button class="api-src-copy" data-api-copy title="复制代码">
+          <i class="fa-regular fa-copy"></i><span>复制</span>
+        </button>
+      </div>
+      <pre class="api-src hidden"><code>&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-space&quot;</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;gap:24px;flex-wrap:wrap;align-items:flex-start&quot;</span>&gt;
+  &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-bubble&quot;</span>&gt;这是一条提示&lt;/<span class="tok-tag">span</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-popover&quot;</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;max-width:240px&quot;</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-popover-title&quot;</span>&gt;气泡卡片标题&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;tiny muted&quot;</span>&gt;可承载多行内容、链接与操作按钮。&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-popover-ft&quot;</span>&gt;
+      &lt;<span class="tok-tag">button</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;btn btn-sm btn-default&quot;</span>&gt;取消&lt;/<span class="tok-tag">button</span>&gt;
+      &lt;<span class="tok-tag">button</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;btn btn-sm btn-primary&quot;</span>&gt;确定&lt;/<span class="tok-tag">button</span>&gt;
+    &lt;/<span class="tok-tag">div</span>&gt;
+  &lt;/<span class="tok-tag">div</span>&gt;
+&lt;/<span class="tok-tag">div</span>&gt;</code></pre>
+    </div>
+    </section>
+      </div>
+    </div>

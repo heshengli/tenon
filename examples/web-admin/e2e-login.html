@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tenon 登录流程回归</title>
+<style>
+  body { margin: 0; padding: 20px 24px; font: 14px/1.7 -apple-system, "Segoe UI", "Microsoft YaHei", sans-serif; color: #1f2328; }
+  h1 { font-size: 18px; margin: 0 0 4px; }
+  .sub { color: #606872; font-size: 13px; margin-bottom: 14px; }
+  #sum { display: inline-block; padding: 8px 14px; border: 1px solid #e3e6ea; border-radius: 8px; margin-bottom: 14px; font-variant-numeric: tabular-nums; }
+  #sum b { font-size: 18px; }
+  .ok { color: #1a7f37; } .no { color: #c62828; }
+  #log { white-space: pre-wrap; font: 12px/1.65 ui-monospace, Consolas, monospace; margin: 0; }
+  iframe { position: absolute; left: -4000px; top: 0; width: 1440px; height: 900px; border: 0; }
+</style>
+</head>
+<body>
+<h1>Tenon 登录流程回归</h1>
+<div class="sub">
+  驱真实 login.html：空提交报错 → 正常登录进后台 → 退出清登录态 → 不勾「记住我」时只写 sessionStorage。
+</div>
+<div id="sum">运行中…</div>
+<pre id="log"></pre>
+<iframe id="f"></iframe>
+
+<script>
+const out = [];
+const chk = (n, c, extra) => out.push((c ? "ok   " : "FAIL ") + n + (c || !extra ? "" : " :: " + extra));
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+async function waitFor(fn, ms) {
+  const t0 = Date.now();
+  while (Date.now() - t0 < (ms || 4000)) {
+    try { const v = fn(); if (v) return v; } catch (e) { /* 还没好 */ }
+    await sleep(40);
+  }
+  return null;
+}
+
+const frame = document.getElementById("f");
+let step = 0;
+
+function load(src) {
+  return new Promise((resolve) => {
+    frame.onload = () => resolve();
+    frame.src = src;
+  });
+}
+
+function D() { return frame.contentDocument; }
+function W() { return frame.contentWindow; }
+const here = () => String(W().location.pathname).split("/").pop();
+
+function submit(u, p, remember) {
+  const d = D();
+  d.getElementById("username").value = u;
+  d.getElementById("password").value = p;
+  d.getElementById("remember").checked = !!remember;
+  d.getElementById("login-form").dispatchEvent(
+    new (W().Event)("submit", { bubbles: true, cancelable: true })
+  );
+}
+
+(async function run() {
+  try {
+    /* ---------- 1. 未登录打开登录页 ---------- */
+    localStorage.clear();
+    sessionStorage.clear();
+    await load("login.html");
+    chk("登录页有表单与默认值", !!D().getElementById("login-form"));
+    chk("清空登录态后停在登录页", here() === "login.html", here());
+
+    /* ---------- 2. 空用户名 ---------- */
+    submit("", "admin123", true);
+    await waitFor(() => (D().getElementById("login-err") || {}).textContent);
+    chk("空用户名原地报错", /用户名|密码/.test(D().getElementById("login-err").textContent),
+      D().getElementById("login-err").textContent);
+    chk("报错时不跳走", here() === "login.html", here());
+
+    /* ---------- 3. 正常登录（勾记住我）---------- */
+    submit("张三", "pw123", true);
+    const ok1 = await waitFor(() => here() === "index.html", 6000);
+    chk("登录成功进入后台", !!ok1, here());
+    chk("localStorage 记住登录态", !!localStorage.getItem("web-admin:user"));
+    if (ok1) {
+      await waitFor(() => D().getElementById("user-name"));
+      chk("后台显示登录用户名",
+        (D().getElementById("user-name") || {}).textContent === "张三",
+        (D().getElementById("user-name") || {}).textContent);
+    }
+
+    /* ---------- 4. 退出登录 ---------- */
+    if (ok1) {
+      W().Tenon.auth.logout();
+      const ok2 = await waitFor(() => here() === "login.html", 4000);
+      chk("退出后回到登录页", !!ok2, here());
+      chk("退出时清掉两个存储",
+        !localStorage.getItem("web-admin:user") && !sessionStorage.getItem("web-admin:user"));
+    }
+
+    /* ---------- 5. 不勾记住我 → 只写 sessionStorage ---------- */
+    submit("李四", "pw456", false);
+    const ok3 = await waitFor(() => here() === "index.html", 6000);
+    chk("不勾记住我也能登录", !!ok3, here());
+    chk("不勾时只写 sessionStorage",
+      !!sessionStorage.getItem("web-admin:user") && !localStorage.getItem("web-admin:user"),
+      "local=" + !!localStorage.getItem("web-admin:user") + " session=" + !!sessionStorage.getItem("web-admin:user"));
+  } catch (e) {
+    out.push("FAIL 驱动异常 :: " + (e && e.message));
+  }
+
+  localStorage.clear();
+  sessionStorage.clear();
+
+  const pass = out.filter((l) => l.startsWith("ok")).length;
+  const fail = out.filter((l) => l.startsWith("FAIL")).length;
+  document.getElementById("sum").innerHTML =
+    "共 <b>" + (pass + fail) + "</b> 项：<span class='ok'>通过 <b>" + pass + "</b></span> · "
+    + "<span class='" + (fail ? "no" : "ok") + "'>失败 <b>" + fail + "</b></span>";
+  document.getElementById("log").textContent = out.join("\n");
+  window.__e2eLogin = { total: pass + fail, pass, fail, out };
+})();
+</script>
+</body>
+</html>

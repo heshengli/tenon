@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tenon 外壳端到端回归</title>
+<style>
+  body { margin: 0; padding: 20px 24px; font: 14px/1.7 -apple-system, "Segoe UI", "Microsoft YaHei", sans-serif; color: #1f2328; }
+  h1 { font-size: 18px; margin: 0 0 4px; }
+  .sub { color: #606872; font-size: 13px; margin-bottom: 14px; }
+  #sum { display: inline-block; padding: 8px 14px; border: 1px solid #e3e6ea; border-radius: 8px; margin-bottom: 14px; font-variant-numeric: tabular-nums; }
+  #sum b { font-size: 18px; }
+  .ok { color: #1a7f37; } .no { color: #c62828; }
+  #log { white-space: pre-wrap; font: 12px/1.65 ui-monospace, Consolas, monospace; margin: 0; }
+  iframe { position: absolute; left: -4000px; top: 0; width: 1440px; height: 900px; border: 0; }
+</style>
+</head>
+<body>
+<h1>Tenon 外壳端到端回归</h1>
+<div class="sub">
+  前半段驱真实交互（页签 / 面包屑 / 右键 / 飞出层 / 主题抽屉），后半段把 30 个页面全开一遍。
+  需要 http 服务：在项目根跑 <code>python -m http.server 8123</code>，再访问 <code>/examples/web-admin/e2e.html</code>。
+</div>
+<div id="sum">运行中…</div>
+<pre id="log"></pre>
+<iframe id="f"></iframe>
+
+<script>
+const out = [];
+const errs = [];
+const only = location.hash.replace("#", "");   // #pages 只跑全量页面，调试用
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+const chk = (n, c, extra) => out.push((c ? "ok   " : "FAIL ") + n + (c || !extra ? "" : " :: " + extra));
+
+async function waitFor(fn, ms) {
+  const t0 = Date.now();
+  while (Date.now() - t0 < (ms || 5000)) {
+    try { const v = fn(); if (v) return v; } catch (e) { /* 还没好，接着等 */ }
+    await sleep(40);
+  }
+  return null;
+}
+
+const frame = document.getElementById("f");
+localStorage.setItem("web-admin:user", JSON.stringify({ name: "admin", at: Date.now() }));
+
+let phase = 1;   // 1 = 交互回归，2 = 深链接
+
+function report() {
+  if (errs.length) out.push("──── 运行期报错 ────\n" + errs.join("\n"));
+  const pass = out.filter((l) => l.startsWith("ok")).length;
+  const fail = out.filter((l) => l.startsWith("FAIL")).length;
+  document.getElementById("sum").innerHTML =
+    "共 <b>" + (pass + fail) + "</b> 项：<span class='ok'>通过 <b>" + pass + "</b></span> · "
+    + "<span class='" + (fail ? "no" : "ok") + "'>失败 <b>" + fail + "</b></span>";
+  document.getElementById("log").textContent = out.join("\n");
+  window.__e2e = { total: pass + fail, pass, fail, errs, out };
+}
+
+frame.src = "index.html";
+
+frame.addEventListener("load", async () => {
+  const W = frame.contentWindow;
+  const D = () => frame.contentDocument;
+
+  if (phase === 2) {
+    try { await deepLink(W, D); }
+    catch (e) { out.push("FAIL 深链接驱动异常 :: " + (e && e.message)); }
+    report();
+    return;
+  }
+
+  try {
+    W.addEventListener("error", (e) => errs.push("onerror " + (e.filename || "").split("/").pop() + ":" + e.lineno + " " + e.message));
+    const origErr = W.console.error;
+    W.console.error = function () { errs.push("console.error " + [].join.call(arguments, " ").slice(0, 160)); return origErr.apply(this, arguments); };
+
+    const T = W.Tenon;
+    const tabCount = () => D().querySelectorAll("#tabbar [data-tab-id]").length;
+    const home = () => D().querySelector('#tabbar [data-tab-id="dashboard"]');
+    const crumbCur = () => {
+      const n = D().querySelector("#crumb .crumb-cur");
+      return n ? n.textContent.trim() : "";
+    };
+
+    if (only !== "pages") {
+      /* ================= 一、启动与页签 ================= */
+      await waitFor(() => tabCount() === 1 && D().querySelector('#workarea [data-page="dashboard"]'));
+      chk("启动打开首页页签", tabCount() === 1, "实际 " + tabCount());
+      chk("首页常驻不可关（tab-fixed 且无关闭按钮）",
+        home() && home().classList.contains("tab-fixed") && !home().querySelector("[data-tab-close]"));
+      chk("首页页签高亮、面板可见",
+        home().classList.contains("active") && !D().querySelector("#workarea > *").classList.contains("hidden"));
+      chk("面包屑标题来自菜单", crumbCur() === "工作台", crumbCur());
+      chk("面包屑已无「首页」首段", !D().querySelector('#crumb [data-goto]')
+        && !D().querySelector("#crumb").textContent.includes("首页"),
+        D().querySelector("#crumb").textContent);
+      chk("首页片段已渲染", /待办事项|下午好/.test(D().querySelector("#workarea").textContent));
+
+      /* ================= 二、开页签 / 高亮 / 面包屑 ================= */
+      D().querySelector('#menu a[data-view="users"]').click();
+      await waitFor(() => D().querySelector('#workarea [data-page="users"] [data-check]'));
+      const usersTab = D().querySelector('#tabbar [data-tab-id="users"]');
+      chk("点菜单新增页签并抢占高亮",
+        tabCount() === 2 && usersTab.classList.contains("active") && !home().classList.contains("active"),
+        "页签数 " + tabCount());
+      chk("新页签带关闭按钮", !!usersTab.querySelector("[data-tab-close]"));
+      chk("面包屑更新为当前页", crumbCur() === "用户管理", crumbCur());
+      chk("面包屑含分组名", D().querySelector("#crumb").textContent.includes("数据管理"),
+        D().querySelector("#crumb").textContent);
+      chk("所在分组自动展开并标 has-active", (() => {
+        const g = D().querySelectorAll("#menu > div")[1];
+        return g && !g.classList.contains("collapsed") && g.classList.contains("has-active");
+      })());
+      chk("旧分组的 has-active 已撤掉", !D().querySelectorAll("#menu > div")[0].classList.contains("has-active"));
+      chk("页签面板互斥", (() => {
+        const p = D().querySelectorAll("#workarea > *");
+        return p.length === 2 && p[0].classList.contains("hidden") && !p[1].classList.contains("hidden");
+      })());
+      chk("用户页表格与 8 个勾选框已初始化",
+        !!D().querySelector('#workarea [data-page="users"] table')
+        && D().querySelectorAll('#workarea [data-page="users"] [data-check]').length === 8,
+        "勾选框 " + D().querySelectorAll('#workarea [data-page="users"] [data-check]').length);
+
+      /* ================= 三、右键菜单 ================= */
+      const ctxRightClick = (tab) => {
+        tab.dispatchEvent(new W.MouseEvent("contextmenu", { bubbles: true, clientX: 200, clientY: 200 }));
+        return [...D().querySelectorAll("body > .dropdown")].find(
+          (m) => !m.classList.contains("hidden") && m.querySelector("[data-ctx]"));
+      };
+      const ctx = ctxRightClick(usersTab);
+      chk("右键弹出菜单", !!ctx);
+      chk("菜单 4 项 + 1 条分隔线",
+        ctx.querySelectorAll("[data-ctx]").length === 4 && ctx.querySelectorAll(".dropdown-divider").length === 1);
+      chk("被右键的页签标 ctx-target", usersTab.classList.contains("ctx-target"));
+      chk("非首页的「关闭」可用", !ctx.querySelector('[data-ctx="close"]').disabled);
+      const ctxHome = ctxRightClick(home());
+      chk("首页的「关闭」被禁用", ctxHome.querySelector('[data-ctx="close"]').disabled);
+      chk("连续右键只亮一个 ctx-target",
+        !usersTab.classList.contains("ctx-target") && home().classList.contains("ctx-target"));
+      const ctx2 = ctxRightClick(usersTab);
+      ctx2.querySelector('[data-ctx="refresh"]').click();
+      await sleep(150);
+      chk("刷新后菜单收起且标记归零",
+        ctx2.classList.contains("hidden") && !usersTab.classList.contains("ctx-target"));
+
+      const ctx3 = ctxRightClick(usersTab);
+      D().dispatchEvent(new W.KeyboardEvent("keydown", { key: "Escape", bubbles: true }));
+      chk("右键菜单按 Esc 收起", ctx3.classList.contains("hidden"));
+
+      const ctx4 = ctxRightClick(usersTab);
+      D().body.dispatchEvent(new W.PointerEvent("pointerdown", { bubbles: true }));
+      chk("右键菜单点外面收起（不靠滚动兜底）", ctx4.classList.contains("hidden"));
+
+      /* ================= 四、⋮ 全部标签页 ================= */
+      D().querySelector("#tab-more").click();
+      const moreBox = [...D().querySelectorAll("body > .dropdown")].find(
+        (m) => !m.classList.contains("hidden") && m.querySelector("[data-pick]"));
+      chk("⋮ 列出全部页签", moreBox && moreBox.querySelectorAll("[data-pick]").length === 2);
+      chk("列表里当前页高亮", !!moreBox.querySelector('[data-pick="users"].active'));
+
+      D().dispatchEvent(new W.KeyboardEvent("keydown", { key: "Escape", bubbles: true }));
+      chk("⋮ 菜单按 Esc 收起", moreBox.classList.contains("hidden"));
+      D().querySelector("#tab-more").click();
+      chk("底部两个批量动作", moreBox.querySelectorAll("[data-pick-act]").length === 2);
+      moreBox.querySelector('[data-pick="dashboard"]').click();
+      await waitFor(() => home().classList.contains("active"));
+      chk("从列表切回首页并收起菜单", home().classList.contains("active") && moreBox.classList.contains("hidden"));
+
+      /* ================= 五、关闭其它 ================= */
+      D().querySelector('#menu a[data-view="chart"]').click();
+      await waitFor(() => tabCount() === 3 && D().querySelector('#workarea [data-page="chart"]'));
+      D().querySelector("#tab-more").click();
+      const more2 = [...D().querySelectorAll("body > .dropdown")].find(
+        (m) => !m.classList.contains("hidden") && m.querySelector("[data-pick-act]"));
+      more2.querySelector('[data-pick-act="others"]').click();
+      await waitFor(() => tabCount() === 2);
+      chk("关闭其它只留首页与当前页", tabCount() === 2 && !!D().querySelector('#tabbar [data-tab-id="chart"]'),
+        "页签数 " + tabCount());
+      chk("关闭其它给了 toast 反馈", !!D().querySelector("#toast-root .toast"));
+
+      /* ================= 六、侧栏收起 / 飞出层 ================= */
+      const app = D().querySelector(".app");
+      D().querySelector("#sider-toggle").click();
+      chk("侧栏收起", app.classList.contains("sider-collapsed"));
+      const g0 = D().querySelectorAll("#menu > div")[0];
+      g0.dispatchEvent(new W.MouseEvent("mouseover", { bubbles: true }));
+      const fly = [...D().querySelectorAll("body > div")].find((n) => n.classList.contains("menu-flyout"));
+      chk("飞出层可见且带标题与菜单项",
+        fly && !fly.classList.contains("hidden") && !!fly.querySelector(".flyout-title")
+        && fly.querySelectorAll("[data-view]").length >= 1);
+      chk("锚点分组标 flyout-on", g0.classList.contains("flyout-on"));
+      T.accordion.hideFlyout();
+      chk("隐藏飞出层后状态归零", fly.classList.contains("hidden") && !g0.classList.contains("flyout-on"));
+      D().querySelector("#sider-toggle").click();
+      chk("侧栏可展开回去", !app.classList.contains("sider-collapsed"));
+
+      /* ================= 七、分组折叠 ================= */
+      const g2 = D().querySelectorAll("#menu > div")[2];
+      const wasCollapsed = g2.classList.contains("collapsed");
+      g2.querySelector("[data-group]").click();
+      chk("展开态点分组标题可折叠/展开", g2.classList.contains("collapsed") !== wasCollapsed);
+      g2.querySelector("[data-group]").click();
+
+      /* ================= 八、主题抽屉 ================= */
+      D().querySelector("#theme-trigger").click();
+      const drawer = D().querySelector(".theme-drawer");
+      chk("主题抽屉打开且色板齐全",
+        !!drawer && drawer.querySelectorAll(".swatch").length === T.theme.presets.length);
+      chk("当前色在色板上高亮", drawer.querySelectorAll(".swatch.active").length === 1);
+      const before = D().documentElement.style.getPropertyValue("--primary");
+      const sw = [...drawer.querySelectorAll(".swatch")].find((b) => b.dataset.color === "#722ed1");
+      sw.click();
+      chk("点色板改主色变量与选中态",
+        D().documentElement.style.getPropertyValue("--primary") === "#722ed1" && sw.classList.contains("active"),
+        before);
+      chk("色值框同步", drawer.querySelector(".theme-hex").value === "#722ED1");
+      drawer.querySelector("[data-reset]").click();
+      chk("恢复默认色", D().documentElement.style.getPropertyValue("--primary") === "#1677ff");
+
+      const mask = D().querySelector(T.kit.part("themeMask"));
+      mask.click();
+      chk("点遮罩关闭抽屉", !D().querySelector(T.kit.part("themeDrawer")));
+
+      D().querySelector("#theme-trigger").click();
+      chk("抽屉可重新打开", !!D().querySelector(T.kit.part("themeDrawer")));
+      D().dispatchEvent(new W.KeyboardEvent("keydown", { key: "Escape", bubbles: true }));
+      chk("抽屉按 Esc 关闭", !D().querySelector(T.kit.part("themeDrawer")));
+
+      D().querySelector("#theme-trigger").click();
+      D().querySelector(T.kit.part("themeDrawer") + " [data-close]").click();
+      chk("关闭按钮也能关", !D().querySelector(T.kit.part("themeDrawer")));
+
+      /* ================= 九、关页签 ================= */
+      D().querySelector('#tabbar [data-tab-id="chart"] [data-tab-close]').click();
+      await sleep(150);
+      chk("点 × 关页签后回到首页",
+        !D().querySelector('#tabbar [data-tab-id="chart"]') && home().classList.contains("active"));
+
+      out.push("──── 交互回归结束 ────");
+      T.navtab.closeAll();
+      await sleep(150);
+    }
+
+    /* ================= 十、30 个页面全量 ================= */
+    const ids = [...new Set([...D().querySelectorAll("#menu a[data-view], #menu-extra a[data-view]")]
+      .map((a) => a.dataset.view))];
+    let bad = 0;
+    for (const id of ids) {
+      const before = errs.length;
+      const link = D().querySelector('#menu a[data-view="' + id + '"], #menu-extra a[data-view="' + id + '"]');
+      if (!link) { out.push("FAIL " + id + " :: 菜单项不存在"); bad++; continue; }
+      link.click();
+
+      const pane = await waitFor(() => {
+        const p = D().querySelector("#workarea > *:last-child");
+        return p && p.querySelector("[data-page]") ? p : null;
+      }, 9000);
+
+      if (!pane) { out.push("FAIL " + id + " :: 片段未载入"); bad++; continue; }
+      const got = pane.querySelector("[data-page]").dataset.page;
+      const emptyText = (pane.querySelector(".empty") || {}).textContent || "";
+      const newErr = errs.length - before;
+      const ok = got === id && !emptyText && newErr === 0;
+      if (!ok) {
+        bad++;
+        out.push("FAIL " + id + " :: data-page=" + got + " empty=" + JSON.stringify(emptyText.slice(0, 60)) + " 报错=" + newErr);
+      }
+    }
+    chk("30 个页面全部载入且零报错", bad === 0 && ids.length === 30, "共 " + ids.length + " 页，失败 " + bad);
+
+    /* ================= 十·五、语言切换 ================= */
+    out.push("──── 语言切换 ────");
+    {
+      const menuUsers = () => D().querySelector('[data-view="users"]').textContent.trim();
+
+      chk("默认是中文", T.i18n.current === "zh-CN" && menuUsers() === "用户管理", menuUsers());
+
+      D().querySelector("#lang-trigger").click();
+      await sleep(300);
+
+      chk("切到英文：html[lang] 同步", D().documentElement.lang === "en", D().documentElement.lang);
+      chk("切到英文：菜单文字变了", menuUsers() === "Users", menuUsers());
+      chk("切到英文：按钮显示「中」",
+        D().querySelector("#lang-code").textContent.trim() === "中");
+      chk("切到英文：已开页签标题跟着变",
+        [...D().querySelectorAll("#tabbar [data-tab-id]")].some((t) => t.textContent.includes("Dashboard")),
+        [...D().querySelectorAll("#tabbar [data-tab-id]")].map((t) => t.textContent.trim()).join(" | "));
+      const groupTitle = D().querySelector('[data-group-key="group-1"]')
+        .querySelector(T.kit.part("menuTitle") || ".mt").textContent.trim();
+      chk("切到英文：侧栏分组也变了", groupTitle === "Data", groupTitle);
+      chk("切到英文：面包屑用的是翻译后的标题",
+        (D().querySelector("#crumb") || {}).textContent.includes("Profile"),
+        (D().querySelector("#crumb") || {}).textContent);
+      chk("切到英文：语言已持久化",
+        localStorage.getItem("web-admin:lang") === "en");
+
+      D().querySelector("#lang-trigger").click();
+      await sleep(300);
+      chk("切回中文：菜单与按钮都还原",
+        menuUsers() === "用户管理" && D().querySelector("#lang-code").textContent.trim() === "EN");
+    }
+
+    T.navtab.closeAll();
+    await sleep(200);
+    chk("closeAll 后只剩首页",
+      tabCount() === 1 && home() && home().classList.contains("active"), "页签数 " + tabCount());
+
+    /* ================= 十一、深链接：换地址栏再进来一次 ================= */
+    out.push("──── 交互回归结束，开始深链接 ────");
+    phase = 2;
+    /* 只改 hash 属于同文档导航，不会触发 load —— 加个 query 强制整页重来，
+       顺便也就验证了「刷新后还能回到原来那一页」 */
+    frame.src = "index.html?reload=1#/form";
+    return;
+  } catch (e) {
+    out.push("FAIL 驱动脚本异常 :: " + (e && e.stack ? e.stack.split("\n")[0] : e));
+  }
+  report();
+});
+
+/** 直接从 #/form 进入，应该打开「表单」页签而不是首页 */
+async function deepLink(W, D) {
+  const T = W.Tenon;
+  await waitFor(() => D().querySelector('#workarea [data-page="form"]'));
+  const tabs = [...D().querySelectorAll("#tabbar [data-tab-id]")].map((t) => t.dataset.tabId);
+  chk("深链接：地址栏有值就打开那一页", tabs.join(",") === "form", tabs.join(","));
+  chk("深链接：该页签是当前态",
+    D().querySelector('#tabbar [data-tab-id="form"]').classList.contains("active"));
+  chk("深链接：地址栏保持 #/form", W.location.hash === "#/form", W.location.hash);
+  const menuTitle = D().querySelector('#menu a[data-view="form"]').textContent.trim();
+  chk("深链接：面包屑用的是菜单里的标题",
+    (D().querySelector("#crumb .crumb-cur") || {}).textContent === menuTitle,
+    (D().querySelector("#crumb .crumb-cur") || {}).textContent + " ≠ " + menuTitle);
+
+  T.navtab.open("users");
+  await waitFor(() => D().querySelector('#workarea [data-page="users"]'));
+  chk("切页签会写地址栏", W.location.hash === "#/users", W.location.hash);
+
+  W.location.hash = "#/chart";
+  await waitFor(() => D().querySelector('#tabbar [data-tab-id="chart"].active'), 4000);
+  chk("改地址栏会切页签（前进后退可用）",
+    D().querySelector('#tabbar [data-tab-id="chart"]').classList.contains("active"));
+
+  /* 深链接进来时首页没被打开，所以关完是「空态」而不是回首页 */
+  T.navtab.closeAll();
+  await sleep(200);
+  chk("关完全部页签：地址栏清空 + 空态提示",
+    (W.location.hash === "" || W.location.hash === "#") && !!D().querySelector('#workarea [class], #workarea [tn-data-part="empty"]'),
+    "hash=" + W.location.hash + " 页签数=" + D().querySelectorAll("#tabbar [data-tab-id]").length);
+}
+
+</script>
+</body>
+</html>

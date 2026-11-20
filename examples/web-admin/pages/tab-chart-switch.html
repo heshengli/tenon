@@ -1,0 +1,39 @@
+<div class="stack" data-page="tab-chart-switch" data-script="tab-chart-switch">
+        <section class="card">
+          <div class="card-hd">
+            <span>选项卡和图形切换的页面</span>
+            <span class="card-extra">
+              <span class="tiny muted">图形类型</span>
+              <div class="flex" style="gap:4px">
+                <button class="btn btn-sm btn-primary" data-tckind="bar">柱状</button><button class="btn btn-sm btn-default" data-tckind="line">折线</button><button class="btn btn-sm btn-default" data-tckind="pie">饼图</button>
+              </div>
+            </span>
+          </div>
+          <div class="card-bd">
+            <div class="tabs" tn-data="tabs">
+              <button class="tab-item active" data-tcdim="week">本周</button><button class="tab-item " data-tcdim="month">本月</button><button class="tab-item " data-tcdim="year">本年</button>
+            </div>
+            <div style="padding-top:20px">
+              <div class="toolbar" style="margin-bottom:12px">
+                <span class="muted">合计</span>
+                <b style="font-size:20px;font-weight:500">101</b>
+                <span class="muted">万</span>
+                <span class="spacer"></span>
+                <span class="tag tag-blue">柱状图</span>
+              </div>
+              <div style="max-width:720px"><svg viewBox="0 0 520 210" width="100%" role="img" aria-label="柱状图"><line x1="34" x2="486" y1="34" y2="34" stroke="#f0f0f0"/><line x1="34" x2="486" y1="81.33333333333334" y2="81.33333333333334" stroke="#f0f0f0"/><line x1="34" x2="486" y1="128.66666666666669" y2="128.66666666666669" stroke="#f0f0f0"/><line x1="34" x2="486" y1="176" y2="176" stroke="#f0f0f0"/><rect x="56.6" y="128.20196353436185" width="45.2" height="47.79803646563815" rx="3" fill="currentColor" opacity="0.64"></rect>
+        <text x="79.2" y="122.20196353436185" text-anchor="middle" font-size="11" fill="#595959">12</text>
+        <text x="79.2" y="194" text-anchor="middle" font-size="11" fill="#8c8c8c">周一</text><rect x="147" y="100.31977559607293" width="45.2" height="75.68022440392707" rx="3" fill="currentColor" opacity="0.73"></rect>
+        <text x="169.6" y="94.31977559607293" text-anchor="middle" font-size="11" fill="#595959">19</text>
+        <text x="169.6" y="194" text-anchor="middle" font-size="11" fill="#8c8c8c">周二</text><rect x="237.4" y="116.25245441795232" width="45.2" height="59.747545582047685" rx="3" fill="currentColor" opacity="0.8200000000000001"></rect>
+        <text x="260" y="110.25245441795232" text-anchor="middle" font-size="11" fill="#595959">15</text>
+        <text x="260" y="194" text-anchor="middle" font-size="11" fill="#8c8c8c">周三</text><rect x="327.80000000000007" y="80.4039270687237" width="45.2" height="95.5960729312763" rx="3" fill="currentColor" opacity="0.91"></rect>
+        <text x="350.4000000000001" y="74.4039270687237" text-anchor="middle" font-size="11" fill="#595959">24</text>
+        <text x="350.4000000000001" y="194" text-anchor="middle" font-size="11" fill="#8c8c8c">周四</text><rect x="418.20000000000005" y="52.52173913043478" width="45.2" height="123.47826086956522" rx="3" fill="currentColor" opacity="1"></rect>
+        <text x="440.80000000000007" y="46.52173913043478" text-anchor="middle" font-size="11" fill="#595959">31</text>
+        <text x="440.80000000000007" y="194" text-anchor="middle" font-size="11" fill="#8c8c8c">周五</text></svg></div>
+            </div>
+          </div>
+        </section>
+        <p class="tiny muted">选项卡控制「数据维度」，右上角按钮控制「图形类型」，两者组合后重新渲染图表。</p>
+      </div>

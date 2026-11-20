@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-app="tenon-demo" data-primary="#2563eb">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tenon 最简起步</title>
+
+<!-- 1. 框架：一个文件 -->
+<script src="../../src/tenon.all.min.js"></script>
+<script>
+  /* 2. bundle 里带着 antd 皮肤；这个示例用「裸套件」，所以先切回 plain。
+        想用 antd 皮肤：删掉这一行，再把 examples/web-admin/assets/css 里那几份引进来。 */
+  Tenon.kit.reset();
+</script>
+
+<!-- 3. 皮肤：一份 CSS，全部用属性选择器，没有类名 -->
+<link rel="stylesheet" href="skin.css">
+</head>
+<body>
+
+<div tn-data-part="app">
+  <aside tn-data-part="sider">
+    <div tn-data-part="brand">Tenon</div>
+
+    <!-- 4. 菜单就是一段 HTML：改菜单 = 改这里 -->
+    <nav id="menu">
+      <div tn-data-part="menu-group">
+        <button data-group><span tn-data-part="menu-title">示例</span></button>
+        <div tn-data-part="menu-children">
+          <a href="pages/hello.html" data-view="hello">最小页面</a>
+          <a href="pages/table.html" data-view="table">带表格</a>
+        </div>
+      </div>
+    </nav>
+  </aside>
+
+  <div tn-data-part="main">
+    <div tn-data-part="tabbar-wrap">
+      <!-- data-home 指定首页页签；data-sync 让地址栏跟着页签走 -->
+      <div id="tabbar" tn-data-part="tabbar" data-home="hello" data-sync="hash"></div>
+    </div>
+    <div tn-data-part="pagehead"><nav id="crumb"></nav></div>
+    <main id="workarea" tn-data-part="workarea"></main>
+  </div>
+</div>
+
+<div id="toast-root" tn-data-part="toast-root"></div>
+
+<script>
+  /* 5. 启动：三行。没有 boot.js，外壳怎么装配是宿主的事 */
+  Tenon.accordion.init();   // 读菜单建索引、绑定折叠
+  Tenon.navtab.init();      // 页签条 + 右键 + ⋮ + 地址栏同步
+  Tenon.navtab.start();     // 打开首页（或地址栏里那一页）
+</script>
+</body>
+</html>

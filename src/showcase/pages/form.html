@@ -1,0 +1,91 @@
+<div data-page="form" data-script="form">
+  <section tn-data-part="card">
+    <h2 tn-data-part="card-title">新建客户</h2>
+    <p tn-data-part="muted" style="margin:0 0 14px">
+      校验规则写在 <code>data-rule</code> 上，支持 <code>required|phone</code> 这样的链式写法。
+      错误文案占位是 <code>tn-data-part="error-text"</code>，皮肤只负责把它画红。
+    </p>
+
+    <form tn-data-validate>
+      <label tn-data-part="field">
+        <span tn-data-part="field-label">客户名称 <em tn-data-part="req">*</em></span>
+        <input name="cname" data-rule="required" data-msg="请输入客户名称" placeholder="如：华信科技">
+        <span tn-data-part="error-text"></span>
+      </label>
+
+      <label tn-data-part="field">
+        <span tn-data-part="field-label">联系人手机 <em tn-data-part="req">*</em></span>
+        <input name="phone" data-rule="required|phone" data-msg="请输入 11 位手机号" placeholder="13800000000">
+        <span tn-data-part="error-text"></span>
+      </label>
+
+      <label tn-data-part="field">
+        <span tn-data-part="field-label">邮箱</span>
+        <input name="email" data-rule="email" placeholder="可留空">
+        <span tn-data-part="error-text"></span>
+      </label>
+
+      <label tn-data-part="field">
+        <span tn-data-part="field-label">备注</span>
+        <textarea name="memo" rows="3" placeholder="随便写点什么"></textarea>
+      </label>
+
+      <div tn-data-part="row">
+        <button type="submit" tn-data-part="btn" data-variant="primary">保 存</button>
+        <button type="reset" tn-data-part="btn" data-variant="ghost">重 置</button>
+      </div>
+    </form>
+  </section>
+
+  <section tn-data-part="card">
+    <h2 tn-data-part="card-title">其余控件</h2>
+
+    <div tn-data-part="field-inline">
+      <span>开关</span>
+      <button type="button" tn-data="switch" tn-data-state-on><span tn-data-part="switch-dot"></span></button>
+      <span tn-data-part="muted">初始态直接写在 HTML 上：tn-data-state-on</span>
+    </div>
+
+    <div tn-data-part="field-inline">
+      <span>周期</span>
+      <div tn-data="segmented">
+        <button data-seg tn-data-state-active>日</button>
+        <button data-seg>周</button>
+        <button data-seg>月</button>
+      </div>
+    </div>
+
+    <div tn-data-part="field-inline">
+      <span>评分</span>
+      <div tn-data="rate" data-value="3">
+        <i tn-data-part="rate-star" tn-data-state-on>★</i>
+        <i tn-data-part="rate-star" tn-data-state-on>★</i>
+        <i tn-data-part="rate-star" tn-data-state-on>★</i>
+        <i tn-data-part="rate-star">★</i>
+        <i tn-data-part="rate-star">★</i>
+      </div>
+    </div>
+
+    <div tn-data-part="field-inline">
+      <span>优先级</span>
+      <div tn-data="optionlist">
+        <button data-option tn-data-state-active>普通</button>
+        <button data-option>紧急</button>
+        <button data-option>可延后</button>
+      </div>
+    </div>
+  </section>
+
+  <section tn-data-part="card">
+    <h2 tn-data-part="card-title">反馈</h2>
+    <p tn-data-part="muted" style="margin:0 0 12px">
+      这四个都是从 <code>Tenon.ui</code> 出来的，长相同样只由 skin.css 决定。
+    </p>
+    <div tn-data-part="toolbar">
+      <button tn-data-part="btn" data-act="toast">轻提示</button>
+      <button tn-data-part="btn" data-act="modal">弹窗</button>
+      <button tn-data-part="btn" data-variant="danger" data-act="confirm">确认框</button>
+      <button tn-data-part="btn" data-variant="ghost" data-act="loading">加载遮罩</button>
+    </div>
+  </section>
+</div>

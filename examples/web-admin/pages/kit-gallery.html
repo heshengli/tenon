@@ -1,0 +1,138 @@
+<div class="stack" data-page="kit-gallery" data-script="kit-gallery">
+  <section class="card">
+    <div class="card-hd"><span>下拉选择</span><span class="card-extra">tn-data="select"</span></div>
+    <div class="card-bd">
+      <p class="muted" style="margin:0 0 14px">
+        页面写的就是原生 <code>&lt;select&gt;</code>，控件把它换成可搜索面板，
+        <b>选中状态同步回原生节点</b> —— 表单序列化、校验、老代码里的 <code>sel.value</code> 全都不用改。
+      </p>
+      <div class="grid2">
+        <label class="field">
+          <span class="field-label">所属部门</span>
+          <select class="input" tn-data="select" data-placeholder="选择部门">
+            <option value="">请选择</option>
+            <option value="tech">技术中心</option>
+            <option value="market">市场部</option>
+            <option value="finance">财务部</option>
+            <option value="hr" disabled>人力资源部（已停用）</option>
+          </select>
+        </label>
+        <label class="field">
+          <span class="field-label">项目成员（多选 + 搜索）</span>
+          <select class="input" tn-data="select" multiple data-search data-placeholder="选择成员">
+            <option value="1" selected>张伟</option>
+            <option value="2">李娜</option>
+            <option value="3" selected>王强</option>
+            <option value="4">刘洋</option>
+            <option value="5">陈静</option>
+            <option value="6" disabled>赵磊（已停用）</option>
+          </select>
+        </label>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="card-hd"><span>级联选择</span><span class="card-extra">tn-data="cascader"</span></div>
+    <div class="card-bd">
+      <p class="muted" style="margin:0 0 14px">
+        层级用 <code>data-parent</code> 描述（嵌套 <code>optgroup</code> 会被 HTML 解析器拆平）。
+        被引用的节点是分叉，点了下钻；只有叶子可选。
+      </p>
+      <label class="field" style="max-width:320px">
+        <span class="field-label">所在地区</span>
+        <select class="input" tn-data="cascader" data-placeholder="选择地区">
+          <option value="330000">浙江省</option>
+          <option value="330100" data-parent="330000">杭州市</option>
+          <option value="330102" data-parent="330100">上城区</option>
+          <option value="330106" data-parent="330100">西湖区</option>
+          <option value="330200" data-parent="330000">宁波市</option>
+          <option value="330203" data-parent="330200">海曙区</option>
+          <option value="320000">江苏省</option>
+          <option value="320100" data-parent="320000">南京市</option>
+          <option value="320102" data-parent="320100">玄武区</option>
+        </select>
+      </label>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="card-hd"><span>文件选择</span><span class="card-extra">tn-data="upload"</span></div>
+    <div class="card-bd">
+      <p class="muted" style="margin:0 0 14px">
+        页面写的就是原生 <code>&lt;input type="file"&gt;</code>：点击或拖拽都能选，列表可删单个文件，
+        <b>选中的文件同步回原生 input</b> —— <code>new FormData(form)</code> 照旧拿得到。
+        控件只管「选」，不管「传」：上传进度、分片、直传都归宿主。
+      </p>
+      <label class="field" style="max-width:440px">
+        <span class="field-label">附件</span>
+        <input type="file" tn-data="upload" multiple
+               data-max-count="3" data-max-size="5"
+               data-accept-hint="支持 pdf / png / jpg">
+      </label>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="card-hd">
+      <span>虚拟滚动 + 固定表头</span>
+      <span class="card-extra">data-virtual · data-sticky="head"</span>
+    </div>
+    <div class="card-bd">
+      <p class="muted" style="margin:0 0 10px" data-virtual-note>共 1000 行</p>
+      <div class="table-wrap" style="max-height:320px">
+        <table class="table table-hover" tn-data="table" data-virtual data-sticky="head">
+          <thead>
+            <tr>
+              <th style="width:80px">序号</th>
+              <th>任务名称</th>
+              <th style="width:110px">状态</th>
+              <th style="width:130px">日期</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="card-hd">
+      <span>固定列</span>
+      <span class="card-extra">data-sticky="head,2"</span>
+    </div>
+    <div class="card-bd">
+      <p class="muted" style="margin:0 0 10px">横向与纵向同时滚动，前两列和表头保持不动。</p>
+      <div class="table-wrap" style="max-height:220px">
+        <table class="table table-hover" tn-data="table" data-sticky="head,2" style="min-width:1000px">
+          <thead>
+            <tr>
+              <th style="width:80px">编号</th>
+              <th style="width:120px">姓名</th>
+              <th>部门</th>
+              <th>角色</th>
+              <th>邮箱</th>
+              <th>入职时间</th>
+              <th>最近登录</th>
+              <th>备注</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-row-id="1"><td>U-001</td><td>张伟</td><td>技术中心</td><td>客户经理</td><td>zhangwei@example.com</td><td>2024-03-11</td><td>2026-11-19 09:20</td><td>负责华东区重点客户</td></tr>
+            <tr data-row-id="2"><td>U-002</td><td>李娜</td><td>市场部</td><td>售前顾问</td><td>lina@example.com</td><td>2024-07-02</td><td>2026-11-19 08:41</td><td>活动策划与投放</td></tr>
+            <tr data-row-id="3"><td>U-003</td><td>王强</td><td>财务部</td><td>交付总监</td><td>wangqiang@example.com</td><td>2023-01-15</td><td>2026-11-18 17:03</td><td>季度结算复核</td></tr>
+            <tr data-row-id="4"><td>U-004</td><td>刘洋</td><td>技术中心</td><td>前端工程师</td><td>liuyang@example.com</td><td>2025-02-20</td><td>2026-11-19 10:12</td><td>组件库维护</td></tr>
+            <tr data-row-id="5"><td>U-005</td><td>陈静</td><td>人力资源部</td><td>产品经理</td><td>chenjing@example.com</td><td>2022-09-01</td><td>2026-11-17 16:35</td><td>招聘流程优化</td></tr>
+            <tr data-row-id="6"><td>U-006</td><td>赵磊</td><td>技术中心</td><td>后端工程师</td><td>zhaolei@example.com</td><td>2023-11-06</td><td>2026-11-19 09:58</td><td>接口网关</td></tr>
+            <tr data-row-id="7"><td>U-007</td><td>孙倩</td><td>市场部</td><td>测试工程师</td><td>sunqian@example.com</td><td>2024-05-13</td><td>2026-11-18 14:20</td><td>回归测试</td></tr>
+            <tr data-row-id="8"><td>U-008</td><td>周涛</td><td>财务部</td><td>解决方案</td><td>zhoutao@example.com</td><td>2021-06-28</td><td>2026-11-16 11:05</td><td>标书支持</td></tr>
+            <tr data-row-id="9"><td>U-009</td><td>吴敏</td><td>技术中心</td><td>客户成功</td><td>wumin@example.com</td><td>2025-01-09</td><td>2026-11-19 10:31</td><td>续约跟进</td></tr>
+            <tr data-row-id="10"><td>U-010</td><td>郑爽</td><td>市场部</td><td>总经理</td><td>zhengshuang@example.com</td><td>2020-03-18</td><td>2026-11-19 08:02</td><td>年度经营会</td></tr>
+            <tr data-row-id="11"><td>U-011</td><td>冯磊</td><td>技术中心</td><td>运维工程师</td><td>fenglei@example.com</td><td>2022-12-01</td><td>2026-11-18 22:47</td><td>值班排班</td></tr>
+            <tr data-row-id="12"><td>U-012</td><td>许晴</td><td>人力资源部</td><td>招聘专员</td><td>xuqing@example.com</td><td>2024-08-19</td><td>2026-11-19 09:11</td><td>校园招聘</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,357 @@
+<div class="api-page" data-page="antd-feedback">
+      <aside class="api-nav">
+        <div class="api-nav-title">反馈 · 10 个组件</div>
+        <a href="#alert" data-anchor="alert" class="active">
+        <span>警告提示</span><span class="api-nav-en">Alert</span>
+      </a><a href="#message" data-anchor="message" class="">
+        <span>全局提示</span><span class="api-nav-en">Message</span>
+      </a><a href="#modal" data-anchor="modal" class="">
+        <span>对话框</span><span class="api-nav-en">Modal</span>
+      </a><a href="#drawer" data-anchor="drawer" class="">
+        <span>抽屉</span><span class="api-nav-en">Drawer</span>
+      </a><a href="#notification" data-anchor="notification" class="">
+        <span>通知提醒</span><span class="api-nav-en">Notification</span>
+      </a><a href="#popconfirm" data-anchor="popconfirm" class="">
+        <span>气泡确认框</span><span class="api-nav-en">Popconfirm</span>
+      </a><a href="#progress" data-anchor="progress" class="">
+        <span>进度条</span><span class="api-nav-en">Progress</span>
+      </a><a href="#result" data-anchor="result" class="">
+        <span>结果页</span><span class="api-nav-en">Result</span>
+      </a><a href="#skeleton" data-anchor="skeleton" class="">
+        <span>骨架屏</span><span class="api-nav-en">Skeleton</span>
+      </a><a href="#spin" data-anchor="spin" class="">
+        <span>加载中</span><span class="api-nav-en">Spin</span>
+      </a>
+      </aside>
+      <div class="api-body">
+        <div class="api-hero">
+          <h2>反馈</h2>
+          <p>反馈组件用于向用户传达操作结果与系统状态，分为页面内常驻提示与全局浮层提示两类。</p>
+          <div class="api-hero-tags">
+            <span class="tag tag-blue">Alert</span><span class="tag tag-blue">Message</span><span class="tag tag-blue">Modal</span><span class="tag tag-blue">Drawer</span><span class="tag tag-blue">Notification</span><span class="tag tag-blue">Progress</span><span class="tag tag-blue">Result</span><span class="tag tag-blue">Skeleton</span>
+          </div>
+        </div>
+        <section class="api-sec" id="alert">
+      <h3 class="api-title">警告提示<span class="api-en">Alert</span></h3>
+      <p class="api-desc">页面内常驻的提示条，用于说明重要信息。</p>
+      <div class="api-demo"><div class="stack" style="gap:12px">
+        <div class="alert alert-ok"><span class="alert-icon">✓</span>
+          <div><div class="alert-title">操作成功</div><div class="alert-desc">数据已保存，流程进入下一节点。</div></div></div>
+        <div class="alert alert-info"><span class="alert-icon">i</span>
+          <div><div class="alert-title">提示</div><div class="alert-desc">当前账号为编辑权限，不可删除系统级配置。</div></div></div>
+        <div class="alert alert-warn"><span class="alert-icon">!</span>
+          <div><div class="alert-title">警告</div><div class="alert-desc">会话将在 5 分钟后过期。</div></div></div>
+        <div class="alert alert-err"><span class="alert-icon">!</span>
+          <div><div class="alert-title">错误</div><div class="alert-desc">请求失败（HTTP 500）。</div></div></div>
+      </div></div>
+      <div class="api-src-wrap">
+      <div class="api-src-bar">
+        <button class="api-src-tog" data-api-src>
+          <i class="fa-solid fa-code"></i><span>查看代码</span>
+          <i class="fa-solid fa-chevron-down api-src-caret"></i>
+        </button>
+        <button class="api-src-copy" data-api-copy title="复制代码">
+          <i class="fa-regular fa-copy"></i><span>复制</span>
+        </button>
+      </div>
+      <pre class="api-src hidden"><code>&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;stack&quot;</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;gap:12px&quot;</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;alert alert-ok&quot;</span>&gt;
+    &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;alert-icon&quot;</span>&gt;✓&lt;/<span class="tok-tag">span</span>&gt;
+    &lt;<span class="tok-tag">div</span>&gt;
+      &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;alert-title&quot;</span>&gt;操作成功&lt;/<span class="tok-tag">div</span>&gt;
+      &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;alert-desc&quot;</span>&gt;数据已保存，流程进入下一节点。&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;/<span class="tok-tag">div</span>&gt;
+  &lt;/<span class="tok-tag">div</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;alert alert-info&quot;</span>&gt;
+    &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;alert-icon&quot;</span>&gt;i&lt;/<span class="tok-tag">span</span>&gt;
+    &lt;<span class="tok-tag">div</span>&gt;
+      &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;alert-title&quot;</span>&gt;提示&lt;/<span class="tok-tag">div</span>&gt;
+      &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;alert-desc&quot;</span>&gt;当前账号为编辑权限，不可删除系统级配置。&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;/<span class="tok-tag">div</span>&gt;
+  &lt;/<span class="tok-tag">div</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;alert alert-warn&quot;</span>&gt;
+    &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;alert-icon&quot;</span>&gt;!&lt;/<span class="tok-tag">span</span>&gt;
+    &lt;<span class="tok-tag">div</span>&gt;
+      &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;alert-title&quot;</span>&gt;警告&lt;/<span class="tok-tag">div</span>&gt;
+      &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;alert-desc&quot;</span>&gt;会话将在 5 分钟后过期。&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;/<span class="tok-tag">div</span>&gt;
+  &lt;/<span class="tok-tag">div</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;alert alert-err&quot;</span>&gt;
+    &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;alert-icon&quot;</span>&gt;!&lt;/<span class="tok-tag">span</span>&gt;
+    &lt;<span class="tok-tag">div</span>&gt;
+      &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;alert-title&quot;</span>&gt;错误&lt;/<span class="tok-tag">div</span>&gt;
+      &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;alert-desc&quot;</span>&gt;请求失败（HTTP 500）。&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;/<span class="tok-tag">div</span>&gt;
+  &lt;/<span class="tok-tag">div</span>&gt;
+&lt;/<span class="tok-tag">div</span>&gt;</code></pre>
+    </div>
+    </section><section class="api-sec" id="message">
+      <h3 class="api-title">全局提示<span class="api-en">Message</span></h3>
+      <p class="api-desc">轻量级的顶部反馈，自动消失。</p>
+      <div class="api-demo"><div class="api-row"><button class="btn btn-default" tn-data-toast="success">成功提示</button>
+        <button class="btn btn-default" tn-data-toast="error">错误提示</button>
+        <button class="btn btn-default" tn-data-toast="info">普通提示</button></div></div>
+      <div class="api-src-wrap">
+      <div class="api-src-bar">
+        <button class="api-src-tog" data-api-src>
+          <i class="fa-solid fa-code"></i><span>查看代码</span>
+          <i class="fa-solid fa-chevron-down api-src-caret"></i>
+        </button>
+        <button class="api-src-copy" data-api-copy title="复制代码">
+          <i class="fa-regular fa-copy"></i><span>复制</span>
+        </button>
+      </div>
+      <pre class="api-src hidden"><code>&lt;<span class="tok-tag">button</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;btn btn-default&quot;</span> <span class="tok-attr">tn-data-toast</span>=<span class="tok-str">&quot;success&quot;</span>&gt;成功提示&lt;/<span class="tok-tag">button</span>&gt;
+&lt;<span class="tok-tag">button</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;btn btn-default&quot;</span> <span class="tok-attr">tn-data-toast</span>=<span class="tok-str">&quot;error&quot;</span>&gt;错误提示&lt;/<span class="tok-tag">button</span>&gt;
+&lt;<span class="tok-tag">button</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;btn btn-default&quot;</span> <span class="tok-attr">tn-data-toast</span>=<span class="tok-str">&quot;info&quot;</span>&gt;普通提示&lt;/<span class="tok-tag">button</span>&gt;</code></pre>
+    </div>
+    </section><section class="api-sec" id="modal">
+      <h3 class="api-title">对话框<span class="api-en">Modal</span></h3>
+      <p class="api-desc">在当前页面打开浮层承载内容与操作。</p>
+      <div class="api-demo"><div class="api-row"><button class="btn btn-primary" tn-data-dialog="basic">打开对话框</button>
+        <button class="btn btn-danger" tn-data-dialog="confirm">确认删除</button></div></div>
+      <div class="api-src-wrap">
+      <div class="api-src-bar">
+        <button class="api-src-tog" data-api-src>
+          <i class="fa-solid fa-code"></i><span>查看代码</span>
+          <i class="fa-solid fa-chevron-down api-src-caret"></i>
+        </button>
+        <button class="api-src-copy" data-api-copy title="复制代码">
+          <i class="fa-regular fa-copy"></i><span>复制</span>
+        </button>
+      </div>
+      <pre class="api-src hidden"><code>&lt;<span class="tok-tag">button</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;btn btn-primary&quot;</span> <span class="tok-attr">tn-data-dialog</span>=<span class="tok-str">&quot;basic&quot;</span>&gt;打开对话框&lt;/<span class="tok-tag">button</span>&gt;
+&lt;<span class="tok-tag">button</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;btn btn-danger&quot;</span> <span class="tok-attr">tn-data-dialog</span>=<span class="tok-str">&quot;confirm&quot;</span>&gt;确认删除&lt;/<span class="tok-tag">button</span>&gt;</code></pre>
+    </div>
+    </section><section class="api-sec" id="drawer">
+      <h3 class="api-title">抽屉<span class="api-en">Drawer</span></h3>
+      <p class="api-desc">从侧边滑出的浮层，适合表单与详情。</p>
+      <div class="api-demo"><div class="api-row"><button class="btn btn-default" tn-data-dialog="drawer">打开抽屉</button>
+        <span class="tiny muted" data-no-code>演示中用对话框模拟</span></div></div>
+      <div class="api-src-wrap">
+      <div class="api-src-bar">
+        <button class="api-src-tog" data-api-src>
+          <i class="fa-solid fa-code"></i><span>查看代码</span>
+          <i class="fa-solid fa-chevron-down api-src-caret"></i>
+        </button>
+        <button class="api-src-copy" data-api-copy title="复制代码">
+          <i class="fa-regular fa-copy"></i><span>复制</span>
+        </button>
+      </div>
+      <pre class="api-src hidden"><code>&lt;<span class="tok-tag">button</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;btn btn-default&quot;</span> <span class="tok-attr">tn-data-dialog</span>=<span class="tok-str">&quot;drawer&quot;</span>&gt;打开抽屉&lt;/<span class="tok-tag">button</span>&gt;</code></pre>
+    </div>
+    </section><section class="api-sec" id="notification">
+      <h3 class="api-title">通知提醒<span class="api-en">Notification</span></h3>
+      <p class="api-desc">较重的全局提醒，通常出现在右上角。</p>
+      <div class="api-demo"><div class="stack" style="gap:12px;max-width:400px">
+        <div class="a-notice"><span class="a-notice-icon ok">✓</span>
+          <div><div class="a-notice-title">部署完成</div>
+            <div class="a-notice-desc">生产环境已于 10:32 完成灰度发布。</div></div></div>
+        <div class="a-notice"><span class="a-notice-icon">i</span>
+          <div><div class="a-notice-title">您有 3 条待办</div>
+            <div class="a-notice-desc">采购申请、合同用印、预算审批等待处理。</div></div></div>
+      </div></div>
+      <div class="api-src-wrap">
+      <div class="api-src-bar">
+        <button class="api-src-tog" data-api-src>
+          <i class="fa-solid fa-code"></i><span>查看代码</span>
+          <i class="fa-solid fa-chevron-down api-src-caret"></i>
+        </button>
+        <button class="api-src-copy" data-api-copy title="复制代码">
+          <i class="fa-regular fa-copy"></i><span>复制</span>
+        </button>
+      </div>
+      <pre class="api-src hidden"><code>&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;stack&quot;</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;gap:12px;max-width:400px&quot;</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-notice&quot;</span>&gt;
+    &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-notice-icon ok&quot;</span>&gt;✓&lt;/<span class="tok-tag">span</span>&gt;
+    &lt;<span class="tok-tag">div</span>&gt;
+      &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-notice-title&quot;</span>&gt;部署完成&lt;/<span class="tok-tag">div</span>&gt;
+      &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-notice-desc&quot;</span>&gt;生产环境已于 10:32 完成灰度发布。&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;/<span class="tok-tag">div</span>&gt;
+  &lt;/<span class="tok-tag">div</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-notice&quot;</span>&gt;
+    &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-notice-icon&quot;</span>&gt;i&lt;/<span class="tok-tag">span</span>&gt;
+    &lt;<span class="tok-tag">div</span>&gt;
+      &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-notice-title&quot;</span>&gt;您有 3 条待办&lt;/<span class="tok-tag">div</span>&gt;
+      &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-notice-desc&quot;</span>&gt;采购申请、合同用印、预算审批等待处理。&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;/<span class="tok-tag">div</span>&gt;
+  &lt;/<span class="tok-tag">div</span>&gt;
+&lt;/<span class="tok-tag">div</span>&gt;</code></pre>
+    </div>
+    </section><section class="api-sec" id="popconfirm">
+      <h3 class="api-title">气泡确认框<span class="api-en">Popconfirm</span></h3>
+      <p class="api-desc">点击元素弹出确认气泡，用于二次确认。</p>
+      <div class="api-demo"><div class="a-popover" style="max-width:260px">
+        <div style="display:flex;gap:8px">
+          <span style="color:var(--warning)">!</span>
+          <span>确定要撤销该流程吗？</span>
+        </div>
+        <div class="a-popover-ft">
+          <button class="btn btn-sm btn-default">取消</button>
+          <button class="btn btn-sm btn-primary">确定</button>
+        </div>
+      </div></div>
+      <div class="api-src-wrap">
+      <div class="api-src-bar">
+        <button class="api-src-tog" data-api-src>
+          <i class="fa-solid fa-code"></i><span>查看代码</span>
+          <i class="fa-solid fa-chevron-down api-src-caret"></i>
+        </button>
+        <button class="api-src-copy" data-api-copy title="复制代码">
+          <i class="fa-regular fa-copy"></i><span>复制</span>
+        </button>
+      </div>
+      <pre class="api-src hidden"><code>&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-popover&quot;</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;max-width:260px&quot;</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;display:flex;gap:8px&quot;</span>&gt;
+    &lt;<span class="tok-tag">span</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;color:var(--warning)&quot;</span>&gt;!&lt;/<span class="tok-tag">span</span>&gt;
+    &lt;<span class="tok-tag">span</span>&gt;确定要撤销该流程吗？&lt;/<span class="tok-tag">span</span>&gt;
+  &lt;/<span class="tok-tag">div</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-popover-ft&quot;</span>&gt;
+    &lt;<span class="tok-tag">button</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;btn btn-sm btn-default&quot;</span>&gt;取消&lt;/<span class="tok-tag">button</span>&gt;
+    &lt;<span class="tok-tag">button</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;btn btn-sm btn-primary&quot;</span>&gt;确定&lt;/<span class="tok-tag">button</span>&gt;
+  &lt;/<span class="tok-tag">div</span>&gt;
+&lt;/<span class="tok-tag">div</span>&gt;</code></pre>
+    </div>
+    </section><section class="api-sec" id="progress">
+      <h3 class="api-title">进度条<span class="api-en">Progress</span></h3>
+      <p class="api-desc">展示操作的当前进度。</p>
+      <div class="api-demo"><div class="a-progress-row"><span class="a-progress-label">默认</span>
+        <span class="a-progress-track"><span class="a-progress-bar" style="width:40%"></span></span>
+        <span class="a-progress-val">40%</span></div>
+      <div class="a-progress-row"><span class="a-progress-label">成功</span>
+        <span class="a-progress-track"><span class="a-progress-bar ok" style="width:100%"></span></span>
+        <span class="a-progress-val">100%</span></div>
+      <div class="a-progress-row"><span class="a-progress-label">警告</span>
+        <span class="a-progress-track"><span class="a-progress-bar warn" style="width:72%"></span></span>
+        <span class="a-progress-val">72%</span></div>
+      <div class="a-progress-row"><span class="a-progress-label">异常</span>
+        <span class="a-progress-track"><span class="a-progress-bar err" style="width:28%"></span></span>
+        <span class="a-progress-val">28%</span></div>
+      <div style="margin-top:18px"><div class="a-progress-circle"><span>75%</span></div></div></div>
+      <div class="api-src-wrap">
+      <div class="api-src-bar">
+        <button class="api-src-tog" data-api-src>
+          <i class="fa-solid fa-code"></i><span>查看代码</span>
+          <i class="fa-solid fa-chevron-down api-src-caret"></i>
+        </button>
+        <button class="api-src-copy" data-api-copy title="复制代码">
+          <i class="fa-regular fa-copy"></i><span>复制</span>
+        </button>
+      </div>
+      <pre class="api-src hidden"><code>&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-progress-row&quot;</span>&gt;
+  &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-progress-label&quot;</span>&gt;默认&lt;/<span class="tok-tag">span</span>&gt;
+  &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-progress-track&quot;</span>&gt;&lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-progress-bar&quot;</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;width:40%&quot;</span>&gt;&lt;/<span class="tok-tag">span</span>&gt;&lt;/<span class="tok-tag">span</span>&gt;
+  &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-progress-val&quot;</span>&gt;40%&lt;/<span class="tok-tag">span</span>&gt;
+&lt;/<span class="tok-tag">div</span>&gt;
+&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-progress-row&quot;</span>&gt;
+  &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-progress-label&quot;</span>&gt;成功&lt;/<span class="tok-tag">span</span>&gt;
+  &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-progress-track&quot;</span>&gt;&lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-progress-bar ok&quot;</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;width:100%&quot;</span>&gt;&lt;/<span class="tok-tag">span</span>&gt;&lt;/<span class="tok-tag">span</span>&gt;
+  &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-progress-val&quot;</span>&gt;100%&lt;/<span class="tok-tag">span</span>&gt;
+&lt;/<span class="tok-tag">div</span>&gt;
+&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-progress-row&quot;</span>&gt;
+  &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-progress-label&quot;</span>&gt;警告&lt;/<span class="tok-tag">span</span>&gt;
+  &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-progress-track&quot;</span>&gt;&lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-progress-bar warn&quot;</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;width:72%&quot;</span>&gt;&lt;/<span class="tok-tag">span</span>&gt;&lt;/<span class="tok-tag">span</span>&gt;
+  &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-progress-val&quot;</span>&gt;72%&lt;/<span class="tok-tag">span</span>&gt;
+&lt;/<span class="tok-tag">div</span>&gt;
+&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-progress-row&quot;</span>&gt;
+  &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-progress-label&quot;</span>&gt;异常&lt;/<span class="tok-tag">span</span>&gt;
+  &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-progress-track&quot;</span>&gt;&lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-progress-bar err&quot;</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;width:28%&quot;</span>&gt;&lt;/<span class="tok-tag">span</span>&gt;&lt;/<span class="tok-tag">span</span>&gt;
+  &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-progress-val&quot;</span>&gt;28%&lt;/<span class="tok-tag">span</span>&gt;
+&lt;/<span class="tok-tag">div</span>&gt;
+&lt;<span class="tok-tag">div</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;margin-top:18px&quot;</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-progress-circle&quot;</span>&gt;
+    &lt;<span class="tok-tag">span</span>&gt;75%&lt;/<span class="tok-tag">span</span>&gt;
+  &lt;/<span class="tok-tag">div</span>&gt;
+&lt;/<span class="tok-tag">div</span>&gt;</code></pre>
+    </div>
+    </section><section class="api-sec" id="result">
+      <h3 class="api-title">结果页<span class="api-en">Result</span></h3>
+      <p class="api-desc">用于反馈一系列操作任务的处理结果。</p>
+      <div class="api-demo"><div class="grid2" style="gap:16px">
+        <div class="a-result"><div class="a-result-icon">✓</div>
+          <div class="a-result-title">提交成功</div>
+          <div class="a-result-desc">流程编号 LC-2026-018，已进入审批环节。</div></div>
+        <div class="a-result err"><div class="a-result-icon">!</div>
+          <div class="a-result-title">提交失败</div>
+          <div class="a-result-desc">服务端校验未通过，请检查必填项后重试。</div></div>
+      </div></div>
+      <div class="api-src-wrap">
+      <div class="api-src-bar">
+        <button class="api-src-tog" data-api-src>
+          <i class="fa-solid fa-code"></i><span>查看代码</span>
+          <i class="fa-solid fa-chevron-down api-src-caret"></i>
+        </button>
+        <button class="api-src-copy" data-api-copy title="复制代码">
+          <i class="fa-regular fa-copy"></i><span>复制</span>
+        </button>
+      </div>
+      <pre class="api-src hidden"><code>&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;grid2&quot;</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;gap:16px&quot;</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-result&quot;</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-result-icon&quot;</span>&gt;✓&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-result-title&quot;</span>&gt;提交成功&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-result-desc&quot;</span>&gt;流程编号 LC-2026-018，已进入审批环节。&lt;/<span class="tok-tag">div</span>&gt;
+  &lt;/<span class="tok-tag">div</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-result err&quot;</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-result-icon&quot;</span>&gt;!&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-result-title&quot;</span>&gt;提交失败&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-result-desc&quot;</span>&gt;服务端校验未通过，请检查必填项后重试。&lt;/<span class="tok-tag">div</span>&gt;
+  &lt;/<span class="tok-tag">div</span>&gt;
+&lt;/<span class="tok-tag">div</span>&gt;</code></pre>
+    </div>
+    </section><section class="api-sec" id="skeleton">
+      <h3 class="api-title">骨架屏<span class="api-en">Skeleton</span></h3>
+      <p class="api-desc">数据加载前的占位图形，降低等待焦虑。</p>
+      <div class="api-demo"><div class="a-skeleton">
+        <div class="a-skeleton-avatar"></div>
+        <div class="a-skeleton-lines">
+          <div class="a-skeleton-line" style="width:38%"></div>
+          <div class="a-skeleton-line"></div>
+          <div class="a-skeleton-line" style="width:80%"></div>
+        </div>
+      </div></div>
+      <div class="api-src-wrap">
+      <div class="api-src-bar">
+        <button class="api-src-tog" data-api-src>
+          <i class="fa-solid fa-code"></i><span>查看代码</span>
+          <i class="fa-solid fa-chevron-down api-src-caret"></i>
+        </button>
+        <button class="api-src-copy" data-api-copy title="复制代码">
+          <i class="fa-regular fa-copy"></i><span>复制</span>
+        </button>
+      </div>
+      <pre class="api-src hidden"><code>&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-skeleton&quot;</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-skeleton-avatar&quot;</span>&gt;&lt;/<span class="tok-tag">div</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-skeleton-lines&quot;</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-skeleton-line&quot;</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;width:38%&quot;</span>&gt;&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-skeleton-line&quot;</span>&gt;&lt;/<span class="tok-tag">div</span>&gt;
+    &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-skeleton-line&quot;</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;width:80%&quot;</span>&gt;&lt;/<span class="tok-tag">div</span>&gt;
+  &lt;/<span class="tok-tag">div</span>&gt;
+&lt;/<span class="tok-tag">div</span>&gt;</code></pre>
+    </div>
+    </section><section class="api-sec" id="spin">
+      <h3 class="api-title">加载中<span class="api-en">Spin</span></h3>
+      <p class="api-desc">用于页面或区块的加载状态。</p>
+      <div class="api-demo"><div class="a-space" style="gap:24px">
+        <span class="a-spin"></span>
+        <span class="a-spin a-spin-lg"></span>
+        <div class="a-spin-box" style="width:180px"><span class="a-spin a-spin-lg"></span></div>
+      </div></div>
+      <div class="api-src-wrap">
+      <div class="api-src-bar">
+        <button class="api-src-tog" data-api-src>
+          <i class="fa-solid fa-code"></i><span>查看代码</span>
+          <i class="fa-solid fa-chevron-down api-src-caret"></i>
+        </button>
+        <button class="api-src-copy" data-api-copy title="复制代码">
+          <i class="fa-regular fa-copy"></i><span>复制</span>
+        </button>
+      </div>
+      <pre class="api-src hidden"><code>&lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-space&quot;</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;gap:24px&quot;</span>&gt;
+  &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-spin&quot;</span>&gt;&lt;/<span class="tok-tag">span</span>&gt;
+  &lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-spin a-spin-lg&quot;</span>&gt;&lt;/<span class="tok-tag">span</span>&gt;
+  &lt;<span class="tok-tag">div</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-spin-box&quot;</span> <span class="tok-attr">style</span>=<span class="tok-str">&quot;width:180px&quot;</span>&gt;&lt;<span class="tok-tag">span</span> <span class="tok-attr">class</span>=<span class="tok-str">&quot;a-spin a-spin-lg&quot;</span>&gt;&lt;/<span class="tok-tag">span</span>&gt;&lt;/<span class="tok-tag">div</span>&gt;
+&lt;/<span class="tok-tag">div</span>&gt;</code></pre>
+    </div>
+    </section>
+      </div>
+    </div>

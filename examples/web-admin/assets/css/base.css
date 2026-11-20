@@ -1,0 +1,506 @@
+/* ===========================================================
+   Base Layout — Ant Design Pro 风格外壳
+   =========================================================== */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 14px;
+  line-height: 1.5715;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--primary); text-decoration: none; }
+button { font-family: inherit; cursor: pointer; }
+h1, h2, h3, h4, p { margin: 0; }
+
+.app { display: flex; height: 100vh; overflow: hidden; }
+
+/* ---------- 侧边栏 ---------- */
+.sider {
+  width: var(--sider-w);
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border-right: 1px solid var(--border-2);
+  transition: width .2s ease;
+  overflow: hidden;
+}
+
+.logo {
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 16px;
+  border-bottom: 1px solid var(--border-2);
+}
+.logo-mark {
+  width: 28px; height: 28px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: var(--radius);
+  background: transparent;
+}
+.logo-mark img { display: block; width: 28px; height: 28px; border-radius: 7px; }
+.logo-title { font-size: 15px; font-weight: 500; }
+.logo-sub { font-size: 11px; color: var(--text-4); }
+
+.menu { flex: 1; overflow-y: auto; padding: 8px 0; }
+
+.menu-group { margin-bottom: 2px; }
+
+.menu-parent {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 20px;
+  border: 0;
+  background: none;
+  font-size: 14px;
+  color: var(--text-2);
+  text-align: left;
+  cursor: pointer;
+}
+.menu-parent:hover { background: rgba(0, 0, 0, .03); color: var(--primary); }
+.menu-parent .mi {
+  width: 16px; height: 16px;
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.menu-parent .mi i {
+  width: 16px;
+  font-size: 16px;
+  line-height: 1;
+  text-align: center;
+}
+.menu-parent .mt {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.menu-parent .chev {
+  width: 14px; height: 14px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-4);
+  transition: transform .2s;
+}
+.menu-parent .chev i {
+  width: 14px;
+  font-size: 11px;
+  line-height: 1;
+  text-align: center;
+}
+.menu-group:not(.collapsed) .menu-parent .chev { transform: rotate(180deg); }
+.menu-group.has-active > .menu-parent { color: var(--primary); }
+.menu-group.collapsed .menu-children { display: none; }
+
+.menu-children { padding: 2px 0 6px; }
+
+.menu-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 20px 0 46px;
+  font-size: 14px;
+  color: var(--text-2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.menu-item:hover { background: rgba(0, 0, 0, .03); color: var(--primary); }
+.menu-item.active { background: var(--primary-bg); color: var(--primary); font-weight: 500; }
+.menu-item.active::after {
+  content: "";
+  position: absolute;
+  top: 0; right: 0; bottom: 0;
+  width: 3px;
+  background: var(--primary);
+}
+
+/* 焦点提示：只做底色加深，不画外框（避免点击后整行出现蓝框） */
+.menu-parent:focus-visible,
+.menu-item:focus-visible { outline: none; background: rgba(0, 0, 0, .06); }
+.menu-group.has-active > .menu-parent:focus-visible { background: rgba(0, 0, 0, .06); }
+.menu-item.active:hover,
+.menu-item.active:focus-visible { background: var(--primary-bg); }
+
+.sider-foot {
+  padding: 12px 16px;
+  border-top: 1px solid var(--border-2);
+  font-size: 11px;
+  color: var(--text-4);
+  white-space: nowrap;
+}
+
+/* ---------- 侧边栏折叠态：只留图标 ---------- */
+.app.sider-collapsed .sider { width: 64px; }
+.app.sider-collapsed .logo { justify-content: center; padding: 0; gap: 0; }
+.app.sider-collapsed .logo > div { display: none; }
+
+.app.sider-collapsed .menu { padding: 12px 0; }
+.app.sider-collapsed .menu-group { margin-bottom: 6px; }
+
+.app.sider-collapsed .menu-parent {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+  padding: 0;
+  gap: 0;
+  justify-content: center;
+  border-radius: var(--radius);
+}
+.app.sider-collapsed .menu-parent .mt,
+.app.sider-collapsed .menu-parent .chev,
+.app.sider-collapsed .menu-children,
+.app.sider-collapsed .sider-foot { display: none; }
+
+.app.sider-collapsed .menu-parent:hover,
+.app.sider-collapsed .menu-group.has-active > .menu-parent,
+.app.sider-collapsed .menu-group.flyout-on > .menu-parent {
+  background: var(--primary-bg);
+  color: var(--primary);
+}
+
+/* 折叠态一级菜单飞出层 */
+.menu-flyout {
+  position: fixed;
+  z-index: 1100;
+  min-width: 168px;
+  max-width: 240px;
+  padding: 4px;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow:
+    0 6px 16px 0 rgba(0, 0, 0, .08),
+    0 3px 6px -4px rgba(0, 0, 0, .12);
+  animation: flyout-in .15s ease-out;
+}
+@keyframes flyout-in {
+  from { opacity: 0; transform: translateX(-6px); }
+  to { opacity: 1; transform: none; }
+}
+.flyout-title {
+  padding: 6px 12px 4px;
+  font-size: 12px;
+  color: var(--text-4);
+  white-space: nowrap;
+}
+.flyout-item {
+  display: block;
+  height: 34px;
+  line-height: 34px;
+  padding: 0 12px;
+  border-radius: var(--radius);
+  font-size: 14px;
+  color: var(--text-2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+.flyout-item:hover { background: var(--bg-2); color: var(--primary); }
+.flyout-item.active { background: var(--primary-bg); color: var(--primary); font-weight: 500; }
+
+/* ---------- 主区域 ---------- */
+.main { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+
+/* ---------- 页头：折叠按钮 + 用户区 ---------- */
+.header {
+  height: var(--header-h);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 16px 0 8px;
+  background: var(--white);
+  box-shadow: 0 1px 4px rgba(0, 21, 41, .06);
+  position: relative;
+  z-index: 10;
+}
+
+/* 页头左侧：折叠 / 展开菜单 */
+.header-btn {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: var(--radius);
+  background: none;
+  color: var(--text-2);
+  font-size: 16px;
+  transition: background .2s, color .2s;
+}
+.header-btn:hover { background: rgba(0, 0, 0, .04); color: var(--text); }
+.header-btn:active { background: rgba(0, 0, 0, .08); }
+
+/* ---------- 页签条：独立一行，页签贴底、右侧 ⋮ ---------- */
+.tabbar-wrap {
+  flex-shrink: 0;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 12px 0 24px;
+  background: var(--white);
+  border-bottom: 1px solid var(--border-2);
+}
+/* 一个页签都没有时整条收起 */
+.tabbar-wrap.is-empty { display: none; }
+
+.tabbar {
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  padding-right: 8px;      /* 滚到最右时最后一个页签不贴边 */
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.tabbar::-webkit-scrollbar { width: 0; height: 0; display: none; }
+
+/* 页签：上圆角卡片，贴住页签条底部分隔线 */
+.tab {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 38px;
+  padding: 0 8px 0 16px;
+  border: 1px solid rgba(0, 0, 0, .08);
+  border-bottom: 0;
+  border-radius: 6px 6px 0 0;
+  background: var(--bg-2);
+  font-size: 14px;
+  color: var(--text);
+  white-space: nowrap;
+  user-select: none;
+  cursor: pointer;
+  transition: background .18s, color .18s, border-color .18s;
+}
+.tab:hover { color: var(--primary); }
+.tab.active {
+  background: var(--white);
+  border-color: rgba(0, 0, 0, .06);
+  color: var(--primary);
+}
+.tab.ctx-target { background: var(--primary-bg); border-color: var(--primary-border); color: var(--primary); }
+/* 首页页签没有关闭按钮，右侧内边距补齐 */
+.tab-fixed { padding-right: 16px; }
+
+.tab-close {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 13px;
+  line-height: 1;
+  color: var(--text-3);
+  transition: background .15s, color .15s;
+}
+.tab-close:hover { background: rgba(0, 0, 0, .08); color: var(--text); }
+
+.tab-scroll,
+.tab-more {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 6px;
+  background: none;
+  color: var(--text-3);
+  font-size: 13px;
+  transition: background .18s, color .18s;
+}
+.tab-scroll:hover { background: rgba(0, 0, 0, .05); color: var(--text); }
+.tab-scroll:active { background: rgba(0, 0, 0, .09); }
+
+/* ⋮ 贴右，与参考图一致用主色竖排三点 */
+.tab-more { margin-left: auto; color: var(--primary); }
+.tab-more:hover { background: var(--primary-bg); }
+.tab-more:active { background: var(--primary-bg); }
+
+/* 「全部标签页」下拉里的单条 */
+.tab-pick { justify-content: space-between; gap: 12px; cursor: pointer; }
+.tab-pick-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.tab-pick-close {
+  width: 18px; height: 18px;
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  font-size: 13px;
+  line-height: 1;
+  color: var(--text-4);
+}
+.tab-pick-close:hover { background: rgba(0, 0, 0, .1); color: var(--text); }
+.tab-pick.active { background: var(--primary-bg); color: var(--primary); }
+.tab-pick.active:hover { background: var(--primary-bg); }
+
+/* 「全部标签页」下拉容器 */
+.tab-more-menu {
+  min-width: 200px;
+  max-width: 280px;
+  max-height: 60vh;
+  overflow: auto;
+}
+
+/* ---------- 面包屑行（页签条下方、内容区上方） ---------- */
+.pagehead {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 24px;
+  background: var(--white);
+}
+
+.crumb {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  font-size: 14px;
+  color: var(--text-3);
+  white-space: nowrap;
+  overflow: hidden;
+}
+.crumb .crumb-link { color: var(--text-3); }
+.crumb a.crumb-link { cursor: pointer; }
+.crumb a.crumb-link:hover { color: var(--primary); }
+.crumb .crumb-sep { color: var(--text-4); }
+.crumb .crumb-cur { color: var(--text); }
+
+.user-wrap {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* 账号区：左头像 + 右名称，点击弹下拉 */
+.user {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  padding: 0 8px 0 4px;
+  border: 0;
+  border-radius: var(--radius);
+  background: none;
+  font: inherit;
+  font-size: 14px;
+  color: var(--text-2);
+  cursor: pointer;
+  transition: background .2s;
+}
+.user:hover { background: rgba(0, 0, 0, .04); }
+.user[aria-expanded="true"] { background: var(--primary-bg); }
+
+.user-name {
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 14px;
+  color: var(--text-2);
+}
+.user:hover .user-name,
+.user[aria-expanded="true"] .user-name { color: var(--primary); }
+
+.avatar {
+  width: 30px; height: 30px;
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  background: var(--primary-bg);
+  color: var(--primary);
+  font-size: 13px;
+}
+
+/* 账号下拉：菜单式条目（分隔线通栏）
+   注意要压过 components.css 的 .dropdown（同权重但后加载），所以带上 .dropdown */
+.dropdown.user-menu {
+  min-width: 168px;
+  padding: 4px 0;
+}
+.dropdown.user-menu .dropdown-item {
+  height: 38px;
+  padding: 0 16px;
+  gap: 10px;
+  border-radius: 0;
+  font-size: 14px;
+  color: var(--text);
+}
+.dropdown.user-menu .dropdown-item:hover { background: var(--bg-2); color: var(--primary); }
+.dropdown.user-menu .dd-ico {
+  width: 16px;
+  flex-shrink: 0;
+  font-size: 13px;
+  text-align: center;
+  color: var(--text-3);
+}
+.dropdown.user-menu .dropdown-item:hover .dd-ico { color: var(--primary); }
+.dropdown.user-menu .dropdown-divider { margin: 4px 0; }
+
+.workarea { flex: 1; overflow: auto; padding: 24px; }
+.pane.hidden { display: none; }
+
+.empty {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-4);
+  user-select: none;
+}
+
+/* ---------- 布局工具类 ---------- */
+.stack { display: flex; flex-direction: column; gap: 16px; }
+.grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.grid2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.grid-2-1 { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; }
+
+@media (max-width: 1100px) {
+  .grid4 { grid-template-columns: repeat(2, 1fr); }
+  .grid-2-1 { grid-template-columns: 1fr; }
+}
+
+.flex { display: flex; align-items: center; gap: 8px; }
+.between { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.muted { color: var(--text-3); }
+.tiny { font-size: 12px; }
+.right { text-align: right; }
+.mt12 { margin-top: 12px; }
+.mt16 { margin-top: 16px; }
+.hidden { display: none !important; }
